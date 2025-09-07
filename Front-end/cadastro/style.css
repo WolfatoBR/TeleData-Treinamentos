@@ -4,16 +4,16 @@
    Facilita alteração global de cores.
 ========================================= */
 :root {
-  --primary-dark: #00155C;       
-  --primary: #052E9D;            
-  --accent: #F5DEB3;             
-  --highlight: #FFFFFF;          
-  --bg-gradient-start: #00155C;  
-  --bg-gradient-middle: #052E9D; 
-  --bg-gradient-end: #F5DEB3;    
-  --input-bg: #FFFFFF;           
-  --text-light: #FFFFFF;         
-  --footer-bg: rgba(245,222,179,0.3);
+  --primary-dark: #00155C;       /* Azul bem escuro principal */
+  --primary: #052E9D;            /* Azul principal do site */
+  --accent: #F5DEB3;             /* Cor de destaque, usada em botões e detalhes */
+  --highlight: #FFFFFF;          /* Cor para textos claros */
+  --bg-gradient-start: #00155C;  /* Começo do gradiente de fundo */
+  --bg-gradient-middle: #052E9D; /* Meio do gradiente */
+  --bg-gradient-end: #F5DEB3;    /* Fim do gradiente */
+  --input-bg: #FFFFFF;           /* Cor de fundo dos inputs */
+  --text-light: #FFFFFF;         /* Cor do texto claro */
+  --footer-bg: rgba(245,222,179,0.3); /* Fundo do rodapé com transparência */
 }
 
 /* =========================================
@@ -23,16 +23,16 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', Helvetica, sans-serif;
+  box-sizing: border-box; /* Garante que padding e border não aumentem a largura do elemento */
+  font-family: 'Arial', Helvetica, sans-serif; /* Fonte padrão */
 }
 
 html, body {
   height: 100%;
   width: 100%;
-  scroll-behavior: smooth;
-  line-height: 1.5;
-  font-size: 16px;
+  scroll-behavior: smooth; /* Rolagem suave ao clicar em âncoras */
+  line-height: 1.5;        /* Altura de linha para melhor leitura */
+  font-size: 16px;         /* Tamanho base da fonte */
 }
 
 /* =========================================
@@ -46,7 +46,7 @@ body {
     var(--bg-gradient-middle),
     var(--bg-gradient-end)
   );
-  color: var(--text-light);
+  color: var(--text-light); /* Cor padrão do texto */
 }
 
 /* =========================================
@@ -54,16 +54,16 @@ body {
    Estilo do cabeçalho com logo, nav e botões.
 ========================================= */
 header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding: 15px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(0,0,0,0.2);
-  position: relative;
-  z-index: 10;
-  transition: all 0.3s ease-in-out;
+  display: flex;                  /* Organiza elementos em linha */
+  justify-content: center;        /* Centraliza horizontalmente */
+  align-items: center;            /* Centraliza verticalmente */
+  gap: 20px;                      /* Espaçamento entre elementos */
+  padding: 15px 20px;             /* Espaçamento interno */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Linha fina embaixo */
+  background: rgba(0,0,0,0.2);    /* Fundo semitransparente */
+  position: relative;             /* Para controlar z-index */
+  z-index: 10;                    /* Garante que fique acima de outros elementos */
+  transition: all 0.3s ease-in-out; /* Transição suave em hover ou mudanças */
 }
 
 /* Logo e imagem da logo */
@@ -73,10 +73,10 @@ header .logo {
   font-size: 20px;
   font-weight: bold;
   color: var(--highlight);
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.2); /* Sombra no texto */
 }
 header .logo img {
-  height: 80px;
+  height: 80px;   /* Altura da imagem do logo */
   margin-right: 10px;
 }
 
@@ -85,27 +85,27 @@ header nav {
   display: flex;
   align-items: center;
   gap: 15px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Permite quebrar em linha menor */
 }
 
 header nav a {
   color: var(--highlight);
-  text-decoration: none;
+  text-decoration: none; /* Remove sublinhado */
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease; /* Mudança suave da cor */
 }
 header nav a:hover {
-  color: var(--accent);
+  color: var(--accent); /* Cor muda ao passar o mouse */
 }
 
 /* Botões de login e cadastro */
 header nav button {
   padding: 8px 16px;
-  border-radius: 12px;
+  border-radius: 12px; /* Bordas arredondadas */
   font-weight: bold;
-  cursor: pointer;
+  cursor: pointer;      /* Cursor de mãozinha */
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra do botão */
 }
 header nav .btn-login {
   background: rgba(255,255,255,0.2);
@@ -118,7 +118,7 @@ header nav .btn-cadastro {
 }
 header nav .btn-login:hover,
 header nav .btn-cadastro:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px); /* Eleva o botão levemente */
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
@@ -133,7 +133,7 @@ header nav .cart {
    Input de pesquisa com botão estilizado
 ========================================= */
 .search-bar {
-  flex: 1;
+  flex: 1; /* Ocupa espaço disponível */
   display: flex;
   align-items: center;
   margin: 0;
@@ -143,8 +143,8 @@ header nav .cart {
   flex: 1;
   padding: 10px 14px;
   border: 1px solid var(--highlight);
-  border-radius: 8px 0 0 8px;
-  outline: none;
+  border-radius: 8px 0 0 8px; /* Apenas cantos da esquerda arredondados */
+  outline: none; /* Remove contorno padrão */
   font-size: 15px;
   background: var(--input-bg);
   color: #000;
@@ -153,13 +153,13 @@ header nav .cart {
 }
 .search-bar input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 10px rgba(245,222,179,0.5);
+  box-shadow: 0 0 10px rgba(245,222,179,0.5); /* Destaque quando ativo */
 }
 .search-bar button {
   padding: 10px 14px;
   background: var(--accent);
   border: none;
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 8px 8px 0; /* Apenas cantos da direita arredondados */
   color: #fff;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease;
@@ -178,7 +178,7 @@ header nav .cart {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: calc(100vh - 110px);
+  height: calc(100vh - 110px); /* Altura total da tela menos header */
   width: 100%;
   padding: 0 60px;
   position: relative;
@@ -191,17 +191,17 @@ header nav .cart {
 .illustration {
   flex: 1;
   height: 100%;
-  overflow: hidden;
+  overflow: hidden; /* Evita que imagem vaze da div */
 }
 .illustration img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Preenche sem distorcer */
   filter: brightness(0.95) contrast(1.1);
   transition: transform 0.5s ease, filter 0.5s ease;
 }
 .illustration img:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Leve zoom ao passar o mouse */
   filter: brightness(1);
 }
 
@@ -210,7 +210,7 @@ header nav .cart {
    Caixa de login e cadastro
 ========================================= */
 .login-box {
-  background: linear-gradient(180deg, rgba(0,21,92,0.95), rgba(245,222,179,0.85));
+  background: linear-gradient(180deg, rgba(0,21,92,0.95), rgba(245,222,179,0.85)); /* Gradiente interno */
   padding: 30px;
   border-radius: 16px;
   width: 320px;
@@ -232,12 +232,12 @@ header nav .cart {
 
 /* Input com ícone */
 .input-group {
-  position: relative;
+  position: relative; /* Para posicionar ícone dentro do input */
   width: 100%;
   margin: 10px 0;
 }
 .input-group i {
-  position: absolute;
+  position: absolute; /* Posição fixa dentro do input */
   top: 50%;
   left: 12px;
   transform: translateY(-50%);
@@ -246,7 +246,7 @@ header nav .cart {
 }
 .input-group input {
   width: 100%;
-  padding: 12px 12px 12px 40px;
+  padding: 12px 12px 12px 40px; /* Espaço à esquerda para ícone */
   border-radius: 10px;
   border: 1px solid #fff;
   background: var(--input-bg);
@@ -339,11 +339,11 @@ footer a:hover {
 ========================================= */
 @media (max-width: 1024px) {
   .container {
-    flex-direction: column-reverse;
+    flex-direction: column-reverse; /* Login abaixo da ilustração */
     justify-content: center;
     align-items: center;
     padding: 20px;
-    height: auto;
+    height: auto; /* Altura automática */
   }
   .illustration {
     width: 100%;
@@ -387,7 +387,7 @@ footer a:hover {
     padding: 20px;
   }
   .input-group input {
-    padding: 12px 12px 12px 36px;
+    padding: 12px 12px 12px 36px; /* Ajusta padding para telas pequenas */
   }
   header .logo {
     font-size: 16px;

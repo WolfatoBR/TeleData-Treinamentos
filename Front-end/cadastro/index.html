@@ -1,38 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <!-- Define o conjunto de caracteres da página como UTF-8 -->
   <meta charset="UTF-8">
+  <!-- Torna a página responsiva para diferentes tamanhos de tela -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TeleData Treinamentos - Cadastro</title>
+  <!-- Link para o arquivo CSS externo que vai estilizar a página -->
   <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome para ícones -->
+  <!-- Link para a biblioteca Font Awesome, usada para ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- ===========================
+       HEADER - topo da página
+  ============================ -->
   <header>
+    <!-- Logo da empresa -->
     <div class="logo">
       <img src="https://media.canva.com/v2/image-resize/format:PNG/height:200/quality:100/uri:ifs%3A%2F%2FM%2Fe1c22738-f9b2-489d-af40-a257ad51ca94/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAJyCTWsZiAgLPm-TOcdkJXEghCxBCnBGBQNbAa4wkUy2&amp;exp=1757214868&amp;osig=AAAAAAAAAAAAAAAAAAAAAA--j3hcXJoXIhtJZrnRd__MGeuccgF2MmNK0lToHWzu&amp;signer=media-rpc&amp;x-canva-quality=thumbnail" alt="TeleData Logo">
     </div>
 
     <!-- Barra de pesquisa -->
     <div class="search-bar">
+      <!-- Campo para digitar o que deseja pesquisar -->
       <input type="text" placeholder="Pesquisar cursos...">
+      <!-- Botão de pesquisa com ícone -->
       <button><i class="fa fa-search"></i></button>
     </div>
 
-    <!-- Navegação -->
+    <!-- Menu de navegação -->
     <nav>
+      <!-- Link para a página de planos -->
       <a href="#">Planos</a>
+      <!-- Ícone de carrinho de compras -->
       <img class="cart" src="../img/carrinho.png" alt="Carrinho">
+      <!-- Botão de login que redireciona para a página de login -->
       <button class="btn-login" onclick="window.location.href='login.html'">Fazer Login</button>
+      <!-- Botão de cadastro (ainda na mesma página) -->
       <button class="btn-cadastro">Fazer Cadastro</button>
     </nav>
   </header>
 
-  <!-- CONTEÚDO PRINCIPAL -->
+  <!-- ===========================
+       CONTEÚDO PRINCIPAL
+  ============================ -->
   <div class="container">
+    <!-- Imagem/ilustração ao lado do formulário -->
     <div class="illustration">
       <img src="../img/Cadastro.png" alt="Ilustração Cadastro">
     </div>
@@ -40,33 +55,41 @@
     <!-- Caixa de cadastro -->
     <div class="login-box">
       <h2>Cadastre-se</h2>
+      <!-- Formulário de cadastro que redireciona para dashboard.html ao enviar -->
       <form action="dashboard.html">
+        <!-- Campo de nome completo -->
         <div class="input-group">
-          <i class="fa fa-user"></i>
+          <i class="fa fa-user"></i> <!-- Ícone de usuário -->
           <input type="text" placeholder="Nome completo" required>
         </div>
 
+        <!-- Campo de email -->
         <div class="input-group">
-          <i class="fa fa-envelope"></i>
+          <i class="fa fa-envelope"></i> <!-- Ícone de email -->
           <input type="email" placeholder="Email" required>
         </div>
 
+        <!-- Campo de senha -->
         <div class="input-group">
-          <i class="fa fa-lock"></i>
+          <i class="fa fa-lock"></i> <!-- Ícone de cadeado -->
           <input type="password" placeholder="Senha (mínimo 8 caracteres)" required>
         </div>
 
+        <!-- Botão de enviar formulário -->
         <button type="submit" class="btn-entrar">Cadastrar</button>
       </form>
 
+      <!-- Link para quem já possui cadastro -->
       <a href="login.html">Já tenho cadastro: Fazer Login</a>
 
+      <!-- Opção de cadastro via redes sociais -->
       <p>Realizar cadastro via:</p>
       <div class="social-login">
         <img src="../img/Google.png" alt="Google" width="40">
         <img src="../img/Apple.png" alt="Apple" width="40">
       </div>
 
+      <!-- Checkbox para receber promoções por email -->
       <div class="newsletter">
         <input type="checkbox" id="newsletter">
         <label for="newsletter">Quero receber informações e promoções em meu email</label>
@@ -74,8 +97,11 @@
     </div>
   </div>
 
-  <!-- RODAPÉ -->
+  <!-- ===========================
+       RODAPÉ
+  ============================ -->
   <footer>
+    <!-- Links e informações sobre a empresa -->
     <div>
       <p>© TeleData Treinamentos</p>
       <a href="#">Sobre a TeleData Treinamentos</a>
@@ -83,6 +109,7 @@
       <a href="#">Termos de Serviço</a>
     </div>
 
+    <!-- Ícones de redes sociais -->
     <div class="social-icons">
       <img src="../img/Youtube.png" alt="YouTube" width="30">
       <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="30">
