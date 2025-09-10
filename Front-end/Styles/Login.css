@@ -34,19 +34,21 @@
 
 /* =========================================
    VARIÁVEIS DE CORES
+   Definição de cores reutilizáveis para o tema
 ========================================= */
 :root {
   --primary-dark: #00155C;         /* Azul profundo */
   --primary: #052E9D;              /* Azul base */
   --accent: #FFFFFF;               /* Branco */
-  --highlight: #F5DEB3;            /* Bege / destaque */
-  --input-bg: #FFFFFF;             /* Fundo inputs */
-  --footer-bg: rgba(0, 0, 0, 0.1); /* Rodapé translúcido */
+  --highlight: #e09405;            /* Bege / destaque */
+  --input-bg: #FFFFFF;             /* Fundo dos inputs */
+  --footer-bg: rgba(0, 0, 0, 0.1); /* Fundo translúcido do rodapé */
   --blue-udemy: #F06C23;           /* Cor de hover estilo Udemy */
 }
 
 /* =========================================
    RESET GERAL
+   Remove margens e paddings padrão
 ========================================= */
 * {
   margin: 0;
@@ -58,11 +60,11 @@
 html, body {
   height: 100%;
   width: 100%;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Suaviza o scroll */
 }
 
 body {
-  background: #f8f9fc;
+  background: #f8f9fc; /* Fundo claro */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -73,6 +75,7 @@ body {
 
 /* =========================================
    HEADER
+   Estilização do cabeçalho
 ========================================= */
 header {
   width: 100%;
@@ -87,9 +90,10 @@ header {
 }
 
 header .logo img {
-  height: 50px;
+  height: 50px; /* Altura da logo */
 }
 
+/* Barra de pesquisa */
 .search-bar {
   display: flex;
   align-items: center;
@@ -104,15 +108,15 @@ header .logo img {
   border: 1px solid #ccc;
   border-radius: 5px 0 0 5px;
   font-size: 16px;
-  height: 40px;         /* mantém altura fixa */
+  height: 40px;         /* Mantém altura fixa */
 }
 
 .search-bar button {
-  width: 50px;           /* largura fixa */
-  height: 40px;          /* mesma altura do input */
+  width: 50px;           /* Largura fixa */
+  height: 40px;          /* Mesma altura do input */
   display: flex;
   justify-content: center;
-  align-items: center;   /* centraliza ícone do botão */
+  align-items: center;   /* Centraliza ícone do botão */
   background: var(--primary);
   border: none;
   color: #fff;
@@ -121,6 +125,7 @@ header .logo img {
   font-size: 16px;
 }
 
+/* Navegação */
 nav {
   display: flex;
   align-items: center;
@@ -134,7 +139,7 @@ nav a {
 }
 
 nav .cart {
-  width: 25px;
+  width: 25px; /* Ícone do carrinho */
   cursor: pointer;
 }
 
@@ -159,6 +164,7 @@ nav .btn-cadastro {
 
 /* =========================================
    CONTAINER LOGIN
+   Estilização do conteúdo principal
 ========================================= */
 .container {
   flex: 1;
@@ -169,6 +175,7 @@ nav .btn-cadastro {
   gap: 50px;
 }
 
+/* Imagem de fundo */
 .login-bg {
   flex: 1;
   display: flex;
@@ -183,6 +190,7 @@ nav .btn-cadastro {
 
 /* =========================================
    LOGIN BOX
+   Caixa de login
 ========================================= */
 .login-box {
   flex: 1;
@@ -254,7 +262,7 @@ nav .btn-cadastro {
   transform: translateY(-2px);
 }
 
-/* Links */
+/* Links adicionais */
 .login-links {
   margin-top: 15px;
   display: flex;
@@ -288,6 +296,7 @@ nav .btn-cadastro {
 
 /* =========================================
    SOCIAL LOGIN
+   Estilização dos ícones de login social
 ========================================= */
 .social-login {
   margin-top: 20px;
@@ -310,6 +319,7 @@ nav .btn-cadastro {
 
 /* =========================================
    FOOTER
+   Estilização do rodapé
 ========================================= */
 footer {
   padding: 20px 40px;
@@ -366,6 +376,7 @@ footer .credits a:hover {
 
 /* =========================================
    RESPONSIVIDADE
+   Ajustes para telas menores
 ========================================= */
 @media (max-width: 1024px) {
   header {
