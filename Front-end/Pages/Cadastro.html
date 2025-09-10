@@ -4,29 +4,13 @@
   <!-- Configurações básicas da página -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TeleData Treinamentos - Cadastro</title>
+  <title>TeleData Treinamentos - Cadastro</title
   
   <!-- Link para o arquivo CSS da página de cadastro -->
   <link rel="stylesheet" href="../Styles/Cadastro.css">
   
   <!-- Link para a biblioteca de ícones Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <script>
-    // Validação do formulário de cadastro
-    document.addEventListener("DOMContentLoaded", function() {
-      document.querySelector("form").addEventListener("submit", function(event) {
-        const password = document.querySelector("input[type='password']").value;
-        const confirmPassword = document.querySelector("input[placeholder='Confirmar Senha']").value;
-
-        // Verifica se as senhas são iguais
-        if (password !== confirmPassword) {
-          alert("As senhas não coincidem!");
-          event.preventDefault(); // Impede o envio do formulário
-        }
-      });
-    });
-  </script>
 </head>
 <body>
 
@@ -34,7 +18,7 @@
   <header>
     <!-- Logo da empresa -->
     <div class="logo">
-      <img src="https://media.canva.com/v2/image-resize/format:PNG/height:200/quality:100/uri:ifs%3A%2F%2FM%2Fe1c22738-f9b2-489d-af40-a257ad51ca94/watermark:F/width:200" alt="Logo TeleData">
+      <img src="https://i.pinimg.com/736x/6e/ad/87/6ead878978850d09e95fd5a1526dc712.jpg" alt="Logo TeleData">
     </div>
 
     <!-- Barra de pesquisa -->
@@ -79,12 +63,6 @@
         <div class="input-group">
           <i class="fa fa-lock"></i>
           <input type="password" placeholder="Senha (mínimo 8 caracteres)" required>
-        </div>
-
-        <!-- Campo para confirmar a senha -->
-        <div class="input-group">
-          <i class="fa fa-lock"></i>
-          <input type="password" placeholder="Confirmar Senha" required>
         </div>
 
         <!-- Botão para enviar o formulário -->
