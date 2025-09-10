@@ -1,107 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- Define o conjunto de caracteres da página como UTF-8 -->
   <meta charset="UTF-8">
-  <!-- Torna a página responsiva em diferentes telas -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TeleData Treinamentos - Login</title>
-  <!-- Link para o arquivo CSS externo que vai estilizar a página -->
   <link rel="stylesheet" href="style.css">
-  <!-- Biblioteca Font Awesome para ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- ===========================
-       HEADER - topo da página
-  ============================ -->
+  <!-- ========================= HEADER ========================== -->
   <header>
-    <!-- Logo da empresa -->
     <div class="logo">
-      <img src="https://media.canva.com/v2/image-resize/format:PNG/height:200/quality:100/uri:ifs%3A%2F%2FM%2Fe1c22738-f9b2-489d-af40-a257ad51ca94/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAJyCTWsZiAgLPm-TOcdkJXEghCxBCnBGBQNbAa4wkUy2&amp;exp=1757214868&amp;osig=AAAAAAAAAAAAAAAAAAAAAA--j3hcXJoXIhtJZrnRd__MGeuccgF2MmNK0lToHWzu&amp;signer=media-rpc&amp;x-canva-quality=thumbnail" alt="TeleData Logo">
+      <img src="https://media.canva.com/v2/image-resize/format:PNG/height:200/quality:100/uri:ifs%3A%2F%2FM%2Fe1c22738-f9b2-489d-af40-a257ad51ca94/watermark:F/width:200" alt="Logo TeleData">
     </div>
 
-    <!-- Barra de pesquisa -->
     <div class="search-bar">
-      <!-- Campo para digitar o que deseja pesquisar -->
       <input type="text" placeholder="Pesquisar cursos...">
-      <!-- Botão de pesquisa com ícone -->
       <button><i class="fa fa-search"></i></button>
     </div>
 
-    <!-- Menu de navegação -->
     <nav>
-      <!-- Link para a página de planos -->
       <a href="#">Planos</a>
-      <!-- Ícone de carrinho de compras -->
       <img class="cart" src="../img/carrinho.png" alt="Carrinho">
-      <!-- Botão de login (na mesma página) -->
       <button class="btn-login">Fazer Login</button>
-      <!-- Botão que redireciona para a página de cadastro -->
       <button class="btn-cadastro" onclick="window.location.href='cadastro.html'">Fazer Cadastro</button>
     </nav>
   </header>
 
-  <!-- ===========================
-       CONTEÚDO PRINCIPAL
-  ============================ -->
-  <div class="container">
-    <!-- Imagem/ilustração ao lado do formulário de login -->
-    <div class="illustration">
-      <img src="../img/Login.png" alt="Ilustração cursos">
+  <!-- ========================= CONTEÚDO PRINCIPAL ========================== -->
+  <main class="container">
+    
+    <div class="login-bg">
+      <img src="/Front-end/img/web-content-design.png" alt="Ilustração Login">
     </div>
 
-    <!-- Caixa de login -->
     <div class="login-box">
       <h2>Vamos aprender!</h2>
-      <!-- Formulário de login que redireciona para dashboard.html ao enviar -->
+
       <form action="dashboard.html">
-        <!-- Campo de login/usuário -->
         <div class="input-group">
-          <i class="fa fa-user"></i> <!-- Ícone de usuário -->
+          <i class="fa fa-user"></i>
           <input type="text" placeholder="Login" required>
         </div>
 
-        <!-- Campo de senha -->
         <div class="input-group">
-          <i class="fa fa-lock"></i> <!-- Ícone de cadeado -->
+          <i class="fa fa-lock"></i>
           <input type="password" placeholder="Senha" required>
         </div>
 
-        <!-- Botão de enviar formulário -->
         <button type="submit" class="btn-entrar">Entrar</button>
       </form>
 
-      <!-- Link para recuperar senha -->
-      <a href="#">Esqueceu Senha?</a>
+      <div class="login-links">
+        <a href="#">Esqueceu Senha?</a>
+        <a href="cadastro.html">Criar uma conta</a>
+      </div>
 
-      <!-- Opção de login via redes sociais -->
+      <div class="remember-me">
+        <input type="checkbox" id="remember-me">
+        <label for="remember-me">Lembrar minha senha</label>
+      </div>
+
       <div class="social-login">
-        <img src="../img/Google.png" alt="Google" width="40">
-        <img src="../img/Apple.png" alt="Apple" width="40">
+        <img src="../img/Google.png" alt="Google">
+        <img src="../img/Apple.png" alt="Apple">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
       </div>
     </div>
-  </div>
+  </main>
 
-  <!-- ===========================
-       RODAPÉ
-  ============================ -->
+  <!-- ========================= RODAPÉ ========================== -->
   <footer>
-    <!-- Informações e links sobre a empresa -->
-    <div>
+    <div class="footer-info">
       <p>© TeleData Treinamentos</p>
       <a href="#">Sobre a TeleData Treinamentos</a>
       <a href="#">Central de Ajuda</a>
       <a href="#">Termos de Serviço</a>
     </div>
 
-    <!-- Ícones de redes sociais -->
     <div class="social-icons">
-      <img src="../img/Youtube.png" alt="YouTube" width="30">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="30">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" width="30">
-      <img src="../img/Twitter.png" alt="Twitter" width="30">
+      <img src="../img/Youtube.png" alt="YouTube">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
+      <img src="../img/Twitter.png" alt="Twitter">
     </div>
   </footer>
 
