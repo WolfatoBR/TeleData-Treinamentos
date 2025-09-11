@@ -11,16 +11,16 @@
 
 .search-bar input {
   flex: 1;
-  padding: 10px;
+  padding: 8px; /* Reduz o padding */
   border: 1px solid #ccc;
   border-radius: 5px 0 0 5px;
-  font-size: 14px;
-  height: 40px;             /* altura fixa */
+  font-size: 14px; /* Reduz o tamanho da fonte */
+  height: 35px; /* Reduz a altura */
 }
 
 .search-bar button {
-  width: 50px;              /* largura fixa para o balão */
-  height: 40px;             /* mesma altura do input */
+  width: 40px; /* Reduz a largura */
+  height: 35px; /* Reduz a altura */
   display: flex;
   justify-content: center;
   align-items: center;      /* centraliza ícone dentro do botão */
@@ -29,7 +29,7 @@
   color: #fff;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px; /* Reduz o tamanho da fonte */
 }
 
 /* =========================================
@@ -37,13 +37,53 @@
    Definição de cores reutilizáveis para o tema
 ========================================= */
 :root {
-  --primary-dark: #00155C;         /* Azul profundo */
-  --primary: #052E9D;              /* Azul base */
-  --accent: #FFFFFF;               /* Branco */
-  --highlight: #e09405;            /* Bege / destaque */
-  --input-bg: #FFFFFF;             /* Fundo dos inputs */
-  --footer-bg: rgba(0, 0, 0, 0.1); /* Fundo translúcido do rodapé */
-  --blue-udemy: #F06C23;           /* Cor de hover estilo Udemy */
+  /* Cores principais */
+  --color-primary: #2c56ca;
+  --color-primary-dark: #000000;
+  --color-primary-light: #000000;
+
+  /* Cores secundárias */
+  --color-secondary: #000000;
+  --color-accent: #e69e2b;
+
+  /* Tons de azul para gradientes */
+  --color-blue-dark: #0a2455;
+  --color-blue-medium: #254c91;
+  --color-blue-light: #77acfc;
+
+  /* Cores neutras */
+  --color-white: #ffffff;
+  --color-light-bg: #e7e7f1;
+  --color-light-gray: #d1d7dc;
+  --color-medium-gray: #6a6f73;
+  --color-dark-gray: #1c1d1f;
+
+  /* Espaçamentos */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+
+  /* Bordas */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+
+  /* Sombras */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  /* Tamanhos de fonte */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 32px;
 }
 
 /* =========================================
@@ -64,13 +104,13 @@ html, body {
 }
 
 body {
-  background: #f8f9fc; /* Fundo claro */
+  background: var(--color-light-bg); /* Fundo claro */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  color: var(--primary-dark);
+  color: var(--color-dark-gray);
   line-height: 1.5;
-  font-size: 16px;
+  font-size: var(--font-size-md);
 }
 
 /* =========================================
@@ -78,15 +118,12 @@ body {
    Estilização do cabeçalho
 ========================================= */
 header {
-  width: 100%;
-  background: var(--accent);
-  padding: 10px 30px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-  gap: 20px;
+  justify-content: space-between; /* Espaço entre logo, barra de pesquisa e navegação */
+  align-items: center; /* Centraliza os itens verticalmente */
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
 }
 
 header .logo img {
@@ -96,46 +133,61 @@ header .logo img {
 /* Barra de pesquisa */
 .search-bar {
   display: flex;
-  align-items: center;
-  flex: 1;              /* Barra cresce ocupando todo espaço */
-  max-width: 700px;     /* Limite para não ficar gigante em telas grandes */
-  margin: 0 20px;
+  flex: 1;
+  max-width: 600px;
+  margin: 0 var(--spacing-md);
 }
 
 .search-bar input {
-  flex: 1;              /* Input acompanha largura */
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px 0 0 5px;
-  font-size: 16px;
-  height: 40px;         /* Mantém altura fixa */
+  flex: 1;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
 }
 
 .search-bar button {
-  width: 50px;           /* Largura fixa */
-  height: 40px;          /* Mesma altura do input */
-  display: flex;
-  justify-content: center;
-  align-items: center;   /* Centraliza ícone do botão */
-  background: var(--primary);
+  width: 50px;
+  background: var(--color-primary);
+  color: var(--color-white);
   border: none;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
   cursor: pointer;
-  font-size: 16px;
 }
 
 /* Navegação */
 nav {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: var(--spacing-sm);
 }
 
 nav a {
   text-decoration: none;
-  color: var(--primary);
+  color: var(--color-primary);
   font-weight: bold;
+}
+
+nav ul {
+  display: flex; /* Alinha os itens horizontalmente */
+  list-style: none; /* Remove os marcadores da lista */
+  gap: var(--spacing-sm);
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: flex;
+  align-items: center;
+}
+
+nav ul li a,
+nav ul li button {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 nav .cart {
@@ -145,25 +197,31 @@ nav .cart {
 
 nav .btn-login,
 nav .btn-cadastro {
-  padding: 8px 16px;
+  padding: var(--spacing-xs) var(--spacing-sm);
   border: none;
-  border-radius: 5px;
+  border-radius: var(--border-radius-sm);
   cursor: pointer;
   font-weight: bold;
 }
 
 nav .btn-login {
   background: transparent;
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
 nav .btn-cadastro {
-  background: var(--primary);
-  color: var(--accent);
+  background: var(--color-primary);
+  color: var(--color-white);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+nav .btn-cadastro:hover {
+  background: var(--color-accent);
+  transform: scale(1.05);
 }
 
 /* =========================================
-   CONTAINER LOGIN
+   CONTAINER PRINCIPAL
    Estilização do conteúdo principal
 ========================================= */
 .container {
@@ -171,11 +229,11 @@ nav .btn-cadastro {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
-  gap: 50px;
+  padding: var(--spacing-lg);
+  gap: var(--spacing-lg);
 }
 
-/* Imagem de fundo */
+/* Ilustração */
 .login-bg {
   flex: 1;
   display: flex;
@@ -188,121 +246,100 @@ nav .btn-cadastro {
   height: auto;
 }
 
-/* =========================================
-   LOGIN BOX
-   Caixa de login
-========================================= */
+/* Caixa de login */
 .login-box {
   flex: 1;
-  background: var(--accent);
-  padding: 40px;
-  border-radius: 16px;
+  background: var(--color-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
   width: 100%;
   max-width: 380px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-  color: var(--primary-dark);
+  box-shadow: var(--shadow-md);
+  color: var(--color-dark-gray);
   text-align: center;
-  border: 2px solid var(--primary);
+  border: 2px solid var(--color-primary);
 }
 
 .login-box h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: var(--primary);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
 }
 
 /* Inputs com ícones */
 .input-group {
   position: relative;
   width: 100%;
-  margin: 10px 0;
+  margin: var(--spacing-sm) 0;
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm);
 }
 
 .input-group i {
-  margin-right: 10px;
-  color: #666;
+  margin-right: var(--spacing-xs);
+  color: var(--color-medium-gray);
 }
 
 .input-group input {
   flex: 1;
   border: none;
   outline: none;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   background: transparent;
 }
 
 .input-group input:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 10px rgba(240, 108, 35, 0.5);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 10px var(--color-blue-light);
 }
 
 /* Botão de entrar */
 .btn-entrar {
   width: 100%;
-  padding: 12px;
+  padding: var(--spacing-sm);
   border: none;
-  border-radius: 10px;
-  background: var(--primary);
-  color: var(--accent);
-  font-size: 16px;
+  border-radius: var(--border-radius-md);
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--font-size-md);
   font-weight: bold;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: var(--spacing-sm);
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .btn-entrar:hover {
-  background: var(--blue-udemy);
-  color: #000;
+  background: var(--color-accent);
   transform: translateY(-2px);
 }
 
 /* Links adicionais */
 .login-links {
-  margin-top: 15px;
+  margin-top: var(--spacing-sm);
   display: flex;
-  justify-content: space-between;
-  font-size: 14px;
+  justify-content: center;
+  font-size: var(--font-size-sm);
 }
 
 .login-links a {
-  color: var(--primary-dark);
+  color: var(--color-dark-gray);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .login-links a:hover {
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
-/* Caixa "Lembrar minha senha" */
-.remember-me {
-  margin-top: 10px;
-  font-size: 14px;
-}
-
-.remember-me input {
-  margin-right: 5px;
-}
-
-.remember-me label {
-  color: var(--primary-dark);
-}
-
-/* =========================================
-   SOCIAL LOGIN
-   Estilização dos ícones de login social
-========================================= */
+/* Social login */
 .social-login {
-  margin-top: 20px;
+  margin-top: var(--spacing-md);
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: var(--spacing-sm);
 }
 
 .social-login img {
@@ -322,31 +359,31 @@ nav .btn-cadastro {
    Estilização do rodapé
 ========================================= */
 footer {
-  padding: 20px 40px;
-  border-top: 1px solid rgba(255,255,255,0.3);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-top: 1px solid var(--color-light-gray);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
-  background: var(--footer-bg);
-  color: var(--primary-dark);
-  gap: 10px;
+  font-size: var(--font-size-xs);
+  background: var(--color-light-bg);
+  color: var(--color-dark-gray);
+  gap: var(--spacing-xs);
 }
 
 footer a {
-  color: var(--primary-dark);
+  color: var(--color-dark-gray);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 footer a:hover {
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
 footer .social-icons img {
   width: 25px;
-  margin-left: 10px;
+  margin-left: var(--spacing-xs);
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -382,7 +419,7 @@ footer .credits a:hover {
   header {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: var(--spacing-sm);
   }
 
   .search-bar {
@@ -392,16 +429,16 @@ footer .credits a:hover {
 
   .login-box {
     width: 100%;
-    padding: 25px;
+    padding: var(--spacing-md);
   }
 
   .login-links {
     flex-direction: column;
-    gap: 10px;
+    gap: var(--spacing-xs);
   }
 
   footer {
-    padding: 20px;
-    gap: 5px;
+    padding: var(--spacing-md);
+    gap: var(--spacing-xs);
   }
 }
