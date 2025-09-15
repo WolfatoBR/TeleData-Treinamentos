@@ -231,6 +231,7 @@ nav .btn-cadastro:hover {
   justify-content: center;
   padding: var(--spacing-lg);
   gap: var(--spacing-lg);
+  background: #ffffff;
 }
 
 /* Ilustração */
@@ -258,6 +259,7 @@ nav .btn-cadastro:hover {
   color: var(--color-dark-gray);
   text-align: center;
   border: 2px solid var(--color-primary);
+  margin-right: 20%;
 }
 
 .login-box h2 {
@@ -366,7 +368,7 @@ footer {
   justify-content: center;
   align-items: center;
   font-size: var(--font-size-xs);
-  background: var(--color-light-bg);
+  background: #ffffff;  
   color: var(--color-dark-gray);
   gap: var(--spacing-xs);
 }
