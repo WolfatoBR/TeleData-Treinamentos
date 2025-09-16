@@ -1,0 +1,446 @@
+/* =========================================
+   HEADER (ajuste pesquisa e botão)
+========================================= */
+.search-bar {
+  display: flex;
+  align-items: center;      /* centraliza verticalmente o input e botão */
+  margin: 0 20px;
+  flex: 1;                  /* ocupa espaço até "Planos" */
+  max-width: 600px;         /* limite opcional */
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 8px; /* Reduz o padding */
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  font-size: 14px; /* Reduz o tamanho da fonte */
+  height: 35px; /* Reduz a altura */
+}
+
+.search-bar button {
+  width: 40px; /* Reduz a largura */
+  height: 35px; /* Reduz a altura */
+  display: flex;
+  justify-content: center;
+  align-items: center;      /* centraliza ícone dentro do botão */
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 14px; /* Reduz o tamanho da fonte */
+}
+
+/* =========================================
+   VARIÁVEIS DE CORES
+   Definição de cores reutilizáveis para o tema
+========================================= */
+:root {
+  /* Cores principais */
+  --color-primary: #2c56ca;
+  --color-primary-dark: #000000;
+  --color-primary-light: #000000;
+
+  /* Cores secundárias */
+  --color-secondary: #000000;
+  --color-accent: #e69e2b;
+
+  /* Tons de azul para gradientes */
+  --color-blue-dark: #0a2455;
+  --color-blue-medium: #254c91;
+  --color-blue-light: #77acfc;
+
+  /* Cores neutras */
+  --color-white: #ffffff;
+  --color-light-bg: #e7e7f1;
+  --color-light-gray: #d1d7dc;
+  --color-medium-gray: #6a6f73;
+  --color-dark-gray: #1c1d1f;
+
+  /* Espaçamentos */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+
+  /* Bordas */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+
+  /* Sombras */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  /* Tamanhos de fonte */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 32px;
+}
+
+/* =========================================
+   RESET GERAL
+   Remove margens e paddings padrão
+========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth; /* Suaviza o scroll */
+}
+
+body {
+  background: var(--color-light-bg); /* Fundo claro */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: var(--color-dark-gray);
+  line-height: 1.5;
+  font-size: var(--font-size-md);
+}
+
+/* =========================================
+   HEADER
+   Estilização do cabeçalho
+========================================= */
+header {
+  display: flex;
+  justify-content: space-between; /* Espaço entre logo, barra de pesquisa e navegação */
+  align-items: center; /* Centraliza os itens verticalmente */
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+}
+
+header .logo img {
+  height: 50px; /* Altura da logo */
+}
+
+/* Barra de pesquisa */
+.search-bar {
+  display: flex;
+  flex: 1;
+  max-width: 600px;
+  margin: 0 var(--spacing-md);
+}
+
+.search-bar input {
+  flex: 1;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
+}
+
+.search-bar button {
+  width: 50px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+  cursor: pointer;
+}
+
+/* Navegação */
+nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex; /* Alinha os itens horizontalmente */
+  list-style: none; /* Remove os marcadores da lista */
+  gap: var(--spacing-sm);
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: flex;
+  align-items: center;
+}
+
+nav ul li a,
+nav ul li button {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+nav .cart {
+  width: 25px; /* Ícone do carrinho */
+  cursor: pointer;
+}
+
+nav .btn-login,
+nav .btn-cadastro {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+nav .btn-login {
+  background: transparent;
+  color: var(--color-primary);
+}
+
+nav .btn-cadastro {
+  background: var(--color-primary);
+  color: var(--color-white);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+nav .btn-cadastro:hover {
+  background: var(--color-accent);
+  transform: scale(1.05);
+}
+
+/* =========================================
+   CONTAINER PRINCIPAL
+   Estilização do conteúdo principal
+========================================= */
+.container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  gap: var(--spacing-lg);
+  background: #ffffff;
+}
+
+/* Ilustração */
+.login-bg {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-bg img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Caixa de login */
+.login-box {
+  flex: 1;
+  background: var(--color-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  width: 100%;
+  max-width: 380px;
+  box-shadow: var(--shadow-md);
+  color: var(--color-dark-gray);
+  text-align: center;
+  border: 2px solid var(--color-primary);
+  margin-right: 20%;
+}
+
+.login-box h2 {
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+}
+
+/* Inputs com ícones */
+.input-group {
+  position: relative;
+  width: 100%;
+  margin: var(--spacing-sm) 0;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm);
+}
+
+.input-group i {
+  margin-right: var(--spacing-xs);
+  color: var(--color-medium-gray);
+}
+
+.input-group input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: var(--font-size-sm);
+  background: transparent;
+}
+
+.input-group input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 10px var(--color-blue-light);
+}
+
+/* Botão de entrar */
+.btn-entrar {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: none;
+  border-radius: var(--border-radius-md);
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--font-size-md);
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: var(--spacing-sm);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.btn-entrar:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* Links adicionais */
+.login-links {
+  margin-top: var(--spacing-sm);
+  display: flex;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+}
+
+.login-links a {
+  color: var(--color-dark-gray);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login-links a:hover {
+  color: var(--color-primary);
+}
+
+/* Social login */
+.social-login {
+  margin-top: var(--spacing-md);
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.social-login img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-login img:hover {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+/* =========================================
+   FOOTER
+   Estilização do rodapé
+========================================= */
+footer {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-top: 1px solid var(--color-light-gray);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-size-xs);
+  background: #ffffff;  
+  color: var(--color-dark-gray);
+  gap: var(--spacing-xs);
+}
+
+footer a {
+  color: var(--color-dark-gray);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--color-primary);
+}
+
+footer .social-icons img {
+  width: 25px;
+  margin-left: var(--spacing-xs);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+footer .social-icons img:hover {
+  transform: scale(1.2);
+}
+
+/* =========================================
+   FOOTER CRÉDITOS - LINKS VISÍVEIS
+========================================= */
+footer .credits {
+  font-size: 12px;
+  color: var(--primary-dark);
+  text-align: center;
+}
+
+footer .credits a {
+  text-decoration: underline;
+  color: var(--primary-dark);
+  transition: color 0.3s ease;
+}
+
+footer .credits a:hover {
+  color: var(--primary);
+}
+
+/* =========================================
+   RESPONSIVIDADE
+   Ajustes para telas menores
+========================================= */
+@media (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .search-bar {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .login-box {
+    width: 100%;
+    padding: var(--spacing-md);
+  }
+
+  .login-links {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  footer {
+    padding: var(--spacing-md);
+    gap: var(--spacing-xs);
+  }
+}
