@@ -1,35 +1,29 @@
-const express =  require("express"); // Cria uma instancia do express 
-const app = express() 
-const port = 3001
-const path = require("path") 
-const bodyParser = require("body-parser")
-const connection = require("./database/connection")
+const express = require("express"); 
+const app = express();
+const port = 3001;
+const bodyParser = require("body-parser");
+const connection = require("./database/connection");
 
+// Importando rotas
+const home = require("./routes/home");
+const profileRouter = require("./routes/profileRoutes");
+const authRouter = require("./routes/authRoutes");
 
-// Importando o body parser
-app.use(bodyParser.json()) // para JSON
-app.use(bodyParser.urlencoded({ extended: true })) // para dados de formulário
+// Middlewares
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
+// Sincronizando banco
+connection.sync({ alter: true })
+  .then(() => console.log("Banco sincronizado"))
+  .catch(console.error);
 
-const homeRouter = require("./routes/home") // Importando a rota do meu home.
-const registerRouter = require("./routes/registeruser") // Importa a rota do meu registro.
+// Usando rotas
+app.use("/", home); // rota principal
+app.use("/profile", profileRouter); // rota privada
+app.use("/auth", authRouter); // rota de login
 
-
-connection.sync({ force: true }) // ou { force: true } para resetar tabelas
-  .then(() => {
-    console.log("Banco sincronizado")
-  })
-  .catch(console.error)
-
-
-
-app.use("/",homeRouter) // usando minha rota pra teste
-app.use("/registeruser",registerRouter)
-
-
-
-app.listen(port,()=>{
-
-    console.log("Servidor Rodando!")
-
-})
+// Servidor
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
+});
