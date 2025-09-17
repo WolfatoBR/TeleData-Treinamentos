@@ -1,75 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TeleData Treinamentos - Login</title>
-  
-  <!-- Link para o arquivo CSS da página de login -->
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5495/5495002.png" type="image/png">
   <link rel="stylesheet" href="../Styles/Login.css">
-  
-  <!-- Link para a biblioteca de ícones Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="../JavaScript/login.js"></script>
 </head>
+
 <body>
-
-  <!-- ========================= HEADER ========================== -->
+  <!-- CABEÇALHO / MENU SUPERIOR -->
   <header>
-    <!-- Logo da empresa -->
-    <div class="logo">
-      <a href="index.html">
-        <img src="https://i.pinimg.com/736x/6e/ad/87/6ead878978850d09e95fd5a1526dc712.jpg" alt="Logo TeleData">
-      </a>
+    <div class="header-container">
+      <div class="logo">
+        <img src="https://i.pinimg.com/736x/6e/ad/87/6ead878978850d09e95fd5a1526dc712.jpg" alt="TeleData Treinamentos">
+      </div>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Pesquisar cursos...">
+        <div class="search-button">
+          <img src="https://cdn-icons-png.flaticon.com/512/2319/2319177.png" alt="search-button">
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <a href="#" class="nav-link">Categorias</a>
+        <a href="#" class="nav-link">Docente</a>
+        <button class="nav-button">Entrar</button>
+        <button class="nav-button primary">Cadastrar</button>
+        <div class="user-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/3237/3237472.png" alt="Ícone user">
+        </div>
+      </div>
     </div>
-
-    <!-- Barra de pesquisa -->
-    <form class="search-bar" role="search">
-      <input type="text" placeholder="Pesquisar cursos..." aria-label="Pesquisar cursos">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-
-    <!-- Navegação do cabeçalho -->
-    <nav>
-      <ul>
-        <li><a href="#">Planos</a></li>
-        <li><a href="#"><img class="cart" src="../img/carrinho.png" alt="Carrinho"></a></li>
-        <li><button class="btn-login">Fazer Login</button></li>
-        <li><button class="btn-cadastro" onclick="window.location.href='cadastro.html'">Fazer Cadastro</button></li>
-        <li><button class= "btn-sobre" onclick="window.location.href='Sobre.html'">Sobre nós</button></li>
-      </ul>
-    </nav>
   </header>
 
-  <!-- ========================= CONTEÚDO PRINCIPAL ========================== -->
   <main class="container">
-    
-    <!-- Seção de imagem de fundo -->
     <section class="login-bg">
-      <img src="../img/web-content-design.png" alt="Ilustração Login">
+      <img src="https://img.freepik.com/vetores-premium/um-homem-segurando-um-globo-na-mao_778176-254.jpg"
+        alt="Ilustração Login">
     </section>
 
-    <!-- Seção de login -->
     <section class="login-box">
       <h2>Vamos aprender!</h2>
 
-      <!-- Formulário de login -->
       <form action="dashboard.html">
         <div class="input-group">
-          <i class="fa fa-user"></i>
+          <i class="fas fa-user"></i>
           <input type="text" placeholder="Login" required>
         </div>
 
         <div class="input-group">
-          <i class="fa fa-lock"></i>
+          <i class="fas fa-lock"></i>
           <input type="password" placeholder="Senha" required>
         </div>
 
-        <!-- Botão para enviar o formulário -->
+        <div class="remember-me">
+          <input type="checkbox" id="remember-me">
+          <label for="remember-me">Lembrar minha senha</label>
+        </div>
+
         <button type="submit" class="btn-entrar">Entrar</button>
       </form>
 
-      <!-- Links adicionais -->
       <nav class="login-links">
         <ul>
           <li><a href="#">Esqueceu Senha?</a></li>
@@ -77,43 +73,103 @@
         </ul>
       </nav>
 
-      <!-- Opção de lembrar senha -->
-      <div class="remember-me">
-        <input type="checkbox" id="remember-me">
-        <label for="remember-me">Lembrar minha senha</label>
-      </div>
+      <div class="separator">Ou entre com</div>
 
-      <!-- Login via redes sociais -->
       <aside class="social-login">
-        <img src="../img/Google.png" alt="Google">
-        <img src="../img/Apple.png" alt="Apple">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+        <img class="google-btn" src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google">
+        <img class="apple-btn" src="https://cdn-icons-png.flaticon.com/512/84/84595.png" alt="Apple">
+        <img class="facebook-btn" src="https://cdn-icons-png.flaticon.com/512/3670/3670124.png" alt="Facebook">
       </aside>
     </section>
   </main>
 
-  <!-- ========================= RODAPÉ ========================== -->
   <footer>
-    <!-- Informações do rodapé -->
-    <section class="footer-info">
-      <p>© TeleData Treinamentos</p>
-      <nav>
-        <ul>
-          <li><a href="#">Sobre a TeleData Treinamentos</a></li>
-          <li><a href="#">Central de Ajuda</a></li>
-          <li><a href="#">Termos de Serviço</a></li>
-        </ul>
-      </nav>
-    </section>
+    <div class="footer-main">
+      <div class="footer-container">
+        <div class="footer-links">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Carreiras</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Ajuda e Suporte</a></li>
+          </ul>
+        </div>
 
-    <!-- Ícones de redes sociais -->
-    <aside class="social-icons">
-      <img src="../img/Youtube.png" alt="YouTube">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
-      <img src="../img/Twitter.png" alt="Twitter">
-    </aside>
+        <div class="footer-links">
+          <h4>Categorias</h4>
+          <ul>
+            <li><a href="#">Desenvolvimento</a></li>
+            <li><a href="#">Design</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Negócios</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Recursos</h4>
+          <ul>
+            <li><a href="#">Artigos</a></li>
+            <li><a href="#">Tutoriais</a></li>
+            <li><a href="#">Webinars</a></li>
+            <li><a href="#">Certificados</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Plataforma</h4>
+          <ul>
+            <li><a href="#">Para Empresas</a></li>
+            <li><a href="#">Para Universidades</a></li>
+            <li><a href="#">Para Governo</a></li>
+            <li><a href="#">Tornar-se Instrutor</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h4>Informe seu email</h4>
+          <p>Receba atualizações, novidades e promoções</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Seu e-mail" required>
+            <button type="submit">Inscrever</button>
+          </form>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook">
+              <img src="https://cdn-icons-png.flaticon.com/512/3128/3128304.png" alt="Facebook">
+            </a>
+            <a href="#" aria-label="Instagram">
+              <img src="https://cdn-icons-png.flaticon.com/512/4922/4922972.png" alt="Instagram">
+            </a>
+            <a href="#" aria-label="Twitter">
+              <img src="https://cdn-icons-png.flaticon.com/512/5968/5968958.png" alt="X_twitter">
+            </a>
+            <a href="#" aria-label="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/160/160205.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-sub">
+      <div class="footer-bottom">
+        <div class="logo">
+          <img src="https://i.pinimg.com/736x/6e/ad/87/6ead878978850d09e95fd5a1526dc712.jpg"
+            alt="TeleData Treinamentos">
+        </div>
+        <div class="copyright">
+          <p>© 2025 TeleData Treinamentos. Todos os direitos reservados.</p>
+        </div>
+        <div class="legal-links">
+          <a href="#">Termos de Uso</a>
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
+  <script src="../Scripts/animations.js"></script>
 </body>
+
 </html>
