@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../connection"); // Importa a instância da conexão do meu banco.
+const sequelize = require("../connection");
 
 
 const User = sequelize.define("User", {
