@@ -9,6 +9,9 @@ const home = require("./routes/home");
 const profileRouter = require("./routes/profileRoutes");
 const authRouter = require("./routes/authRoutes");
 
+
+app.use(express.static(path.join(__dirname, '..', '..',"Front-end","Styles"))); // Define a pasta dos nossos css (não apagar )
+
 // Middlewares
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
