@@ -4,9 +4,6 @@ const port = 3001;
 const bodyParser = require("body-parser");
 const connection = require("./database/connection");
 const path = require("path");
-
-
-
 // Importando rotas
 const home = require("./routes/home");
 const profileRouter = require("./routes/profileRoutes");
