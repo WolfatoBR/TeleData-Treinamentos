@@ -1,12 +1,13 @@
 const express = require("express")
+const path = require("path");
 
 const router = express.Router()
 
 
 
-router.get("/",(req,res)=>{
-    res.send("Rodando rota")
-})
+router.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "..", "Front-end", "Pages", "homePage.html"));
+});
 
 
 module.exports =  router;
