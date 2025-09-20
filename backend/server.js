@@ -4,13 +4,20 @@ const port = 3001;
 const bodyParser = require("body-parser");
 const connection = require("./database/connection");
 const path = require("path");
+
 // Importando rotas
 const home = require("./routes/home");
 const profileRouter = require("./routes/profileRoutes");
 const authRouter = require("./routes/authRoutes");
+const registerpageRoute = require("./routes/registerpageRoutes");
+const registeruserRoute = require("./routes/registeruser");
 
+// Configuração do EJS
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "..", "Front-end", "Pages"));
 
-app.use(express.static(path.join(__dirname, '..', '..',"Front-end","Styles"))); // Define a pasta dos nossos css (não apagar )
+// Servir CSS, JS, imagens
+app.use(express.static(path.join(__dirname, "..", "Front-end")));
 
 // Middlewares
 app.use(bodyParser.json());
@@ -25,6 +32,8 @@ connection.sync({ alter: true })
 app.use("/", home); // rota principal
 app.use("/profile", profileRouter); // rota privada
 app.use("/auth", authRouter); // rota de login
+app.use("/registerpage", registerpageRoute); // rota de cadastro
+app.use("/registeruser", registeruserRoute); // rota de cadastro de usuário
 
 // Servidor
 app.listen(port, () => {

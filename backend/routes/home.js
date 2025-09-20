@@ -1,13 +1,12 @@
-const express = require("express")
-const path = require("path");
-
-const router = express.Router()
-
-
+const express = require("express");
+const router = express.Router();
+const registerRoute = require("./registerpageRoutes"); //importando rota da pagina de cadastro
 
 router.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "..", "..", "Front-end", "Pages", "homePage.html"));
+  res.render("homePage"); // já vai procurar em /Front-end/Pages/homePage.ejs
 });
 
 
-module.exports =  router;
+
+
+module.exports = router;
