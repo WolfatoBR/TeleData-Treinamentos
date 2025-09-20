@@ -4,9 +4,11 @@ const bcrypt = require("bcrypt");
 const User = require("../database/models/user");
 
 // Rota de registro de usuário
-router.post("/registeruser", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const name = req.body.username;       // Certifique-se de que o nome do campo no formulário é "username"
+    const email = req.body.useremail;
+    const password = req.body.userpassword;
 
     // Verifica se todos os campos foram enviados
     if (!name || !email || !password) {
@@ -14,7 +16,8 @@ router.post("/registeruser", async (req, res) => {
     }
 
     // Gera hash da senha
-    const password_hash = await bcrypt.hash(password, 12);
+    rounds = 12; // Número de rounds para bcrypt
+    const password_hash = await bcrypt.hash(password, rounds);
 
     // Cria o usuário no banco
     const user = await User.create({
@@ -23,7 +26,7 @@ router.post("/registeruser", async (req, res) => {
       password_hash: password_hash
     });
 
-    return res.status(201).json({ message: "Usuário criado com sucesso", user: { id: user.id, name: user.full_name, email: user.email } });
+    res.redirect("/") // redireciona para a página inicial após o registro.
   } catch (err) {
     console.error("Erro ao registrar usuário:", err);
 
