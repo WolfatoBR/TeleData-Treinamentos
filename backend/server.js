@@ -11,6 +11,9 @@ const profileRouter = require("./routes/profileRoutes");
 const authRouter = require("./routes/authRoutes");
 const registerpageRoute = require("./routes/registerpageRoutes");
 const registeruserRoute = require("./routes/registeruser");
+const loginpageRoute = require("./routes/loginpageRoute");
+const makeloginRoute = require("./routes/authRoutes"); 
+
 
 // Configuração do EJS
 app.set("view engine", "ejs");
@@ -34,6 +37,8 @@ app.use("/profile", profileRouter); // rota privada
 app.use("/auth", authRouter); // rota de login
 app.use("/registerpage", registerpageRoute); // rota de cadastro
 app.use("/registeruser", registeruserRoute); // rota de cadastro de usuário
+app.use("/loginpage", loginpageRoute); // rota de login
+app.use("/makelogin", makeloginRoute); // rota de login
 
 // Servidor
 app.listen(port, () => {

@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
       password_hash: password_hash
     });
 
-    res.redirect("/") // redireciona para a página inicial após o registro.
+    res.redirect("/loginpage") // redireciona para a página inicial após o registro.
   } catch (err) {
     console.error("Erro ao registrar usuário:", err);
 
