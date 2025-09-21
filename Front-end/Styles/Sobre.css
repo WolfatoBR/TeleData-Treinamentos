@@ -1,30 +1,48 @@
+/* =========================================
+   VARIÁVEIS GLOBAIS
+   Aqui definimos cores, espaçamentos, fontes e sombras
+   para usar em todo o site
+========================================= */
 :root {
+  /* Cores principais */
   --color-primary: #2c56ca;
   --color-primary-dark: #000000;
   --color-primary-light: #000000;
   --color-secondary: #000000;
   --color-accent: #e69e2b;
+
+  /* Tons de azul */
   --color-blue-dark: #0a2455;
   --color-blue-medium: #254c91;
   --color-blue-light: #77acfc;
+
+  /* Cores neutras */
   --color-white: #ffffff;
   --color-light-bg: #e7e7f1;
   --color-light-gray: #d1d7dc;
   --color-medium-gray: #6a6f73;
   --color-dark-gray: #1c1d1f;
+
+  /* Espaçamentos */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
   --spacing-xxl: 48px;
+
+  /* Bordas arredondadas */
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
   --border-radius-lg: 16px;
   --border-radius-xl: 24px;
+
+  /* Sombras para elementos */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  /* Tamanhos de fonte */
   --font-size-xs: 12px;
   --font-size-sm: 14px;
   --font-size-md: 16px;
@@ -33,32 +51,36 @@
   --font-size-xxl: 32px;
 }
 
+/* =========================================
+   ESTILOS GLOBAIS
+   Aplica estilos básicos para todo o site
+========================================= */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-  scroll-behavior: smooth;
+  box-sizing: border-box; /* Evita que padding e border aumentem o tamanho do elemento */
+  font-family: Arial, Helvetica, sans-serif; /* Fonte padrão */
+  scroll-behavior: smooth; /* Rolagem suave */
 }
 
 body {
   background: var(--color-white);
   color: var(--color-dark-gray);
   font-size: var(--font-size-md);
-  line-height: 1.6;
+  line-height: 1.6; /* Espaço entre linhas */
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
- 
- 
+  min-height: 100vh; /* Garante que o footer fique no final da página */
 }
 
-/* Header */
+/* =========================================
+   CABEÇALHO
+========================================= */
 header {
   background-color: var(--color-white);
-  box-shadow: var(--shadow-sm), var(--shadow-md);
+  box-shadow: var(--shadow-sm), var(--shadow-md); /* sombra no header */
   padding: var(--spacing-md) 0;
-  position: sticky;
+  position: sticky; /* Fica fixo no topo */
   top: 0;
   z-index: 1000;
 }
@@ -67,15 +89,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 35px;
   max-width: 1340px;
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
-}
-
-.logo {
-  display: flex;
-  align-items: center;
 }
 
 .logo img {
@@ -120,8 +136,6 @@ header {
   text-decoration: none;
   color: var(--color-dark-gray);
   font-size: var(--font-size-sm);
-  font-weight: 400;
-  white-space: nowrap;
 }
 
 .nav-button {
@@ -148,130 +162,68 @@ header {
   cursor: pointer;
 }
 
-/* Conteúdo principal */
+/* =========================================
+   CONTEÚDO PRINCIPAL
+========================================= */
 main {
   flex: 1;
-}
-
-.sobre-hero {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-blue-medium));
-  color: var(--color-white);
-  text-align: center;
   padding: var(--spacing-xxl) var(--spacing-lg);
 }
 
-.sobre-hero h1 {
-  font-size: var(--font-size-xxl);
-  margin-bottom: var(--spacing-md);
-}
-
-.sobre-hero p {
-  font-size: var(--font-size-lg);
-  max-width: 700px;
-  margin: 0 auto;
-  color: var(--color-light-gray);
-}
-
-.sobre-section {
+/* Caixa de cada seção de conteúdo */
+.sobre-box {
   max-width: 1100px;
   margin: var(--spacing-xxl) auto;
-  padding: 0 var(--spacing-lg);
-  display: flex;
-  gap: var(--spacing-xl);
-  align-items: center;
+  padding: var(--spacing-lg);
+  background-color: var(--color-light-bg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
-.sobre-section:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.sobre-text {
-  flex: 1;
-}
-
-.sobre-text h2 {
+.sobre-box h2 {
   font-size: var(--font-size-xl);
   color: var(--color-primary);
   margin-bottom: var(--spacing-md);
 }
 
-.sobre-text p {
+.sobre-box p {
   color: var(--color-medium-gray);
   margin-bottom: var(--spacing-md);
 }
 
-.sobre-text ul {
+.sobre-box ul {
   padding-left: var(--spacing-lg);
   list-style: disc;
   color: var(--color-medium-gray);
 }
 
-.sobre-img {
-  flex: 1;
-  text-align: center;
-}
-
-.sobre-img img {
-  max-width: 100%;
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-md);
-}
-
-/* Seção de equipe */
-.equipe {
-  background: var(--color-white);
-  padding: var(--spacing-xxl) var(--spacing-lg);
-  text-align: center;
-}
-
-.equipe h2 {
-  font-size: var(--font-size-xl);
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-xl);
-}
-
-.equipe-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: var(--spacing-xl);
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.equipe-card {
-  background: var(--color-light-bg);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-sm);
-  padding: var(--spacing-lg);
+/* Imagens redondas da equipe */
+#Imagem_redonda {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 3px solid var(--color-primary-light);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.equipe-card:hover {
-  transform: translateY(-6px);
+#Imagem_redonda:hover {
+  transform: scale(1.05);
   box-shadow: var(--shadow-md);
 }
 
-.equipe-card img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: var(--spacing-md);
-  border: 3px solid var(--color-primary);
+/* Lista de equipe (flexível) */
+.equipe-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  flex-wrap: wrap;
 }
 
-.equipe-card h3 {
-  font-size: var(--font-size-lg);
-  color: var(--color-dark-gray);
-  margin-bottom: var(--spacing-xs);
-}
-
-.equipe-card p {
-  font-size: var(--font-size-sm);
-  color: var(--color-medium-gray);
-}
-
-/* Footer */
+/* =========================================
+   RODAPÉ
+========================================= */
 footer {
   background-color: var(--color-dark-gray);
   color: var(--color-white);
@@ -321,13 +273,13 @@ footer {
   text-decoration: none;
   font-size: var(--font-size-sm);
   transition: color 0.2s ease;
-  display: block;
 }
 
 .footer-links a:hover {
   color: var(--color-primary);
 }
 
+/* Newsletter no footer */
 .footer-newsletter {
   grid-column: span 2 / auto;
 }
@@ -394,6 +346,7 @@ footer {
   filter: brightness(0) invert(1);
 }
 
+/* Parte inferior do footer */
 .footer-sub {
   background-color: #111;
   padding: var(--spacing-md) 0;
@@ -437,11 +390,13 @@ footer {
   color: var(--color-primary);
 }
 
-/* Responsividade */
+/* =========================================
+   RESPONSIVIDADE
+   Ajustes para telas menores
+========================================= */
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
-    height: auto;
     gap: var(--spacing-md);
   }
 
@@ -465,8 +420,9 @@ footer {
     max-width: 80%;
   }
 
-  .equipe-grid {
-    grid-template-columns: 1fr 1fr;
+  .equipe-list {
+    flex-direction: column;
+    gap: var(--spacing-lg);
   }
 
   .footer-container {
@@ -497,8 +453,9 @@ footer {
     max-width: 100%;
   }
 
-  .equipe-grid {
-    grid-template-columns: 1fr;
+  .equipe-list {
+    flex-direction: column;
+    gap: var(--spacing-md);
   }
 
   .footer-container {

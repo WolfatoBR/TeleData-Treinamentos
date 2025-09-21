@@ -71,8 +71,14 @@ body {
     line-height: 1.5;
     font-size: var(--font-size-md);
 }
+#Imagem_redonda{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
 
-/* Header */
+/* Cabeçalho */
 header {
     background-color: var(--color-white);
     box-shadow: var(--shadow-sm), var(--shadow-md);
@@ -190,7 +196,7 @@ header {
 }
 
 /* =========================================
-   CONTAINER PRINCIPAL
+   CONTEUDO PRINCIPAL
    Estilização do conteúdo principal
 ========================================= */
 .container {
@@ -531,7 +537,7 @@ header {
 .social-login {
     animation-delay: 0.8s;
 }
-/* Footer */
+/* Rodapé */
 footer {
     background-color: var(--color-dark-gray);
     color: var(--color-white);

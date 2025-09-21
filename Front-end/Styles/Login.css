@@ -74,7 +74,7 @@ body {
     font-size: var(--font-size-md);
 }
 
-/* Header */
+/* Cabeçalho */
 header {
     background-color: var(--color-white);
     box-shadow: var(--shadow-sm), var(--shadow-md);
@@ -182,7 +182,7 @@ header {
 }
 
 /* =========================================
-   CONTAINER PRINCIPAL
+   CONTEUDO PRINCIPAL
 ========================================= */
 .container {
     height: 60rem;
