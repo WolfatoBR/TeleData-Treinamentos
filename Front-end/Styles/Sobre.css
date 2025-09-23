@@ -199,7 +199,7 @@ main {
 }
 
 /* Imagens redondas da equipe */
-#Imagem_redonda {
+#Img_round {
   border-radius: 50%;
   width: 150px;
   height: 150px;
@@ -208,7 +208,7 @@ main {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#Imagem_redonda:hover {
+#Img_round:hover {
   transform: scale(1.05);
   box-shadow: var(--shadow-md);
 }
@@ -219,6 +219,9 @@ main {
   display: flex;
   justify-content: center;
   gap: var(--spacing-xl);
+}
+.sobre-box ul.equipe-list li a {
+  text-decoration: none;
 }
 
 /* =========================================
@@ -322,6 +325,7 @@ footer {
 .social-links {
   display: flex;
   gap: var(--spacing-md);
+  
 }
 
 .social-links a {
@@ -389,6 +393,7 @@ footer {
 .legal-links a:hover {
   color: var(--color-primary);
 }
+
 
 /* =========================================
    RESPONSIVIDADE
