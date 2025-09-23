@@ -6,11 +6,13 @@ const User = require("../database/models/user");
 const router = express.Router();
 
 // Rota de login
-router.post("/login", async (req, res) => {
+router.post("/", async (req, res) => {
   console.log("Requisição recebida:", req.body); // Log para depuração
   
   try {
-    const { email, password } = req.body; // Desestruturação
+    const email = req.body.useremail;
+    const password = req.body.userpassword;
+    
     if (!email || !password) {
       return res.status(400).send("Email e senha são obrigatórios");
     }
@@ -27,15 +29,10 @@ router.post("/login", async (req, res) => {
       { expiresIn: "1h" }
     );
 
-    res.status(200).json({
-      message: "Login realizado com sucesso!",
-      user: {
-        user_id: user.user_id,
-        full_name: user.full_name,
-        email: user.email,
-      },
-      token,
-    });
+    res.redirect("/") // Vamos por a rota de dashboard aqui
+
+
+
   } catch (err) {
     console.error(err);
     res.status(500).send("Erro interno no servidor");

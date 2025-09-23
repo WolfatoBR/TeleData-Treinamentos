@@ -1,32 +1,8 @@
-const express = require("express"); 
+const express = require('express');
+const indexRoutes = require('./index'); // Arquivo de rotas principal
 const app = express();
-const port = 3001;
-const bodyParser = require("body-parser");
-const connection = require("./database/connection");
-const path = require("path");
-// Importando rotas
-const home = require("./routes/home");
-const profileRouter = require("./routes/profileRoutes");
-const authRouter = require("./routes/authRoutes");
 
 
-app.use(express.static(path.join(__dirname, '..', '..',"Front-end","Styles"))); // Define a pasta dos nossos css (não apagar )
 
-// Middlewares
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
-// Sincronizando banco
-connection.sync({ alter: true })
-  .then(() => console.log("Banco sincronizado"))
-  .catch(console.error);
-
-// Usando rotas
-app.use("/", home); // rota principal
-app.use("/profile", profileRouter); // rota privada
-app.use("/auth", authRouter); // rota de login
-
-// Servidor
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
-});
+app.use('/', indexRoutes);
