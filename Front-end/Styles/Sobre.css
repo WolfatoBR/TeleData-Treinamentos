@@ -193,8 +193,9 @@ main {
 
 .sobre-box ul {
   padding-left: var(--spacing-lg);
-  list-style: disc;
+  list-style: none;
   color: var(--color-medium-gray);
+  
 }
 
 /* Imagens redondas da equipe */
@@ -218,7 +219,6 @@ main {
   display: flex;
   justify-content: center;
   gap: var(--spacing-xl);
-  flex-wrap: wrap;
 }
 
 /* =========================================
