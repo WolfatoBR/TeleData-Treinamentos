@@ -2,34 +2,196 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nós - TeleData Treinamentos</title>
-    <link rel="stylesheet" href="/Front-end/Styles/Sobre.css    ">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre - TeleData</title>
+  <link rel="stylesheet" href="/Front-end/Styles/Sobre.css">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5495/5495002.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Cursos.html">Cursos</a></li>
-                <li><a href="Login.html">Login</a></li>
-                <li><a href="Cadastro.html">Cadastro</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h1>Sobre Nós</h1>
-            <p>
-                Este projeto foi desenvolvido por uma equipe de desenvolvedores juniores apaixonados por tecnologia e
-                aprendizado. Nosso objetivo é criar soluções inovadoras e acessíveis para todos.
-            </p>
 
+  <!-- ========================= CABEÇALHO ========================== -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <a href="./homePage.ejs">
+          <img src="https://i.pinimg.com/736x/6e/ad/87/6ead878978850d09e95fd5a1526dc712.jpg"
+            alt="TeleData Treinamentos">
+        </a>
+      </div>
 
-        </section>
-    </main>
+      <div class="search-bar">
+        <input type="text" placeholder="Pesquisar cursos...">
+        <div class="search-button">
+          <img src="https://cdn-icons-png.flaticon.com/512/2319/2319177.png" alt="search-button">
+        </div>
+      </div>
+
+      <nav class="nav-actions">
+        <a href="#" class="nav-link">Categorias</a>
+        <a href="#" class="nav-link">Docente</a>
+        <a href="./Login.ejs">
+          <button class="nav-button">Entrar</button>
+        </a>
+        <a href="./Cadastro.ejs">
+          <button class="nav-button primary">Cadastrar</button>
+        </a>
+        <div class="user-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/3237/3237472.png" alt="Ícone usuário">
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================= CONTEÚDO PRINCIPAL ========================== -->
+  <main class="sobre-container">
+    <!-- Proposta -->
+    <section class="sobre-box">
+      <h2>Sobre o Sistema</h2>
+      <p>
+        O <strong>TeleData</strong> é uma plataforma moderna de cursos e treinamentos voltada para empresas, instituições
+        educacionais e profissionais que desejam aprender de forma prática e eficiente. 
+        Com uma interface intuitiva, o sistema permite cadastrar cursos, gerenciar conteúdos, acompanhar o progresso dos alunos
+        e emitir certificados digitais. 
+        Nossa missão é facilitar o aprendizado e o desenvolvimento profissional, conectando conhecimento de qualidade a usuários
+        de forma ágil e segura.
+      </p>
+      <ul>
+        <li> - Gerencie cursos e treinamentos de maneira simplificada</li>
+        <li> - Acompanhe o desempenho de alunos e colaboradores</li>
+        <li> - Interface intuitiva e fácil de usar</li>
+        <li> - Emissão de certificados digitais automaticamente</li>
+        <li> - Plataforma segura e escalável</li>
+      </ul>
+    </section>
+
+    <!-- Versão -->
+    <section class="sobre-box">
+      <h2>Versão Atual</h2>
+      <p>Versão 1.0.0</p>
+    </section>
+
+    <!-- Equipe -->
+    <section class="sobre-box">
+      <h2>Equipe de Desenvolvimento</h2>
+      <ul class="equipe-list">
+        <li>
+          <img id="Img_round" src="/Front-end/Img/7195155f-4903-4be8-a82f-25c81ffad4b8.jpeg" alt="Arthur Moreira">
+          <p><strong>Arthur Moreira</strong> <br> Fullstack </p>
+          <a href="https://github.com/WolfatoBR" target="_blank">GitHub</a> <br>
+          <a href="https://www.linkedin.com/in/arthur-moreira-04928331b/" target="_blank">LinkedIn</a> 
+        </li>
+        <li>
+          <img id="Img_round" src="/Front-end/Img/a83ff1f5-da46-4e82-ae91-e2100fbff753.jpeg" alt="Caio de Jesus">
+          <p><strong>Caio de Jesus</strong> <br> Back-end</p> 
+          <a href="https://github.com/caiodjss" target="_blank">GitHub</a> <br>
+          <a href="https://www.linkedin.com/in/caiodejesus/" target="_blank">LinkedIn</a>  
+        </li>
+        <li>
+          <img id="Img_round" src="/Front-end/Img/1ea063a1-0dc6-4adb-96a6-3f45700b8e04.jpeg" alt="Jonatas de Jesus">
+          <p><strong>Jonatas de Jesus</strong> <br> Front-end</p>
+          <a href="https://github.com/Jonatasgit23" target="_blank">GitHub</a> <br>
+          <a href="https://www.linkedin.com/in/jonatas-de-jesus-muniz-4683972b2/" target="_blank">LinkedIn</a> 
+        </li>
+        <li>
+          <img id="Img_round" src="/Front-end/Img/Captura de tela 2025-09-23 200714.png" alt="Wendell de Jesus">
+          <p><strong>Wendell de Jesus</strong> <br> Back-end</p>
+          <a href="https://github.com/Uaaudio" target="_blank">GitHub</a> <br>
+          <a href="https://www.linkedin.com/in/wendell-jesus/" target="_blank">LinkedIn</a> 
+        </li>
+        <li>
+          <img id="Img_round" src="/Front-end/Img/Screenshot_15.png" alt="Davi Santos">
+          <p><strong>Davi Santos</strong> <br> Front-end</p>
+          <a href="https://github.com/daev-npc" target="_blank">GitHub</a> <br>
+          <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a> 
+        </li>
+      </ul>
+    </section>
+
+    <!-- Agradecimentos -->
+    <section class="sobre-box">
+      <h2>Agradecimentos</h2>
+      <p>Agradecemos a todos os orientadores e colaboradores que apoiaram no desenvolvimento deste sistema.</p>
+    </section>
+  <!-- ========================= RODAPÉ ========================== -->
+  <footer>
+    <div class="footer-main">
+      <div class="footer-container">
+        <div class="footer-links">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Carreiras</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Ajuda e Suporte</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Categorias</h4>
+          <ul>
+            <li><a href="#">Desenvolvimento</a></li>
+            <li><a href="#">Design</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Negócios</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Recursos</h4>
+          <ul>
+            <li><a href="#">Artigos</a></li>
+            <li><a href="#">Tutoriais</a></li>
+            <li><a href="#">Webinars</a></li>
+            <li><a href="#">Certificados</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Plataforma</h4>
+          <ul>
+            <li><a href="#">Para Empresas</a></li>
+            <li><a href="#">Para Universidades</a></li>
+            <li><a href="#">Para Governo</a></li>
+            <li><a href="#">Tornar-se Instrutor</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h4>Informe seu email</h4>
+          <p>Receba atualizações, novidades e promoções</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Seu e-mail" required>
+            <button type="submit">Inscrever</button>
+          </form>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><img src="https://cdn-icons-png.flaticon.com/512/3128/3128304.png" alt="Facebook"></a>
+            <a href="#" aria-label="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/4922/4922972.png" alt="Instagram"></a>
+            <a href="#" aria-label="Twitter"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968958.png" alt="X_twitter"></a>
+            <a href="#" aria-label="YouTube"><img src="https://cdn-icons-png.flaticon.com/512/160/160205.png" alt="YouTube"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-sub">
+      <div class="footer-bottom">
+        <div class="logo">
+          <img src="https://i.pinimg.com/736x/6e/ad/87/6ead878978850d09e95fd5a1526dc712.jpg" alt="TeleData Treinamentos">
+        </div>
+        <div class="copyright">
+          <p>© 2025 TeleData Treinamentos. Todos os direitos reservados.</p>
+        </div>
+        <div class="legal-links">
+          <a href="#">Termos de Uso</a>
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </body>
-
 </html>
