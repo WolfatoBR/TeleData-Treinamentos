@@ -12,7 +12,10 @@ const registerpageRoute = require("./routes/registerpageRoutes");
 const registeruserRoute = require("./routes/registeruser");
 const loginpageRoute = require("./routes/loginpageRoute");
 const makeloginRoute = require("./routes/authRoutes"); 
+const exportRoute = require("./routes/exportRoutes");
 
+// Importar associações (ANTES das rotas)
+require("./database/models/associations");
 
 // Configuração do EJS
 app.set("view engine", "ejs");
@@ -37,6 +40,8 @@ app.use("/registerpage", registerpageRoute); // rota de cadastro
 app.use("/registeruser", registeruserRoute); // rota de cadastro de usuário
 app.use("/loginpage", loginpageRoute); // rota de login page
 app.use("/makelogin", makeloginRoute); // rota de login
+// Adicionar a rota de exportação
+app.use("/api/export", exportRoute);
 
 // Servidor
 app.listen(port, () => {
