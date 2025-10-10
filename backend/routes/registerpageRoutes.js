@@ -6,5 +6,4 @@ router.get("/",(req,res)=>{
     res.render("Cadastro")
 })
 
-
 module.exports = router;

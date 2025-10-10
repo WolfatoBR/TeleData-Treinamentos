@@ -12,6 +12,7 @@ const registerpageRoute = require("./routes/registerpageRoutes");
 const registeruserRoute = require("./routes/registeruser");
 const loginpageRoute = require("./routes/loginpageRoute");
 const makeloginRoute = require("./routes/authRoutes"); 
+const dashboardRoute = require("./routes/dashboardRoute");
 
 
 // Configuração do EJS
@@ -37,6 +38,7 @@ app.use("/registerpage", registerpageRoute); // rota de cadastro
 app.use("/registeruser", registeruserRoute); // rota de cadastro de usuário
 app.use("/loginpage", loginpageRoute); // rota de login page
 app.use("/makelogin", makeloginRoute); // rota de login
+//app.use("/dashboard", dashboardRoute); // rota do dashboard
 
 // Servidor
 app.listen(port, () => {

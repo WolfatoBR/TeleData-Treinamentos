@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const User = require("../database/models/user");
 
+const {handleError} = require("../utils/handleError"); // Importa minha função de tratar erro.
 // Rota de registro de usuário
 router.post("/", async (req, res) => {
   try {
@@ -27,15 +28,8 @@ router.post("/", async (req, res) => {
     });
 
     res.redirect("/loginpage") // redireciona para a página inicial após o registro.
-  } catch (err) {
-    console.error("Erro ao registrar usuário:", err);
-
-    // Checa se é erro de validação do Sequelize
-    if (err.name === "SequelizeValidationError" || err.name === "SequelizeUniqueConstraintError") {
-      return res.status(400).json({ error: err.errors.map(e => e.message) });
-    }
-
-    return res.status(500).json({ error: "Erro ao registrar usuário" });
+  } catch (error) {
+    await handleError(error,res,ErrorCounter);
   }
 });
 

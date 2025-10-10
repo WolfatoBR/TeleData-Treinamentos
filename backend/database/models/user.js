@@ -17,7 +17,6 @@ const User = sequelize.define(
     email: {
       type: DataTypes.STRING(255),
       allowNull: false,
-      // removemos unique: true para evitar ALTER TABLE automático
     },
     password_hash: {
       type: DataTypes.STRING(255),
@@ -35,6 +34,11 @@ const User = sequelize.define(
       type: DataTypes.STRING(2048),
       allowNull: true,
     },
+    is_online: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false, // começa como offline
+    },
     created_at: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -51,5 +55,6 @@ const User = sequelize.define(
     timestamps: false,
   }
 );
+
 
 module.exports = User;
