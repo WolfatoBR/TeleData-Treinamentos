@@ -139,311 +139,365 @@ header {
     margin-left: var(--spacing-sm);
     cursor: pointer;
 }
+/* =========================================
+   SEÇÃO DE PLANOS - ESTILO MODERNO TELE DATA
+========================================= */
 
-/* =========================
-   SEÇÃO DE PLANOS ULTRA PREMIUM
-========================= */
 .pricing-section {
-    padding: 6rem 0;
-    background: linear-gradient(145deg, #f8f9fa 0%, #e9ecef 100%);
+    background: radial-gradient(circle at top, #171836 0%, #0a0b20 100%);
+    color: #fff;
+    padding: 6rem 0 5rem;
     font-family: 'Poppins', sans-serif;
-    perspective: 1500px; /* Para efeito parallax */
-}
-
-/* =========================
-   CONTAINER
-========================= */
-.pricing-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-/* =========================
-   TÍTULOS
-========================= */
-.pricing-subtitle {
-    font-size: 2rem;
-    color: #1e1e2f;
     text-align: center;
+  }
+  
+  .pricing-section h2.section-title.plan {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    letter-spacing: 1.2px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.1);
+  }
+  
+  .pricing-subtitle {
+    font-size: 1.2rem;
+    color: #d0d0d0;
     margin-bottom: 3rem;
-    font-weight: 800;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    letter-spacing: 0.5px;
-}
-
-/* =========================
-   GRADE DE CARTÕES
-========================= */
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  /* =========================================
+     GRID DOS CARTÕES
+  ========================================= */
+  .pricing-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
     gap: 2.5rem;
-    perspective: 1500px;
-}
-
-/* =========================
-   CARTÕES DE PLANOS COM PARALLAX
-========================= */
-.pricing-card {
-    background: #ffffff;
+  }
+  
+  /* =========================================
+     CARTÕES DE PLANO
+  ========================================= */
+  .pricing-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
     border-radius: 1.5rem;
-    padding: 2rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    width: 310px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    padding-bottom: 2.5rem;
+    position: relative;
+  }
+  
+  .pricing-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.45);
+  }
+  
+  /* =========================================
+     CABEÇALHO DO PLANO
+  ========================================= */
+  .pricing-header {
+    height: 90px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 40rem;
-    position: relative;
-    border: 1px solid transparent;
-    transform-style: preserve-3d; /* Necessário para parallax */
-}
-
-/* Parallax hover */
-.pricing-card:hover {
-    transform: rotateY(8deg) rotateX(4deg) translateY(-15px) scale(1.05);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-}
-
-/* =========================
-   CARTÃO FEATURED COM BRILHO PULSANTE
-========================= */
-.pricing-card.featured {
-    border: 2px solid #e69e2b;
-    background: linear-gradient(145deg, #fff8f0, #fff3e6);
-    animation: glow 2s infinite alternate;
-}
-
-/* Glow animation para featured */
-@keyframes glow {
-    0% {
-        box-shadow: 0 0 15px rgba(230,158,43,0.4);
-    }
-    50% {
-        box-shadow: 0 0 25px rgba(230,158,43,0.6);
-    }
-    100% {
-        box-shadow: 0 0 15px rgba(230,158,43,0.4);
-    }
-}
-
-.pricing-card.featured:hover {
-    transform: rotateY(8deg) rotateX(4deg) translateY(-12px) scale(1.06);
-}
-
-/* =========================
-   BADGES
-========================= */
-.pricing-badge {
-    position: absolute;
-    top: -12px;
-    right: 20px;
-    background: #e69e2b;
-    color: #ffffff;
-    padding: 8px 20px;
-    border-radius: 25px;
-    font-size: 0.8rem;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
     font-weight: 700;
-    text-transform: uppercase;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    letter-spacing: 1px;
-    transition: transform 0.3s ease;
-}
-
-.pricing-badge:hover {
-    transform: scale(1.1);
-}
-
-/* =========================
-   HEADER DO CARTÃO
-========================= */
-.pricing-header {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid #f1f3f5;
-}
-
-.pricing-title {
-    font-size: 2.6rem;
-    font-weight: 900;
-    color: #1e1e2f;
+    position: relative;
+  }
+  
+  .pricing-title {
+    font-size: 1.5rem;
+    font-weight: 700;
     margin-bottom: 0.5rem;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.pricing-card:hover .pricing-title {
-    transform: translateY(-3px);
-}
-
-.pricing-price {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.price-amount {
-    font-size: 3.2rem;
-    font-weight: 900;
-    color: #2c56ca;
-    text-shadow: 0 3px 6px rgba(44, 86, 202, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.pricing-card:hover .price-amount {
-    transform: scale(1.05);
-}
-
-.price-period {
+    color: #fff;
+  }
+  
+  /* Gradientes por tipo de plano */
+  .pricing-card.basic .pricing-header {
+    background: linear-gradient(135deg, #ff7db8, #fca74b);
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+  
+  .pricing-card.featured .pricing-header {
+    background: linear-gradient(135deg, #a077ff, #fcb3ff);
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+  
+  .pricing-card.enterprise .pricing-header {
+    background: linear-gradient(135deg, #42d3ff, #48dcb7);
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+  
+  /* Linha decorativa */
+  .pricing-header::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 2px;
+    height: 10px;
+    background: #fff;
+    opacity: 0.9;
+    transform: translateX(-50%);
+  }
+  
+  /* =========================================
+     PREÇO
+  ========================================= */
+  .pricing-price {
+    margin-top: 1rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    padding-top: 0%;
+  }
+  
+  .pricing-price .price-period {
     font-size: 1rem;
-    color: #6c757d;
-    margin-top: 4px;
-}
-
-/* =========================
-   DESCRIÇÃO
-========================= */
-.pricing-description {
-    text-align: center;
-    color: #6c757d;
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    transition: color 0.3s ease;
-}
-
-.pricing-card:hover .pricing-description {
-    color: #1e1e2f;
-}
-
-/* =========================
-   LISTA DE RECURSOS
-========================= */
-.pricing-features {
-    margin-bottom: 1.5rem;
-}
-
-.pricing-features ul {
+    vertical-align: super;
+    opacity: 0.8;
+    margin-left: 0.2rem;
+  }
+  
+  /* =========================================
+     DESCRIÇÃO
+  ========================================= */
+  .pricing-description {
+    font-size: 0.95rem;
+    color: #d0d0d0;
+    padding: 0 2rem;
+    margin: 1rem 0 1.8rem;
+    line-height: 1.7;
+  }
+  
+  /* =========================================
+     LISTA DE RECURSOS
+  ========================================= */
+  .pricing-features {
     list-style: none;
     padding: 0;
-    margin: 0;
-}
-
-.pricing-features li {
-    padding: 0.6rem 0;
-    color: #495057;
+    margin: 0 0 2rem;
+  }
+  
+  .pricing-features li {
+    font-size: 0.95rem;
+    padding: 0.7rem 0;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 1rem;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.pricing-card:hover .pricing-features li {
-    transform: translateX(5px);
-    color: #2c56ca;
-}
-
-.pricing-features li::before {
-    content: '✔';
-    color: #e69e2b;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-}
-
-.pricing-card:hover .pricing-features li::before {
-    transform: scale(1.2);
-}
-
-/* =========================
-   BOTÕES COM GRADIENTE ANIMADO
-========================= */
-.pricing-button {
-    margin-top: auto;
-    width: 100%;
-    padding: 1rem 0;
-    border-radius: 1rem;
-    border: none;
-    font-size: 1.15rem;
+    gap: 0.6rem;
+    color: #fff;
+    opacity: 0.95;
+  }
+  
+  .pricing-features li::before {
+    content: "✔";
+    color: #48dcb7;
     font-weight: 700;
+    font-size: 1rem;
+  }
+  
+  /* Cor especial para o plano Premium */
+  .pricing-card.featured .pricing-features li::before {
+    color: #fcb3ff;
+  }
+  
+  /* =========================================
+     BOTÃO
+  ========================================= */
+  .pricing-button {
+    display: inline-block;
+    padding: 0.9rem 2.8rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    border: 2px solid #fff;
+    color: #fff;
+    background: transparent;
     cursor: pointer;
     transition: all 0.4s ease;
+  }
+  
+  .pricing-button:hover {
+    background: #fff;
+    color: #0b0d26;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(255,255,255,0.2);
+  }
+  
+  .pricing-button.primary {
+    background: #a077ff;
+    border-color: #a077ff;
+    color: #0b0d26;
+  }
+  
+  .pricing-button.primary:hover {
+    background: #fff;
+    color: #0b0d26;
+  }
+  
+  /* =========================================
+     RODAPÉ DOS PLANOS
+  ========================================= */
+  .pricing-footer {
     text-align: center;
-    color: #ffffff;
-    background: linear-gradient(90deg, #2c56ca, #4c7cf5);
-    background-size: 200% 100%;
-}
-
-.pricing-button:hover {
-    background-position: right center;
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(44, 86, 202, 0.4);
-}
-
-.pricing-button.primary {
-    background: linear-gradient(90deg, #e69e2b, #ffb84d);
-}
-
-.pricing-button.primary:hover {
-    background-position: right center;
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(230, 158, 43, 0.4);
-}
-
-/* =========================
-   RODAPÉ
-========================= */
-.pricing-footer {
-    position: relative;
-    top: 20px;
-    text-align: center;
-    padding: 1.5rem;
+    padding: 1.8rem;
     background: #ffffff;
-    border-radius: 1rem;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    border-radius: 1.2rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     transition: transform 0.3s ease;
-}
-
-.pricing-footer:hover {
-    transform: translateY(-3px);
-}
-
-.pricing-footer a {
+    margin-top: 2rem;
+    color: #0b0d26;
+    font-weight: 500;
+  }
+  
+  .pricing-footer:hover {
+    transform: translateY(-4px);
+  }
+  
+  .pricing-footer a {
     color: #2c56ca;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
-}
-
-.pricing-footer a:hover {
+  }
+  
+  .pricing-footer a:hover {
     color: #1e3ea8;
     text-decoration: underline;
-}
+  }
+  
+  .plan-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .plan-name {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  
 
+/* =========================================
+   RESPONSIVIDADE SEÇÃO DE PLANOS TELE DATA
+========================================= */
 
-/* ===== PERGUNTAS FREQUENTES ===== */
-.faq-section {
+/* Tablets e telas médias (769px a 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .pricing-section {
+      padding: 4rem 0;
+    }
+  
+    .pricing-container {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+  
+    .pricing-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  
+    .pricing-card {
+      width: 45%;
+      min-height: 36rem;
+      padding: 1.8rem;
+      transform: rotateY(3deg) rotateX(2deg) scale(1.02);
+    }
+  
+    .pricing-title { font-size: 2.2rem; }
+    .pricing-price { font-size: 2.6rem; }
+    .price-amount { font-size: 2.8rem; }
+    .pricing-description { font-size: 0.95rem; }
+    .pricing-features li { font-size: 0.9rem; gap: 0.3rem; }
+    .pricing-button { font-size: 1.05rem; padding: 0.9rem 0; }
+    .pricing-button.primary { font-size: 1rem; }
+    .pricing-footer { padding: 1rem; }
+  }
+  
+  /* Celulares e telas pequenas (até 480px) */
+  @media (max-width: 480px) {
+    .pricing-container {
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1rem;
+    }
+  
+    .pricing-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  
+    .pricing-card {
+      width: 90%;
+      min-height: auto;
+      padding: 1.5rem;
+    }
+  
+    .pricing-subtitle { font-size: 1.5rem; }
+    .pricing-title { font-size: 1.8rem; }
+    .pricing-price { font-size: 2.2rem; }
+    .price-amount { font-size: 2rem; }
+    .pricing-description { font-size: 0.9rem; }
+    .pricing-features li { font-size: 0.85rem; }
+    .pricing-button { font-size: 0.95rem; padding: 0.8rem 0; }
+    .pricing-button.primary { font-size: 0.95rem; }
+    .pricing-footer { padding: 0.8rem; }
+  }
+  
+  /* Telas pequenas adicionais (481px–768px) */
+  @media (max-width: 768px) and (min-width: 481px) {
+    .pricing-container { flex-direction: column; align-items: center; }
+    .pricing-card { width: 80%; margin-bottom: 2rem; }
+    .pricing-title { font-size: 2rem; }
+    .pricing-price { font-size: 2.4rem; }
+    .pricing-description { font-size: 1rem; }
+  }
+  
+  /* =========================================
+     RESPONSIVIDADE GERAL (até 1024px)
+  ========================================= */
+  @media (max-width: 1024px) {
+    .pricing-grid { justify-content: center; }
+  }
+  
+  @media (max-width: 768px) {
+    .pricing-section h2 { font-size: 2.4rem; }
+  }
+  
+  /* =========================================
+     FAQ
+  ========================================= */
+  .faq-section {
     background: #ffffff;
     padding: var(--spacing-xxl) var(--spacing-lg);
     max-width: 1000px;
     margin: 0 auto;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-sm);
-}
-
-.faq-title {
+  }
+  
+  .faq-title {
     text-align: center;
     font-size: 2rem;
     color: var(--color-primary-dark);
     font-weight: 700;
     margin-bottom: var(--spacing-xl);
     position: relative;
-}
-
-.faq-title::after {
+  }
+  
+  .faq-title::after {
     content: "";
     display: block;
     width: 80px;
@@ -451,18 +505,18 @@ header {
     background: var(--color-accent);
     margin: 10px auto 0;
     border-radius: 2px;
-}
-
-.faq-item {
+  }
+  
+  .faq-item {
     background: var(--color-white);
     border-radius: var(--border-radius-md);
     margin-bottom: var(--spacing-md);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
-}
-
-.faq-question {
+  }
+  
+  .faq-question {
     width: 100%;
     background: var(--color-white);
     color: var(--color-dark-gray);
@@ -476,13 +530,11 @@ header {
     align-items: center;
     border: none;
     transition: background 0.3s ease;
-}
-
-.faq-question:hover {
-    background: var(--color-light-gray);
-}
-
-.faq-answer {
+  }
+  
+  .faq-question:hover { background: var(--color-light-gray); }
+  
+  .faq-answer {
     max-height: 0;
     overflow: hidden;
     background: var(--color-white);
@@ -490,52 +542,44 @@ header {
     padding: 0 var(--spacing-md);
     line-height: 1.5;
     transition: max-height 0.4s ease, padding 0.4s ease;
-}
-
-.faq-item.active .faq-answer {
+  }
+  
+  .faq-item.active .faq-answer {
     max-height: 200px;
     padding: var(--spacing-md);
-}
-
-.faq-icon {
+  }
+  
+  .faq-icon {
     font-size: 1.2rem;
     transition: transform 0.3s ease;
-}
-
-.faq-item.active .faq-icon {
-    transform: rotate(45deg);
-}
-
-/* =========================================
-   FOOTER
-========================================= */
-footer {
-    background-color: var(--color-dark-gray);
-    color: var(--color-white);
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.footer-main {
-    padding: var(--spacing-xxl) 0;
-}
-
-.footer-container {
+  }
+  
+  .faq-item.active .faq-icon { transform: rotate(45deg); }
+  
+  /* =========================================
+     FOOTER
+  ========================================= */
+  footer { background-color: var(--color-dark-gray); color: var(--color-white); font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; }
+  
+  .footer-main { padding: var(--spacing-xxl) 0; }
+  
+  .footer-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-lg);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--spacing-xl);
-}
-
-.footer-links h4 {
+  }
+  
+  .footer-links h4 {
     margin-bottom: var(--spacing-lg);
     font-size: var(--font-size-md);
     position: relative;
     padding-bottom: var(--spacing-sm);
-}
-
-.footer-links h4::after {
+  }
+  
+  .footer-links h4::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -543,56 +587,32 @@ footer {
     width: 40px;
     height: 2px;
     background-color: var(--color-primary);
-}
-
-.footer-links ul {
-    list-style: none;
-}
-
-.footer-links li {
-    margin-bottom: var(--spacing-sm);
-}
-
-.footer-links a {
+  }
+  
+  .footer-links ul { list-style: none; }
+  .footer-links li { margin-bottom: var(--spacing-sm); }
+  .footer-links a {
     color: var(--color-light-gray);
     text-decoration: none;
     font-size: var(--font-size-sm);
-}
-
-.footer-links a:hover {
-    color: var(--color-primary);
-}
-
-.footer-newsletter {
+  }
+  .footer-links a:hover { color: var(--color-primary); }
+  
+  .footer-newsletter {
     grid-column: span 2 / auto;
-}
-
-.footer-newsletter h4 {
-    margin-bottom: var(--spacing-sm);
-    font-size: var(--font-size-md);
-}
-
-.footer-newsletter p {
-    color: var(--color-light-gray);
-    margin-bottom: var(--spacing-md);
-    font-size: var(--font-size-sm);
-}
-
-.newsletter-form {
-    display: flex;
-    margin-bottom: var(--spacing-lg);
-    gap: var(--spacing-sm);
-}
-
-.newsletter-form input {
+  }
+  .footer-newsletter h4 { margin-bottom: var(--spacing-sm); font-size: var(--font-size-md); }
+  .footer-newsletter p { color: var(--color-light-gray); margin-bottom: var(--spacing-md); font-size: var(--font-size-sm); }
+  
+  .newsletter-form { display: flex; margin-bottom: var(--spacing-lg); gap: var(--spacing-sm); }
+  .newsletter-form input {
     flex: 1;
     padding: var(--spacing-sm) var(--spacing-md);
     border: none;
     border-radius: 4px;
     font-size: var(--font-size-sm);
-}
-
-.newsletter-form button {
+  }
+  .newsletter-form button {
     background-color: var(--color-primary);
     color: white;
     border: none;
@@ -600,14 +620,10 @@ footer {
     border-radius: 4px;
     cursor: pointer;
     font-weight: 600;
-}
-
-.social-links {
-    display: flex;
-    gap: var(--spacing-md);
-}
-
-.social-links a {
+  }
+  
+  .social-links { display: flex; gap: var(--spacing-md); }
+  .social-links a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -616,24 +632,13 @@ footer {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     color: var(--color-white);
-}
-
-.social-links a:hover {
-    background-color: var(--color-primary);
-}
-
-.social-links img {
-    width: 20px;
-    height: 20px;
-    filter: brightness(0) invert(1);
-}
-
-.footer-sub {
-    padding: var(--spacing-md) 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-bottom {
+  }
+  .social-links a:hover { background-color: var(--color-primary); }
+  .social-links img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
+  
+  .footer-sub { padding: var(--spacing-md) 0; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+  
+  .footer-bottom {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-lg);
@@ -642,134 +647,12 @@ footer {
     align-items: center;
     flex-wrap: wrap;
     gap: var(--spacing-md);
-}
-
-.footer-bottom .logo img {
-    max-height: 40px;
-    filter: brightness(0.8);
-}
-
-.copyright {
-    font-size: var(--font-size-xs);
-    color: var(--color-light-gray);
-}
-
-.legal-links {
-    display: flex;
-    gap: var(--spacing-lg);
-}
-
-.legal-links a {
-    color: var(--color-light-gray);
-    text-decoration: none;
-    font-size: var(--font-size-xs);
-}
-
-.legal-links a:hover {
-    color: var(--color-primary);
-}
-
-/* =========================================
-   RESPONSIVIDADE
-========================================= */
-
-/* Tablet e telas médias */
-@media (max-width: 1024px) and (min-width: 769px) {
-    .pricing-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 cartões por linha */
-        gap: 2rem;
-    }
-
-    .pricing-card {
-        min-height: 36rem;
-        padding: 1.8rem;
-        transform: rotateY(3deg) rotateX(2deg) scale(1.02); /* parallax leve */
-    }
-
-    .pricing-title {
-        font-size: 2.2rem;
-    }
-
-    .price-amount {
-        font-size: 2.8rem;
-    }
-
-    .pricing-button {
-        font-size: 1.05rem;
-        padding: 0.9rem 0;
-    }
-
-    .pricing-button.primary {
-        font-size: 1rem;
-    }
-
-    /* Lista de recursos compacta */
-    .pricing-features li {
-        font-size: 0.9rem;
-        gap: 0.3rem;
-    }
-
-    /* Badges menores */
-    .pricing-badge {
-        padding: 6px 14px;
-        font-size: 0.7rem;
-    }
-
-    /* Rodapé do cartão */
-    .pricing-footer {
-        padding: 1rem;
-    }
-}
-
-/* Celulares e telas pequenas */
-@media (max-width: 480px) {
-
-    /* Container da seção reduzido */
-    .pricing-container {
-        padding: 0 1rem;
-    }
-
-    /* Títulos ainda menores */
-    .pricing-subtitle {
-        font-size: 1.5rem;
-    }
-
-    .pricing-title {
-        font-size: 1.8rem;
-    }
-
-    .price-amount {
-        font-size: 2rem;
-    }
-
-    /* Espaçamento entre cards menor */
-    .pricing-grid {
-        gap: 1.5rem;
-    }
-
-    /* Botões menores e mais fáceis de clicar */
-    .pricing-button {
-        font-size: 0.95rem;
-        padding: 0.7rem 0;
-    }
-
-    .pricing-button.primary {
-        font-size: 0.95rem;
-    }
-
-    /* Lista de recursos compacta */
-    .pricing-features li {
-        font-size: 0.85rem;
-    }
-
-    /* Badge ainda menor */
-    .pricing-badge {
-        padding: 5px 12px;
-        font-size: 0.65rem;
-    }
-
-    /* Rodapé compacto */
-    .pricing-footer {
-        padding: 0.8rem;
-    }
-}
+  }
+  .footer-bottom .logo img { max-height: 40px; filter: brightness(0.8); }
+  
+  .copyright { font-size: var(--font-size-xs); color: var(--color-light-gray); }
+  
+  .legal-links { display: flex; gap: var(--spacing-lg); }
+  .legal-links a { color: var(--color-light-gray); text-decoration: none; font-size: var(--font-size-xs); }
+  .legal-links a:hover { color: var(--color-primary); }
+  
