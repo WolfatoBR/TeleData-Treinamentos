@@ -140,67 +140,90 @@ header {
     cursor: pointer;
 }
 /* =========================================
-   SEÇÃO DE PLANOS - ESTILO MODERNO TELE DATA
+   LAYOUT DOS PLANOS COM IMAGENS
 ========================================= */
 
-.pricing-section {
-    background: radial-gradient(circle at top, #171836 0%, #0a0b20 100%);
-    color: #fff;
-    padding: 6rem 0 5rem;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
+.plans-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.plan-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 2rem 0;
+}
+
+.plan-item {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1000px;
+    width: 100%;
+}
+
+  /* Layout alternado - imagem à esquerda/direita */
+  .plan-section:nth-child(odd) .plan-item {
+      flex-direction: row;
   }
-  
-  .pricing-section h2.section-title.plan {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: #ffffff;
-    letter-spacing: 1.2px;
-    text-shadow: 0 0 10px rgba(255,255,255,0.1);
+
+  .plan-section:nth-child(even) .plan-item {
+      flex-direction: row-reverse;
   }
-  
-  .pricing-subtitle {
-    font-size: 1.2rem;
-    color: #d0d0d0;
-    margin-bottom: 3rem;
-  }
-  
-  /* =========================================
-     GRID DOS CARTÕES
-  ========================================= */
-  .pricing-grid {
+
+/* Container do card */
+.plan-card-container {
+    flex: 0 0 auto;
+}
+
+/* Container da imagem */
+.plan-image-container {
+    flex: 1;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 2.5rem;
-  }
-  
-  /* =========================================
-     CARTÕES DE PLANO
-  ========================================= */
-  .pricing-card {
-    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    align-items: center;
+}
+
+.plan-image {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.plan-image:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+}
+
+/* Ajuste dos cartões para o novo layout */
+.pricing-card {
+    width: 320px;
+    min-height: 500px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
     border-radius: 1.5rem;
     box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-    width: 310px;
     overflow: hidden;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
-    padding-bottom: 2.5rem;
     position: relative;
-  }
-  
-  .pricing-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 45px rgba(0,0,0,0.45);
-  }
-  
-  /* =========================================
-     CABEÇALHO DO PLANO
-  ========================================= */
-  .pricing-header {
-    height: 90px;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+}
+
+/* Header dos cartões */
+.pricing-header {
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -208,354 +231,974 @@ header {
     color: #fff;
     font-weight: 700;
     position: relative;
-  }
-  
-  .pricing-title {
-    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.pricing-title {
+    font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
     color: #fff;
-  }
-  
-  /* Gradientes por tipo de plano */
-  .pricing-card.basic .pricing-header {
-    background: linear-gradient(135deg, #ff7db8, #fca74b);
-    border-radius: 1.5rem 1.5rem 0 0;
-  }
-  
-  .pricing-card.featured .pricing-header {
-    background: linear-gradient(135deg, #a077ff, #fcb3ff);
-    border-radius: 1.5rem 1.5rem 0 0;
-  }
-  
-  .pricing-card.enterprise .pricing-header {
-    background: linear-gradient(135deg, #42d3ff, #48dcb7);
-    border-radius: 1.5rem 1.5rem 0 0;
-  }
-  
-  /* Linha decorativa */
-  .pricing-header::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    width: 2px;
-    height: 10px;
-    background: #fff;
-    opacity: 0.9;
-    transform: translateX(-50%);
-  }
-  
-  /* =========================================
-     PREÇO
-  ========================================= */
-  .pricing-price {
-    margin-top: 1rem;
-    font-size: 2.5rem;
-    font-weight: 700;
+    text-align: center;
+}
+
+/* Conteúdo dos cartões */
+.pricing-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.pricing-price {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.price-amount {
+    font-size: 2.8rem;
+    font-weight: 900;
     color: #fff;
-    padding-top: 0%;
-  }
-  
-  .pricing-price .price-period {
+    display: block;
+    line-height: 1;
+}
+
+.price-period {
     font-size: 1rem;
-    vertical-align: super;
-    opacity: 0.8;
-    margin-left: 0.2rem;
-  }
-  
-  /* =========================================
-     DESCRIÇÃO
-  ========================================= */
-  .pricing-description {
-    font-size: 0.95rem;
     color: #d0d0d0;
-    padding: 0 2rem;
-    margin: 1rem 0 1.8rem;
-    line-height: 1.7;
-  }
-  
-  /* =========================================
-     LISTA DE RECURSOS
-  ========================================= */
-  .pricing-features {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.pricing-description {
+    font-size: 0.9rem;
+    color: #d0d0d0;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.pricing-features {
     list-style: none;
     padding: 0;
     margin: 0 0 2rem;
-  }
-  
-  .pricing-features li {
-    font-size: 0.95rem;
-    padding: 0.7rem 0;
+    flex-grow: 1;
+}
+
+.pricing-features li {
+    font-size: 0.85rem;
+    padding: 0.6rem 0;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.7rem;
     color: #fff;
-    opacity: 0.95;
-  }
-  
-  .pricing-features li::before {
+    opacity: 0.9;
+}
+
+.pricing-features li::before {
     content: "✔";
     color: #48dcb7;
     font-weight: 700;
-    font-size: 1rem;
-  }
-  
-  /* Cor especial para o plano Premium */
-  .pricing-card.featured .pricing-features li::before {
-    color: #fcb3ff;
-  }
-  
-  /* =========================================
-     BOTÃO
-  ========================================= */
-  .pricing-button {
-    display: inline-block;
-    padding: 0.9rem 2.8rem;
-    border-radius: 2rem;
-    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Botões ajustados */
+.pricing-button {
+    width: 100%;
+    padding: 0.9rem 0;
+    border-radius: 25px;
+    font-weight: 700;
     border: 2px solid #fff;
     color: #fff;
     background: transparent;
     cursor: pointer;
     transition: all 0.4s ease;
-  }
-  
-  .pricing-button:hover {
-    background: #fff;
-    color: #0b0d26;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(255,255,255,0.2);
-  }
-  
-  .pricing-button.primary {
-    background: #a077ff;
-    border-color: #a077ff;
-    color: #0b0d26;
-  }
-  
-  .pricing-button.primary:hover {
-    background: #fff;
-    color: #0b0d26;
-  }
-  
-  /* =========================================
-     RODAPÉ DOS PLANOS
-  ========================================= */
-  .pricing-footer {
     text-align: center;
-    padding: 1.8rem;
-    background: #ffffff;
-    border-radius: 1.2rem;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease;
-    margin-top: 2rem;
-    color: #0b0d26;
-    font-weight: 500;
-  }
-  
-  .pricing-footer:hover {
-    transform: translateY(-4px);
-  }
-  
-  .pricing-footer a {
-    color: #2c56ca;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
-  
-  .pricing-footer a:hover {
-    color: #1e3ea8;
-    text-decoration: underline;
-  }
-  
-  .plan-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .plan-name {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 1rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
-  }
-  
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
 
+.pricing-button:hover {
+    background: #fff;
+    color: #0b0d26;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255,255,255,0.2);
+}
+
+/* Gradientes específicos */
+.pricing-card.basic .pricing-header {
+    background: linear-gradient(135deg, #ff7db8, #fca74b);
+}
+
+.pricing-card.featured .pricing-header {
+    background: linear-gradient(135deg, #a077ff, #fcb3ff);
+}
+
+.pricing-card.enterprise .pricing-header {
+    background: linear-gradient(135deg, #42d3ff, #48dcb7);
+}
+
+/* Badge para plano em destaque */
+.pricing-card.featured::before {
+    content: 'POPULAR';
+    position: absolute;
+    top: 20px;
+    right: -30px;
+    background: linear-gradient(135deg, #a077ff, #fcb3ff);
+    color: white;
+    padding: 8px 35px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transform: rotate(45deg);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 10;
+}
 /* =========================================
-   RESPONSIVIDADE SEÇÃO DE PLANOS TELE DATA
+   CORES MELHORADAS - CONTEÚDO PRINCIPAL
 ========================================= */
 
-/* Tablets e telas médias (769px a 1024px) */
-@media (max-width: 1024px) and (min-width: 769px) {
-    .pricing-section {
-      padding: 4rem 0;
+/* Fundo da seção de planos mais bonito */
+.pricing-section {
+    background: radial-gradient(circle at top, #1a1b3a 0%, #0c0d23 100%);
+    color: #fff;
+    padding: 6rem 0 5rem;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de partículas no fundo (opcional) */
+.pricing-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Títulos com gradiente */
+.section-title.plan {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 50%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 20px rgba(129, 140, 248, 0.3);
+    letter-spacing: 1.5px;
+}
+
+.pricing-subtitle {
+    font-size: 1.2rem;
+    color: #c7d2fe;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* Cartões com cores mais vibrantes */
+.pricing-card {
+    width: 320px;
+    min-height: 500px;
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.12) 0%, 
+        rgba(255, 255, 255, 0.06) 50%,
+        rgba(255, 255, 255, 0.02) 100%);
+    border-radius: 1.5rem;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Headers com gradientes mais bonitos */
+.pricing-card.basic .pricing-header {
+    background: linear-gradient(135deg, 
+        #ff6b9d 0%, 
+        #ff8e53 50%, 
+        #ffb347 100%);
+    border-radius: 1.5rem 1.5rem 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-card.basic .pricing-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    animation: shimmer 3s infinite;
+}
+
+.pricing-card.featured .pricing-header {
+    background: linear-gradient(135deg, 
+        #a78bfa 0%, 
+        #c084fc 30%, 
+        #e879f9 70%, 
+        #f0abfc 100%);
+    border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.pricing-card.enterprise .pricing-header {
+    background: linear-gradient(135deg, 
+        #38bdf8 0%, 
+        #0ea5e9 30%, 
+        #22d3ee 70%, 
+        #67e8f9 100%);
+    border-radius: 1.5rem 1.5rem 0 0;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Títulos dos cartões */
+.pricing-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Preços com destaque */
+.price-amount {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #fff;
+    display: block;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.price-period {
+    font-size: 1rem;
+    color: #cbd5e1;
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Descrição */
+.pricing-description {
+    font-size: 0.9rem;
+    color: #e2e8f0;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* Lista de features melhorada */
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    flex-grow: 1;
+}
+
+.pricing-features li {
+    font-size: 0.85rem;
+    padding: 0.6rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: #f1f5f9;
+    opacity: 0.95;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pricing-features li:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.pricing-features li:last-child {
+    border-bottom: none;
+}
+
+.pricing-features li::before {
+    content: "✓";
+    color: #10b981;
+    font-weight: 700;
+    font-size: 0.9rem;
+    background: rgba(16, 185, 129, 0.1);
+    padding: 4px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Cores específicas para cada plano */
+.pricing-card.basic .pricing-features li::before {
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.pricing-card.featured .pricing-features li::before {
+    color: #8b5cf6;
+    background: rgba(139, 92, 246, 0.1);
+}
+
+.pricing-card.enterprise .pricing-features li::before {
+    color: #06b6d4;
+    background: rgba(6, 182, 212, 0.1);
+}
+
+/* Botões com gradientes vibrantes */
+.pricing-button {
+    width: 100%;
+    padding: 0.9rem 0;
+    border-radius: 25px;
+    font-weight: 700;
+    border: none;
+    color: #fff;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.2) 0%, 
+        rgba(255, 255, 255, 0.1) 100%);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    margin-top: auto;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pricing-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent);
+    transition: left 0.6s ease;
+}
+
+.pricing-button:hover::before {
+    left: 100%;
+}
+
+.pricing-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(255, 255, 255, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.3) 0%, 
+        rgba(255, 255, 255, 0.2) 100%);
+}
+
+/* Cores específicas dos botões */
+.pricing-card.basic .pricing-button:hover {
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+}
+
+.pricing-card.featured .pricing-button:hover {
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+}
+
+.pricing-card.enterprise .pricing-button:hover {
+    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3);
+}
+
+/* Badge POPULAR melhorado */
+.pricing-card.featured::before {
+    content: '🌟 POPULAR';
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background: linear-gradient(135deg, 
+        #a78bfa 0%, 
+        #c084fc 50%, 
+        #e879f9 100%);
+    color: white;
+    padding: 8px 40px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    transform: rotate(45deg);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+    z-index: 10;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Imagens com efeito melhorado */
+.plan-image {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    filter: brightness(1.05) contrast(1.1);
+}
+
+.plan-image:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    filter: brightness(1.1) contrast(1.2);
+}
+
+/* Footer da seção de planos */
+.pricing-footer {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 1.2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    margin-top: 3rem;
+    color: #e2e8f0;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.pricing-footer:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-footer a {
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pricing-footer a:hover {
+    text-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
+}
+/* =========================================
+   EFEITO DE SCROLL - PLANOS DESAPARECENDO
+========================================= */
+
+.plans-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.plan-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem 0;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+}
+
+/* Plano ATIVO (visível no centro da tela) */
+.plan-section.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    z-index: 10;
+}
+
+.plan-section.active .pricing-card {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.plan-section.active .plan-image {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* Planos ANTERIORES (acima da tela) */
+.plan-section.previous {
+    opacity: 0;
+    transform: translateY(-50px);
+    pointer-events: none;
+}
+
+.plan-section.previous .pricing-card {
+    transform: translateY(-30px) scale(0.95);
+    opacity: 0;
+}
+
+.plan-section.previous .plan-image {
+    transform: translateY(-30px) scale(0.95);
+    opacity: 0;
+}
+
+/* Planos POSTERIORES (abaixo da tela) */
+.plan-section.next {
+    opacity: 0.3;
+    transform: translateY(50px);
+    pointer-events: none;
+}
+
+.plan-section.next .pricing-card {
+    transform: translateY(20px) scale(0.9);
+    opacity: 0.5;
+}
+
+.plan-section.next .plan-image {
+    transform: translateY(20px) scale(0.9);
+    opacity: 0.5;
+}
+
+/* Efeito de blur nos planos inativos */
+.plan-section:not(.active) {
+    filter: blur(2px);
+}
+
+.plan-section.active {
+    filter: blur(0);
+}
+
+/* Indicador de scroll (opcional) */
+.scroll-indicator {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 1000;
+}
+
+.scroll-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.scroll-dot.active {
+    background: #a78bfa;
+    border-color: #c084fc;
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(167, 139, 250, 0.5);
+}
+
+.scroll-dot:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Animação suave para todas as transições */
+.pricing-card,
+.plan-image {
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Efeito de parallax nas imagens */
+.plan-image {
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .plan-section {
+        min-height: 90vh;
+        padding: 1rem 0;
     }
-  
-    .pricing-container {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
+    
+    .scroll-indicator {
+        right: 1rem;
     }
-  
-    .pricing-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+    
+    .scroll-dot {
+        width: 10px;
+        height: 10px;
     }
-  
+}
+/* Transição inicial suave */
+body:not(.scroll-initialized) .plan-section {
+    transition: none !important;
+}
+
+/* Efeito de fade-in na inicialização */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.plan-section {
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+.plan-section:nth-child(1) { animation-delay: 0.1s; }
+.plan-section:nth-child(2) { animation-delay: 0.3s; }
+.plan-section:nth-child(3) { animation-delay: 0.5s; }
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 1024px) {
+    .plan-item {
+        gap: 2rem;
+    }
+    
     .pricing-card {
-      width: 45%;
-      min-height: 36rem;
-      padding: 1.8rem;
-      transform: rotateY(3deg) rotateX(2deg) scale(1.02);
+        width: 300px;
     }
-  
-    .pricing-title { font-size: 2.2rem; }
-    .pricing-price { font-size: 2.6rem; }
-    .price-amount { font-size: 2.8rem; }
-    .pricing-description { font-size: 0.95rem; }
-    .pricing-features li { font-size: 0.9rem; gap: 0.3rem; }
-    .pricing-button { font-size: 1.05rem; padding: 0.9rem 0; }
-    .pricing-button.primary { font-size: 1rem; }
-    .pricing-footer { padding: 1rem; }
-  }
-  
-  /* Celulares e telas pequenas (até 480px) */
-  @media (max-width: 480px) {
-    .pricing-container {
-      flex-direction: column;
-      align-items: center;
-      padding: 0 1rem;
+    
+    .plan-image {
+        max-width: 350px;
     }
-  
-    .pricing-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .plans-layout {
+        gap: 3rem;
+        padding: 0 1rem;
     }
-  
+    
+    .plan-section {
+        min-height: auto;
+        padding: 1.5rem 0;
+    }
+    
+    .plan-item {
+        flex-direction: column !important;
+        gap: 2rem;
+    }
+    
+    .plan-image {
+        max-width: 300px;
+        order: -1;
+    }
+    
     .pricing-card {
-      width: 90%;
-      min-height: auto;
-      padding: 1.5rem;
+        width: 100%;
+        max-width: 350px;
     }
-  
-    .pricing-subtitle { font-size: 1.5rem; }
-    .pricing-title { font-size: 1.8rem; }
-    .pricing-price { font-size: 2.2rem; }
-    .price-amount { font-size: 2rem; }
-    .pricing-description { font-size: 0.9rem; }
-    .pricing-features li { font-size: 0.85rem; }
-    .pricing-button { font-size: 0.95rem; padding: 0.8rem 0; }
-    .pricing-button.primary { font-size: 0.95rem; }
-    .pricing-footer { padding: 0.8rem; }
-  }
-  
-  /* Telas pequenas adicionais (481px–768px) */
-  @media (max-width: 768px) and (min-width: 481px) {
-    .pricing-container { flex-direction: column; align-items: center; }
-    .pricing-card { width: 80%; margin-bottom: 2rem; }
-    .pricing-title { font-size: 2rem; }
-    .pricing-price { font-size: 2.4rem; }
-    .pricing-description { font-size: 1rem; }
-  }
-  
+    
+    .pricing-card.featured::before {
+        top: 15px;
+        right: -25px;
+        padding: 6px 25px;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .plans-layout {
+        gap: 2rem;
+    }
+    
+    .plan-section {
+        padding: 1rem 0;
+    }
+    
+    .plan-image {
+        max-width: 280px;
+    }
+    
+    .price-amount {
+        font-size: 2.4rem;
+    }
+    
+    .pricing-title {
+        font-size: 1.2rem;
+    }
+    @media (max-width: 768px) {
+    .faq-section {
+        margin: 2rem auto;
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+    
+    .faq-title {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .faq-question {
+        padding: var(--spacing-md);
+        font-size: 1rem;
+    }
+    
+    .faq-answer {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: var(--spacing-md);
+    }
+    
+    .faq-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 1.2rem;
+    }
+}
+}
   /* =========================================
-     RESPONSIVIDADE GERAL (até 1024px)
-  ========================================= */
-  @media (max-width: 1024px) {
-    .pricing-grid { justify-content: center; }
-  }
-  
-  @media (max-width: 768px) {
-    .pricing-section h2 { font-size: 2.4rem; }
-  }
-  
-  /* =========================================
-     FAQ
-  ========================================= */
-  .faq-section {
-    background: #ffffff;
+   FAQ - DESIGN MODERNO E HARMONIZADO
+========================================= */
+.faq-section {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.95) 0%, 
+        rgba(255, 255, 255, 0.98) 100%);
     padding: var(--spacing-xxl) var(--spacing-lg);
     max-width: 1000px;
-    margin: 0 auto;
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-sm);
-  }
-  
-  .faq-title {
-    text-align: center;
-    font-size: 2rem;
-    color: var(--color-primary-dark);
-    font-weight: 700;
-    margin-bottom: var(--spacing-xl);
+    margin: 4rem auto;
+    border-radius: var(--border-radius-xl);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     position: relative;
-  }
-  
-  .faq-title::after {
+    overflow: hidden;
+}
+
+/* Efeito de brilho no fundo */
+.faq-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle at center,
+        rgba(44, 86, 202, 0.05) 0%,
+        transparent 70%
+    );
+    z-index: 0;
+}
+
+.faq-title {  
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-xxl);
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #667eea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 20px rgba(44, 86, 202, 0.2);
+}
+
+.faq-title::after {
     content: "";
     display: block;
-    width: 80px;
-    height: 4px;
-    background: var(--color-accent);
-    margin: 10px auto 0;
-    border-radius: 2px;
-  }
-  
-  .faq-item {
-    background: var(--color-white);
-    border-radius: var(--border-radius-md);
-    margin-bottom: var(--spacing-md);
+    width: 100px;
+    height: 6px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, #ffd166 100%);
+    margin: 1rem auto 0;
+    border-radius: 3px;
+    box-shadow: 0 4px 12px rgba(230, 158, 43, 0.3);
+}
+
+.faq-item {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.9) 0%, 
+        rgba(248, 249, 255, 0.8) 100%);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-lg);
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
-  }
-  
-  .faq-question {
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 1;
+}
+
+.faq-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 8px 30px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.faq-item.active {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 12px 40px rgba(44, 86, 202, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border-color: rgba(44, 86, 202, 0.2);
+}
+
+.faq-question {
     width: 100%;
-    background: var(--color-white);
-    color: var(--color-dark-gray);
-    font-weight: 600;
-    font-size: 1rem;
+    background: transparent;
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    font-size: 1.1rem;
     text-align: left;
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-xl);
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: none;
-    transition: background 0.3s ease;
-  }
-  
-  .faq-question:hover { background: var(--color-light-gray); }
-  
-  .faq-answer {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.faq-question:hover {
+    background: linear-gradient(135deg, 
+        rgba(44, 86, 202, 0.03) 0%, 
+        rgba(102, 126, 234, 0.05) 100%);
+    color: var(--color-primary);
+}
+
+.faq-item.active .faq-question {
+    background: linear-gradient(135deg, 
+        rgba(44, 86, 202, 0.08) 0%, 
+        rgba(102, 126, 234, 0.12) 100%);
+    color: var(--color-primary);
+}
+
+.faq-answer {
     max-height: 0;
     overflow: hidden;
-    background: var(--color-white);
-    color: var(--color-dark-gray);
-    padding: 0 var(--spacing-md);
-    line-height: 1.5;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-  }
-  
-  .faq-item.active .faq-answer {
-    max-height: 200px;
-    padding: var(--spacing-md);
-  }
-  
-  .faq-icon {
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
-  }
-  
-  .faq-item.active .faq-icon { transform: rotate(45deg); }
-  
+    background: linear-gradient(135deg, 
+        rgba(248, 249, 255, 0.6) 0%, 
+        rgba(255, 255, 255, 0.8) 100%);
+    color: var(--color-medium-gray);
+    padding: 0 var(--spacing-xl);
+    line-height: 1.7;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1rem;
+    border-top: 1px solid transparent;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-top-color: rgba(44, 86, 202, 0.1);
+}
+
+.faq-icon {
+    font-size: 1.4rem;
+    font-weight: 300;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--color-primary);
+    background: rgba(44, 86, 202, 0.1);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.faq-question:hover .faq-icon {
+    background: rgba(44, 86, 202, 0.15);
+    transform: scale(1.1);
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg) scale(1.1);
+    background: linear-gradient(135deg, var(--color-primary) 0%, #667eea 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(44, 86, 202, 0.3);
+}
+
+/* Efeito de borda gradiente para itens ativos */
+.faq-item.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+}
+
+/* Animação suave para o conteúdo da resposta */
+.faq-answer p {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
   /* =========================================
      FOOTER
   ========================================= */

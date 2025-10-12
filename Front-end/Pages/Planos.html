@@ -48,85 +48,120 @@
     <h2 class="section-title plan">Escolha o Plano Perfeito</h2>
     <p class="pricing-subtitle">Invista no seu futuro com planos flexíveis e acessíveis</p>
 
-    <div class="pricing-grid">
+    <div class="plans-layout">
+      
       <!-- PLANO BÁSICO -->
-      <div class="plan-wrapper">
-        <h3 class="plan-name">Básico</h3>
-        <div class="pricing-card basic">
-          <div class="pricing-header">
-            <div class="pricing-price">
-              <span class="price-amount">R$49</span> 
-              <span class="price-period">/mês</span>
+      <section class="plan-section" id="plan-basico">
+        <div class="plan-item">
+          <!-- Container do Card -->
+          <div class="plan-card-container">
+            <div class="pricing-card basic">
+              <div class="pricing-header">
+                <div class="pricing-title">Básico</div>
+              </div>
+              <div class="pricing-content">
+                <div class="pricing-price">
+                  <span class="price-amount">R$49</span>
+                  <span class="price-period">/mês</span>
+                </div>
+                <p class="pricing-description">Ideal para iniciantes</p>
+                <ul class="pricing-features">
+                  <li>Acesso a 5 cursos mensais</li>
+                  <li>Certificado digital</li>
+                  <li>Suporte por email</li>
+                  <li>Acesso por 30 dias</li>
+                </ul>
+                <button class="pricing-button">ESCOLHER PLANO</button>
+              </div>
             </div>
           </div>
-          <p class="pricing-description">Ideal para iniciantes</p>
-          <ul class="pricing-features">
-            <li>Acesso a 5 cursos mensais</li>
-            <li>Certificado digital</li>
-            <li>Suporte por email</li>
-            <li>Acesso por 30 dias</li>
-          </ul>
-          <button class="pricing-button">Escolher Plano</button>
+          
+          <!-- Container da Imagem -->
+          <div class="plan-image-container">
+            <img src="/Front-end/Img/aluna.png" alt="Educação Online" class="plan-image">
+          </div>
         </div>
-      </div>
-    
+      </section>
+
       <!-- PLANO PREMIUM -->
-      <div class="plan-wrapper">
-        <h3 class="plan-name">Premium</h3>
-        <div class="pricing-card featured">
-          <div class="pricing-header">
-            <div class="pricing-price">
-              <span class="price-amount">R$ 99</span>
-              <span class="price-period">/mês</span>
+    <section class="plan-section" id="plan-premium">
+    <div class="plan-item">
+        <!-- Container do Card (AGORA VEM PRIMEIRO - ESQUERDA) -->
+        <div class="plan-card-container">
+            <div class="pricing-card featured">
+                <div class="pricing-header">
+                    <div class="pricing-title">Premium</div>
+                </div>
+                <div class="pricing-content">
+                    <div class="pricing-price">
+                        <span class="price-amount">R$99</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                    <p class="pricing-description">Para desenvolvimento contínuo</p>
+                    <ul class="pricing-features">
+                        <li>Acesso ilimitado a todos os cursos</li>
+                        <li>Certificado digital premium</li>
+                        <li>Suporte prioritário 24/7</li>
+                        <li>Acesso vitalício</li>
+                        <li>Conteúdo exclusivo</li>
+                        <li>2 mentorias mensais</li>
+                        <li>Projetos práticos guiados</li>
+                    </ul>
+                    <button class="pricing-button">ESCOLHER PLANO</button>
+                </div>
             </div>
-          </div>
-          <p class="pricing-description">Para desenvolvimento contínuo</p>
-          <ul class="pricing-features">
-            <li>Acesso ilimitado a todos os cursos</li>
-            <li>Certificado digital premium</li>
-            <li>Suporte prioritário 24/7</li>
-            <li>Acesso vitalício</li>
-            <li>Conteúdo exclusivo</li>
-            <li>2 mentorias mensais</li>
-            <li>Projetos práticos guiados</li>
-          </ul>
-          <button class="pricing-button primary">Escolher Plano</button>
         </div>
-      </div>
-    
-      <!-- PLANO EMPRESARIAL -->
-      <div class="plan-wrapper">
-        <h3 class="plan-name">Empresarial</h3>
-        <div class="pricing-card enterprise">
-          <div class="pricing-header">
-            <div class="pricing-price">
-              <span class="price-amount">R$ 199</span>
-              <span class="price-period">/mês</span>
-            </div>
-          </div>
-          <p class="pricing-description">Para equipes e empresas</p>
-          <ul class="pricing-features">
-            <li>5 licenças simultâneas</li>
-            <li>Certificados corporativos</li>
-            <li>Suporte dedicado</li>
-            <li>Acesso vitalício</li>
-            <li>Conteúdo exclusivo</li>
-            <li>Mentorias em grupo</li>
-            <li>Relatórios de progresso</li>
-            <li>Personalização corporativa</li>
-          </ul>
-          <button class="pricing-button">Escolher Plano</button>
+        
+        <!-- Container da Imagem (AGORA VEM DEPOIS - DIREITA) -->
+        <div class="plan-image-container">
+            <img src="/Front-end/Img/site-premium.png" alt="Qualidade Premium" class="plan-image">
         </div>
-      </div>
     </div>
-    
+</section>
+      <!-- PLANO EMPRESARIAL -->
+      <section class="plan-section" id="plan-empresarial">
+        <div class="plan-item">
+          <!-- Container do Card -->
+          <div class="plan-card-container">
+            <div class="pricing-card enterprise">
+              <div class="pricing-header">
+                <div class="pricing-title">Empresarial</div>
+              </div>
+              <div class="pricing-content">
+                <div class="pricing-price">
+                  <span class="price-amount">R$199</span>
+                  <span class="price-period">/mês</span>
+                </div>
+                <p class="pricing-description">Para equipes e empresas</p>
+                <ul class="pricing-features">
+                  <li>5 licenças simultâneas</li>
+                  <li>Certificados corporativos</li>
+                  <li>Suporte dedicado</li>
+                  <li>Acesso vitalício</li>
+                  <li>Conteúdo exclusivo</li>
+                  <li>Mentorias em grupo</li>
+                  <li>Relatórios de progresso</li>
+                  <li>Personalização corporativa</li>
+                </ul>
+                <button class="pricing-button">ESCOLHER PLANO</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Container da Imagem -->
+          <div class="plan-image-container">
+            <img src="/Front-end/Img/corporacao.png" alt="Empresa B2B" class="plan-image">
+          </div>
+        </div>
+      </section>
+
+    </div>
 
     <div class="pricing-footer">
       <p>Todos os planos incluem garantia de 7 dias. Dúvidas? <a href="#">Fale com nosso time</a></p>
     </div>
   </div>
 </section>
-
 
   <!-- ========================= SEÇÃO DE PERGUNTAS FREQUENTES ========================== -->
   <section class="faq-section">
@@ -262,6 +297,139 @@
       });
     });
   </script>
+<script>
+// Efeito de scroll - planos desaparecendo (CORRIGIDO)
+document.addEventListener('DOMContentLoaded', function() {
+    const planSections = document.querySelectorAll('.plan-section');
+    const faqSection = document.querySelector('.faq-section');
+    const scrollIndicator = document.createElement('div');
+    scrollIndicator.className = 'scroll-indicator';
+    
+    // Criar indicadores de scroll
+    planSections.forEach((section, index) => {
+        const dot = document.createElement('div');
+        dot.className = 'scroll-dot';
+        dot.setAttribute('data-index', index);
+        dot.addEventListener('click', () => {
+            scrollToSection(index);
+        });
+        scrollIndicator.appendChild(dot);
+    });
+    
+    document.body.appendChild(scrollIndicator);
+    
+    let currentActive = 0;
+    let isScrolling = false;
+    let userIsScrollingFAQ = false;
 
+    function isInFAQViewport() {
+        if (!faqSection) return false;
+        const rect = faqSection.getBoundingClientRect();
+        return rect.top < window.innerHeight * 0.7 && rect.bottom > window.innerHeight * 0.3;
+    }
+
+    function updateActiveSection() {
+        // Se o usuário está no FAQ, não fazer scroll automático
+        if (isInFAQViewport()) {
+            userIsScrollingFAQ = true;
+            return;
+        } else {
+            userIsScrollingFAQ = false;
+        }
+
+        const viewportHeight = window.innerHeight;
+        const scrollY = window.scrollY;
+        
+        planSections.forEach((section, index) => {
+            const rect = section.getBoundingClientRect();
+            const sectionTop = rect.top + scrollY;
+            const sectionMiddle = sectionTop + (rect.height / 2);
+            
+            // Verifica se a seção está no centro da tela
+            const distanceFromCenter = Math.abs(sectionMiddle - (scrollY + viewportHeight / 2));
+            const isActive = distanceFromCenter < viewportHeight / 3;
+            
+            section.classList.remove('active', 'previous', 'next');
+            
+            if (isActive) {
+                section.classList.add('active');
+                currentActive = index;
+            } else if (index < currentActive) {
+                section.classList.add('previous');
+            } else {
+                section.classList.add('next');
+            }
+        });
+        
+        // Atualizar dots do indicador
+        updateScrollDots();
+    }
+    
+    function updateScrollDots() {
+        const dots = document.querySelectorAll('.scroll-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentActive);
+        });
+    }
+    
+    function scrollToSection(index) {
+        if (isScrolling || index < 0 || index >= planSections.length) return;
+        
+        isScrolling = true;
+        planSections[index].scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+        
+        // Resetar flag após scroll
+        setTimeout(() => {
+            isScrolling = false;
+        }, 1000);
+    }
+    
+    // Navegação por teclado - DESATIVAR quando no FAQ
+    document.addEventListener('keydown', (e) => {
+        if (isScrolling || userIsScrollingFAQ) return;
+        
+        if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+            e.preventDefault();
+            scrollToSection(Math.min(currentActive + 1, planSections.length - 1));
+        } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+            e.preventDefault();
+            scrollToSection(Math.max(currentActive - 1, 0));
+        }
+    });
+    
+    // Navegação por wheel com throttle - DESATIVAR quando no FAQ
+    let wheelTimeout;
+    document.addEventListener('wheel', (e) => {
+        if (isScrolling || userIsScrollingFAQ) return;
+        
+        clearTimeout(wheelTimeout);
+        wheelTimeout = setTimeout(() => {
+            if (e.deltaY > 50 && currentActive < planSections.length - 1) {
+                scrollToSection(currentActive + 1);
+            } else if (e.deltaY < -50 && currentActive > 0) {
+                scrollToSection(currentActive - 1);
+            }
+        }, 100);
+    }, { passive: true });
+    
+    // Observar mudanças de scroll
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        if (scrollTimeout) clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(updateActiveSection, 50);
+    }, { passive: true });
+    
+    // Inicializar
+    updateActiveSection();
+    
+    // Adicionar classe de carregamento inicial
+    setTimeout(() => {
+        document.body.classList.add('scroll-initialized');
+    }, 500);
+});
+</script>
 </body>
 </html>
