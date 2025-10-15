@@ -6,6 +6,8 @@ const User = require("../database/models/user");
 
 const router = express.Router();
 
+const {handleError} = require("../utils/handleError"); // Importa minha função de tratar erro.
+const ErrorModel = require("../database/models/error"); // Importa meu model Error
 // Rota de login
 router.post("/", async (req, res) => {
   console.log("Requisição recebida:", req.body);
@@ -24,11 +26,15 @@ router.post("/", async (req, res) => {
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password_hash);
-    if (!isPasswordValid) {
-      return res.status(401).json({ error: "Credenciais inválidas" });
-    }
+    if (!isPasswordValid) return await handleError(error,res,ErrorModel);
 
-    // Criar token com user_type incluído
+    // Isso aqui basicamente é um (Update do Sql)
+    await User.update(
+      { is_online: true }, // Isso aqui atualiza o campo de is_online para true ( deixando o meu user online).
+      { where: { user_id: user.user_id } } // isso diz que o user_id é igual ao user_id do usuario que fez o login.
+    );
+
+    // Gera o token JWT
     const token = jwt.sign(
       { 
         user_id: user.user_id, 
@@ -39,22 +45,16 @@ router.post("/", async (req, res) => {
       { expiresIn: "1h" }
     );
 
-    // Retornar token e dados do usuário
-    res.json({
-      message: "Login realizado com sucesso",
-      token: token,
-      user: {
-        user_id: user.user_id,
-        email: user.email,
-        full_name: user.full_name,
-        user_type: user.user_type
-      }
-    });
+    // Você pode enviar o token junto no redirecionamento ou via JSON
+    // Aqui vou enviar como cookie e redirecionar
+    res.cookie("token", token, { httpOnly: true, maxAge: 3600000 }); // 1 hora
+    res.redirect("/"); // Redireciona para dashboard ou home
 
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Erro interno no servidor" });
+  } catch (error) {
+    await handleError(error,res,ErrorModel);
+    res.redirect("/loginpage"); // Redireciona de volta para a página de login em caso de erro
   }
+
 });
 
 module.exports = router;
