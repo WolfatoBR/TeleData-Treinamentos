@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS da página atual -->
+    <link rel="stylesheet" href="/Front-end/Styles/pagamento.css">
+    <!-- JS da página atual -->
+    <script src="/Front-end/JavaScript/pagamento.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+    <!-- Ícones do Google fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Bibliotecas para animações -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title>TeleData Treinamentos</title>
+</head>
+
+<body>
+    <!-- <div class="chama-menu"></div> -->
+
+
+    <div class="pagamento-container">
+        <div class="voltar">
+            <a href="/frontend/html/planos/cursos_planos.html" class="voltar-link">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Voltar
+            </a>
+        </div>
+        <div class="barra-nomeCurso">
+            <span class="caixa-pagamento animate__animated animate__fadeIn">
+                PAGAMENTO
+            </span>
+        </div>
+
+        <div class="pagamento-content">
+            <!-- Progress Steps -->
+            <div class="progress-steps animate__animated animate__fadeInUp">
+                <div class="step active" data-step="1">
+                    <div class="step-circle">1</div>
+                    <div class="step-label">Informações</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-circle">2</div>
+                    <div class="step-label">Pagamento</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-circle">3</div>
+                    <div class="step-label">Confirmação</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+
+
+
+            <!-- Container principal de opções -->
+            <div class="payment-main-container">
+                <!-- Coluna esquerda - PIX e Boleto -->
+                <div class="payment-left-column">
+                    <!-- Formulário PIX -->
+                    <div class="pix-option animate__animated animate__fadeInLeft">
+                        <div class="pix-card">
+                            <div class="card-header">
+                                <h2>PIX ou QR Code</h2>
+                            </div>
+
+                            <div class="card-body">
+                                <p>Para realizar o pagamento, escaneie o QR Code abaixo ou copie o código PIX.</p>
+                                <img src="/frontend/img/QRCode.png" alt="QR Code PIX" class="qr-code">
+                                <div class="pix-code-container">
+                                    <p class="pix-code">
+                                        Código PIX: <strong id="pixCode">https://qrco.de/bg1LE3</strong>
+                                    </p>
+                                    <button class="copy-pix-btn" id="copyPixBtn" title="Copiar código PIX">
+                                        <span class="material-symbols-outlined">content_copy</span>
+                                    </button>
+                                    <span class="copy-feedback" id="copyFeedback">Copiado!</span>
+                                </div>
+                                <button class="pay-button pix-button">
+                                    <span class="material-symbols-outlined">qr_code</span>
+                                    PAGAR COM PIX
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulário Boleto -->
+                    <div class="boleto-option">
+                        <div class="boleto-card">
+                            <div class="card-header">
+                                <h2>Boleto Bancário</h2>
+                            </div>
+
+                            <div class="card-body">
+                                <p>Para pagar via boleto, clique no botão abaixo para gerar o boleto. Você pode imprimir
+                                    ou salvar o PDF.</p>
+
+                                <div class="boleto-info">
+                                    <div class="info-item">
+                                        <span class="material-symbols-outlined">calendar_month</span>
+                                        <span>Vencimento: <strong>27/05/2025</strong></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="material-symbols-outlined">attach_money</span>
+                                        <span>Valor: <strong>R$ 89,90</strong></span>
+                                    </div>
+                                </div>
+
+                                <button class="pay-button boleto-button">
+                                    <span class="material-symbols-outlined">receipt</span>
+                                    GERAR BOLETO
+                                </button>
+
+                                <div class="security-info">
+                                    <span class="material-symbols-outlined">verified_user</span>
+                                    <span>O boleto pode levar até 3 dias úteis para ser compensado.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna direita - Cartão -->
+                <div class="payment-right-column">
+                    <!-- Formulário Cartão -->
+                    <div class="card-option animate__animated animate__fadeInRight">
+                        <div class="payment-card">
+                            <div class="card-header">
+                                <h2>Cartão de Crédito</h2>
+                            </div>
+
+                            <div class="card-body">
+                                <form id="paymentForm">
+                                    <div class="form-group">
+                                        <label for="cardNumber">Número do Cartão</label>
+                                        <div class="input-with-icon">
+                                            <span class="material-symbols-outlined">credit_card</span>
+                                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456"
+                                                maxlength="19">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cardName">Nome no Cartão</label>
+                                        <div class="input-with-icon">
+                                            <span class="material-symbols-outlined">person</span>
+                                            <input type="text" id="cardName" placeholder="Nome como impresso no cartão">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="expiryDate">Validade</label>
+                                            <div class="input-with-icon">
+                                                <span class="material-symbols-outlined">calendar_month</span>
+                                                <input type="text" id="expiryDate" placeholder="MM/AA" maxlength="5">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="cvv">CVV</label>
+                                            <div class="input-with-icon">
+                                                <span class="material-symbols-outlined">lock</span>
+                                                <input type="text" id="cvv" placeholder="123" maxlength="3">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cpf">CPF do Titular</label>
+                                        <div class="input-with-icon">
+                                            <span class="material-symbols-outlined">badge</span>
+                                            <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="installments">Parcelamento</label>
+                                        <select id="installments">
+                                            <option value="1">À vista (5% de desconto)</option>
+                                            <option value="2">2x sem juros</option>
+                                            <option value="3">3x sem juros</option>
+                                            <option value="4">4x sem juros</option>
+                                            <option value="5">5x sem juros</option>
+                                            <option value="6">6x sem juros</option>
+                                            <option value="10">10x com juros (1,99% a.m.)</option>
+                                            <option value="12">12x com juros (2,49% a.m.)</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="payment-summary">
+                                        <div class="summary-item">
+                                            <span>Curso:</span>
+                                            <span id="course-name">Engenharia de Software</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span>Valor Total:</span>
+                                            <span id="course-price">R$ 89,90</span>
+                                        </div>
+                                        <div class="summary-item discount">
+                                            <span>Desconto:</span>
+                                            <span id="course-discount">-R$ 19,80</span>
+                                        </div>
+                                        <div class="summary-item total">
+                                            <span>Total a Pagar:</span>
+                                            <span id="course-total">R$ 70,10</span>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="pay-button">
+                                        <span class="material-symbols-outlined">lock</span>
+                                        FINALIZAR PAGAMENTO
+                                    </button>
+
+                                    <div class="security-info">
+                                        <span class="material-symbols-outlined">verified_user</span>
+                                        <span>Pagamento 100% seguro. Seus dados estão protegidos.</span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detalhe-curso">
+                    <div class="detalhe-curso-card">
+                        <div class="card-header">
+                            <h2> Resumo da Compra</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-item">
+                                <span class="material-symbols-outlined">book</span>
+                                <div class="info-text">
+                                    <span class="info-label">Curso:</span>
+                                    <span class="info-value">Engenharia de Software</span>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span class="material-symbols-outlined">attach_money</span>
+                                <div class="info-text">
+                                    <span class="info-label">Valor:</span>
+                                    <span class="info-value">R$ 89,90</span>
+                                </div>
+                            </div>
+                            <div class="info-item discount">
+                                <span class="material-symbols-outlined">sell</span>
+                                <div class="info-text">
+                                    <span class="info-label">Desconto:</span>
+                                    <span class="info-value">-R$ 19,80</span>
+                                </div>
+                            </div>
+                            <div class="info-item total">
+                                <span class="material-symbols-outlined">payments</span>
+                                <div class="info-text">
+                                    <span class="info-label">Total a Pagar:</span>
+                                    <span class="info-value">R$ 70,10</span>
+                                </div>
+                            </div>
+                            <div class="info-curso">
+                                <h1>Detalhes do Plano Escolhido</h1>
+                                <ul class="dv_planoBasicoTxt">
+                                    <li><span class="material-symbols-outlined">done_outline</span>Apostilas completas
+                                    </li>
+                                    <li><span class="material-symbols-outlined">done_outline</span>Exercícios práticos
+                                    </li>
+                                    <li><span class="material-symbols-outlined">done_outline</span>Avaliações online
+                                    </li>
+                                    <li><span class="material-symbols-outlined">done_outline</span>Networking com
+                                        colegas</li>
+                                    <li><span class="material-symbols-outlined">done_outline</span>Troca de experiências
+                                    </li>
+                                    <li><span class="material-symbols-outlined">done_outline</span>Resposta rápida de
+                                        dúvidas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content animate__animated animate__zoomIn">
+            <div class="modal-icon success">
+                <span class="material-symbols-outlined">check_circle</span>
+            </div>
+            <h2>Pagamento Aprovado!</h2>
+            <p>Seu pagamento foi processado com sucesso. Em instantes você receberá um e-mail com os detalhes do seu
+                curso.</p>
+            <div class="modal-summary">
+                <div class="modal-summary-item">
+                    <span>Transação:</span>
+                    <span>#TX987654321</span>
+                </div>
+                <div class="modal-summary-item">
+                    <span>Valor:</span>
+                    <span>R$ 89,90</span>
+                </div>
+                <div class="modal-summary-item">
+                    <span>Parcelas:</span>
+                    <span>1x</span>
+                </div>
+            </div>
+            <button href="" class="modal-button" id="closeModal">ACESSAR MEU CURSO</button>
+        </div>
+    </div>
+</body>
+
+</html>
