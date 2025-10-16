@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Foto - TeleData</title>
+  <link rel="stylesheet" href="/Front-end/Styles/PerfilUsuário.css">
+</head>
+<body>
+
+  <!-- ========================= HEADER ========================== -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <a href="/">
+          <img src="https://i.pinimg.com/736x/6e/ad/87/6ead878978850d09e95fd5a1526dc712.jpg" alt="TeleData Treinamentos">
+        </a>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Pesquisar cursos...">
+        <div class="search-button">
+          <img src="https://cdn-icons-png.flaticon.com/512/2319/2319177.png" alt="search-button">
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <a href="#" class="nav-link">Categorias</a>
+        <a href="#" class="nav-link">Docente</a>
+        <a href="/Front-end/Pages/Planos.html" class="nav-link">Planos e Preços</a>
+        
+        <!-- CORREÇÃO: Botões convertidos para links -->
+        <a href="/loginpage" class="nav-button">Entrar</a>
+        <a href="../Pages/Cadastro.html" class="nav-button primary">Cadastrar</a>
+        
+        <div class="user-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/3237/3237472.png" alt="Ícone user">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <div class="profile">
+        <div class="avatar">U</div>
+        <h3>USUÁRIO</h3>
+        <p>Estudante</p>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/Front-end/Pages/PerfilUsuário.html">Minhas informações</a></li>
+          <li><a href="Visualizar-cursos.html">Visualizar Cursos</a></li>
+          <li><a href="Segurança.html">Segurança da conta</a></li>
+          <li><a href="foto.html" class="active">Foto</a></li>
+        </ul>
+      </nav>
+      <button class="delete-btn">Excluir Conta</button>
+    </aside>
+
+    <main class="photo-main">
+      <!-- Seção Foto -->
+      <section class="photo-header">
+        <h1>Foto</h1>
+        <p>Adicione uma bela foto sua para o seu perfil.</p>
+      </section>
+
+      <div class="photo-content">
+        <div class="photo-visualization">
+          <h2 class="visualization-title">Visualização da imagem</h2>
+          <div class="avatar-preview">
+            <div class="avatar-large">U</div>
+            <div class="avatar-placeholder">Sua foto aparecerá aqui</div>
+          </div>
+        </div>
+
+        <div class="photo-upload">
+          <h2 class="upload-title">Adicionar/alterar imagem</h2>
+          <p class="upload-instructions">Selecione uma imagem do seu computador para usar como foto de perfil.</p>
+          
+          <div class="upload-options">
+            <div class="upload-option">
+              <div class="upload-icon">📁</div>
+              <h3>Fazer upload de imagem</h3>
+              <p>Formatos suportados: JPG, PNG, GIF</p>
+              <div class="file-info">
+                <span class="no-file">Nenhum arquivo selecionado</span>
+              </div>
+              <input type="file" id="photo-upload" accept="image/*" style="display: none;">
+              <button class="upload-btn" onclick="document.getElementById('photo-upload').click()">
+                📤 Selecionar Arquivo
+              </button>
+            </div>
+          </div>
+
+          <div class="photo-actions">
+            <button class="cancel-btn">Cancelar</button>
+            <button class="save-btn">💾 Salvar</button>
+          </div>
+        </div>
+      </div>
+
+     
+    </main>
+  </div>
+
+  <!-- ========================= FOOTER ========================== -->
+  <footer>
+    <div class="footer-main">
+      <div class="footer-container">
+        <div class="footer-links">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="/Front-end/Pages/Sobre.html">Sobre</a></li>
+            <li><a href="#">Carreiras</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Ajuda e Suporte</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Categorias</h4>
+          <ul>
+            <li><a href="#">Desenvolvimento</a></li>
+            <li><a href="#">Design</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Negócios</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Recursos</h4>
+          <ul>
+            <li><a href="#">Artigos</a></li>
+            <li><a href="#">Tutoriais</a></li>
+            <li><a href="#">Webinars</a></li>
+            <li><a href="#">Certificados</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Plataforma</h4>
+          <ul>
+            <li><a href="#">Para Empresas</a></li>
+            <li><a href="#">Para Universidades</a></li>
+            <li><a href="#">Para Governo</a></li>
+            <li><a href="#">Tornar-se Instrutor</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h4>Informe seu email</h4>
+          <p>Receba atualizações, novidades e promoções</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Seu e-mail" required>
+            <button type="submit">Inscrever</button>
+          </form>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><img src="https://cdn-icons-png.flaticon.com/512/3128/3128304.png" alt="Facebook"></a>
+            <a href="#" aria-label="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/4922/4922972.png" alt="Instagram"></a>
+            <a href="#" aria-label="Twitter"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968958.png" alt="X_twitter"></a>
+            <a href="#" aria-label="YouTube"><img src="https://cdn-icons-png.flaticon.com/512/160/160205.png" alt="YouTube"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-sub">
+      <div class="footer-bottom">
+        <div class="logo">
+          <img src="https://i.pinimg.com/736x/6e/ad/87/6ead878978850d09e95fd5a1526dc712.jpg" alt="TeleData Treinamentos">
+        </div>
+        <div class="copyright">
+          <p>© 2025 TeleData Treinamentos. Todos os direitos reservados.</p>
+        </div>
+        <div class="legal-links">
+          <a href="#">Termos de Uso</a>
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Sistema para upload de foto
+    document.getElementById('photo-upload').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      const fileInfo = document.querySelector('.no-file');
+      
+      if (file) {
+        fileInfo.textContent = file.name;
+        fileInfo.style.color = 'var(--color-dark-gray)';
+        fileInfo.style.fontStyle = 'normal';
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const avatarLarge = document.querySelector('.avatar-large');
+          avatarLarge.innerHTML = '';
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          img.alt = 'Foto do perfil';
+          img.style.width = '100%';
+          img.style.height = '100%';
+          img.style.borderRadius = '50%';
+          img.style.objectFit = 'cover';
+          avatarLarge.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Botão salvar
+    document.querySelector('.save-btn').addEventListener('click', function() {
+      alert('Foto salva com sucesso!');
+    });
+
+    // Botão cancelar
+    document.querySelector('.cancel-btn').addEventListener('click', function() {
+      document.getElementById('photo-upload').value = '';
+      document.querySelector('.no-file').textContent = 'Nenhum arquivo selecionado';
+      document.querySelector('.no-file').style.color = 'var(--color-medium-gray)';
+      document.querySelector('.no-file').style.fontStyle = 'italic';
+      
+      const avatarLarge = document.querySelector('.avatar-large');
+      avatarLarge.innerHTML = 'DS';
+    });
+  </script>
+
+</body>
+</html>
