@@ -472,8 +472,7 @@ exports.exportCompleteReport = async (req, res) => {
     console.error('Erro ao gerar relatório completo:', error);
     res.status(500).json({ error: 'Erro ao gerar relatório' });
   }
-};('Erro ao exportar cursos PDF:', error);
-    res.status(500).json({ error: 'Erro ao gerar PDF' });
+};
 
 exports.exportCoursesExcel = async (req, res) => {
   try {
@@ -868,7 +867,6 @@ exports.exportPaymentsCSV = async (req, res) => {
     res.status(500).json({ error: 'Erro ao gerar CSV' });
   }
 };
-
 exports.exportPaymentsPDF = async (req, res) => {
   try {
     const payments = await Payment.findAll({
@@ -921,5 +919,7 @@ exports.exportPaymentsPDF = async (req, res) => {
 
     doc.end();
   } catch (error) {
-    console.error
+    console.error('Erro ao exportar pagamentos PDF:', error);
+    res.status(500).json({ error: 'Erro ao gerar PDF' });
   }
+};

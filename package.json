@@ -1,22 +1,24 @@
 {
   "name": "teledata-treinamentos",
   "version": "1.0.0",
+  "description": "Projeto TeleData Treinamentos - Backend",
   "main": "index.js",
   "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WolfatoBR/TeleData-Treinamentos.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["teledata", "treinamentos", "backend", "express", "sequelize"],
+  "author": "WolfatoBR",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/WolfatoBR/TeleData-Treinamentos/issues"
   },
   "homepage": "https://github.com/WolfatoBR/TeleData-Treinamentos#readme",
-  "description": "",
   "dependencies": {
     "bcrypt": "^6.0.0",
     "body-parser": "^2.2.0",
