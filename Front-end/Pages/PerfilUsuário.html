@@ -221,57 +221,121 @@
             </div>
           </div>
           
-          <div class="carousel-wrapper">
-            <button class="carousel-arrow prev" onclick="scrollCarousel(this, -1)">‹</button>
-            <div class="carousel-container">
-              <div class="carousel-track">
-                <!-- Cards dos cursos -->
-                <div class="course-card">
-                  <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop" alt="N8N Para Iniciantes" class="course-image">
-                  <div class="course-category">Curso</div>
+          <div class="courses-carousel-container">
+            <button class="course-arrow course-arrow-left" onclick="scrollCarousel(this, -1)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+              </svg>
+            </button>
+            
+            <div class="courses-carousel">
+              <!-- Cards dos cursos -->
+              <div class="course-card">
+                <div class="course-image">
+                  <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop" alt="N8N Para Iniciantes">
+                  <div class="course-badge">Em Andamento</div>
+                </div>
+                <div class="course-content">
                   <h3 class="course-title">N8N Para Iniciantes</h3>
-                  <div class="course-lesson">9. Versões do n8n</div>
-                  <div class="course-meta">
-                    <span class="course-duration">⏱️ Aula • 6 min</span>
+                  <p class="course-instructor">Instrutor(a): João Silva</p>
+                  <div class="course-rating">
+                    <div class="rating-stars">★★★★★</div>
+                    <div class="rating-details">
+                      <span class="rating-value">4.8</span>
+                      <span class="rating-count">(4,934 avaliações)</span>
+                    </div>
+                  </div>
+                  <div class="course-progress">
+                    <div class="course-progress-bar" style="width: 75%"></div>
+                  </div>
+                  <div class="course-price-container">
+                    <span class="course-duration">⏱️ 12 horas</span>
                     <button class="play-button">▶</button>
                   </div>
                 </div>
+              </div>
 
-                <div class="course-card">
-                  <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop" alt="N8N Para Iniciantes" class="course-image">
-                  <div class="course-category">Curso</div>
+              <div class="course-card">
+                <div class="course-image">
+                  <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop" alt="N8N Para Iniciantes">
+                  <div class="course-badge">Em Andamento</div>
+                </div>
+                <div class="course-content">
                   <h3 class="course-title">N8N Para Iniciantes</h3>
-                  <div class="course-lesson">10. Conectando APIs</div>
-                  <div class="course-meta">
-                    <span class="course-duration">⏱️ Aula • 7 min</span>
+                  <p class="course-instructor">Instrutor(a): João Silva</p>
+                  <div class="course-rating">
+                    <div class="rating-stars">★★★★★</div>
+                    <div class="rating-details">
+                      <span class="rating-value">4.8</span>
+                      <span class="rating-count">(4,934 avaliações)</span>
+                    </div>
+                  </div>
+                  <div class="course-progress">
+                    <div class="course-progress-bar" style="width: 45%"></div>
+                  </div>
+                  <div class="course-price-container">
+                    <span class="course-duration">⏱️ 12 horas</span>
                     <button class="play-button">▶</button>
                   </div>
                 </div>
+              </div>
 
-                <div class="course-card">
-                  <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&h=200&fit=crop" alt="Automação com N8N" class="course-image">
-                  <div class="course-category">Curso</div>
+              <div class="course-card">
+                <div class="course-image">
+                  <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&h=200&fit=crop" alt="Automação com N8N">
+                  <div class="course-badge">Novo!</div>
+                </div>
+                <div class="course-content">
                   <h3 class="course-title">Automação com N8N</h3>
-                  <div class="course-lesson">5. Workflows Básicos</div>
-                  <div class="course-meta">
-                    <span class="course-duration">⏱️ Aula • 8 min</span>
+                  <p class="course-instructor">Instrutor(a): Pedro Almeida</p>
+                  <div class="course-rating">
+                    <div class="rating-stars">★★★★★</div>
+                    <div class="rating-details">
+                      <span class="rating-value">4.9</span>
+                      <span class="rating-count">(2,105 avaliações)</span>
+                    </div>
+                  </div>
+                  <div class="course-progress">
+                    <div class="course-progress-bar" style="width: 25%"></div>
+                  </div>
+                  <div class="course-price-container">
+                    <span class="course-duration">⏱️ 8 horas</span>
                     <button class="play-button">▶</button>
                   </div>
                 </div>
+              </div>
 
-                <div class="course-card">
-                  <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=200&fit=crop" alt="APIs e Integrações" class="course-image">
-                  <div class="course-category">Curso</div>
+              <div class="course-card">
+                <div class="course-image">
+                  <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=200&fit=crop" alt="APIs e Integrações">
+                  <div class="course-badge">Popular!</div>
+                </div>
+                <div class="course-content">
                   <h3 class="course-title">APIs e Integrações</h3>
-                  <div class="course-lesson">12. Webhooks Avançados</div>
-                  <div class="course-meta">
-                    <span class="course-duration">⏱️ Aula • 10 min</span>
+                  <p class="course-instructor">Instrutor(a): Maria Santos</p>
+                  <div class="course-rating">
+                    <div class="rating-stars">★★★★☆</div>
+                    <div class="rating-details">
+                      <span class="rating-value">4.5</span>
+                      <span class="rating-count">(987 avaliações)</span>
+                    </div>
+                  </div>
+                  <div class="course-progress">
+                    <div class="course-progress-bar" style="width: 60%"></div>
+                  </div>
+                  <div class="course-price-container">
+                    <span class="course-duration">⏱️ 10 horas</span>
                     <button class="play-button">▶</button>
                   </div>
                 </div>
               </div>
             </div>
-            <button class="carousel-arrow next" onclick="scrollCarousel(this, 1)">›</button>
+            
+            <button class="course-arrow course-arrow-right" onclick="scrollCarousel(this, 1)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+              </svg>
+            </button>
           </div>
           
           <div style="text-align: center; margin-top: 20px;">
@@ -306,54 +370,93 @@
               <a href="#" class="view-all">Ver todos</a>
             </div>
             
-            <div class="carousel-wrapper">
-              <button class="carousel-arrow prev" onclick="scrollCarousel(this, -1)">‹</button>
-              <div class="carousel-container">
-                <div class="carousel-track">
-                  <div class="course-card">
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop" alt="N8N Para Iniciantes" class="course-image">
-                    <div class="course-category">Curso</div>
-                    <h3 class="course-title">N8N Para Iniciantes</h3>
-                    <div class="course-lesson">Aprenda automação de workflows</div>
+            <div class="courses-carousel-container">
+              <button class="course-arrow course-arrow-left" onclick="scrollCarousel(this, -1)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                </svg>
+              </button>
+              <div class="courses-carousel">
+                <div class="course-card">
+                  <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop" alt="N8N Para Iniciantes">
+                    <div class="course-badge">Mais Vendido!</div>
+                  </div>
+                  <div class="course-content">
+                    <h3 class="course-title">Curso Completo de Desenvolvimento Web</h3>
+                    <p class="course-instructor">Instrutor(a): João Silva</p>
+                    <div class="course-rating">
+                      <div class="rating-stars">★★★★★</div>
+                      <div class="rating-details">
+                        <span class="rating-value">4.8</span>
+                        <span class="rating-count">(4,934 avaliações)</span>
+                      </div>
+                    </div>
                     <div class="course-progress">
                       <div class="course-progress-bar" style="width: 75%"></div>
                     </div>
-                    <div class="course-meta">
-                      <span class="course-duration">⏱️ 12 horas</span>
+                    <div class="course-price-container">
+                      <p class="course-price">R$ 199,90</p>
                       <button class="play-button">▶</button>
                     </div>
                   </div>
+                </div>
 
-                  <div class="course-card">
-                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&h=200&fit=crop" alt="APIs Avançadas" class="course-image">
-                    <div class="course-category">Curso</div>
+                <div class="course-card">
+                  <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&h=200&fit=crop" alt="APIs Avançadas">
+                    <div class="course-badge">Novo!</div>
+                  </div>
+                  <div class="course-content">
                     <h3 class="course-title">APIs Avançadas</h3>
-                    <div class="course-lesson">Integração e desenvolvimento</div>
+                    <p class="course-instructor">Instrutor(a): Pedro Almeida</p>
+                    <div class="course-rating">
+                      <div class="rating-stars">★★★★★</div>
+                      <div class="rating-details">
+                        <span class="rating-value">4.9</span>
+                        <span class="rating-count">(2,105 avaliações)</span>
+                      </div>
+                    </div>
                     <div class="course-progress">
                       <div class="course-progress-bar" style="width: 45%"></div>
                     </div>
-                    <div class="course-meta">
-                      <span class="course-duration">⏱️ 8 horas</span>
+                    <div class="course-price-container">
+                      <p class="course-price">R$ 249,90</p>
                       <button class="play-button">▶</button>
                     </div>
                   </div>
+                </div>
 
-                  <div class="course-card">
-                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=200&fit=crop" alt="Web Development" class="course-image">
-                    <div class="course-category">Curso</div>
+                <div class="course-card">
+                  <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=200&fit=crop" alt="Web Development">
+                    <div class="course-badge">Popular!</div>
+                  </div>
+                  <div class="course-content">
                     <h3 class="course-title">Web Development</h3>
-                    <div class="course-lesson">Fullstack development</div>
+                    <p class="course-instructor">Instrutor(a): Maria Santos</p>
+                    <div class="course-rating">
+                      <div class="rating-stars">★★★★☆</div>
+                      <div class="rating-details">
+                        <span class="rating-value">4.5</span>
+                        <span class="rating-count">(987 avaliações)</span>
+                      </div>
+                    </div>
                     <div class="course-progress">
                       <div class="course-progress-bar" style="width: 25%"></div>
                     </div>
-                    <div class="course-meta">
-                      <span class="course-duration">⏱️ 20 horas</span>
+                    <div class="course-price-container">
+                      <p class="course-price">R$ 179,90</p>
                       <button class="play-button">▶</button>
                     </div>
                   </div>
                 </div>
               </div>
-              <button class="carousel-arrow next" onclick="scrollCarousel(this, 1)">›</button>
+              <button class="course-arrow course-arrow-right" onclick="scrollCarousel(this, 1)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+                </svg>
+              </button>
             </div>
           </div>
 
@@ -364,32 +467,84 @@
               <a href="#" class="view-all">Ver todos</a>
             </div>
             
-            <div class="carousel-wrapper">
-              <button class="carousel-arrow prev" onclick="scrollCarousel(this, -1)">‹</button>
-              <div class="recommended-carousel">
-                <div class="recommended-track">
-                  <div class="recommended-card">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="Data Science" class="recommended-image">
-                    <h3 class="recommended-title">Data Science Fundamentals</h3>
-                    <p class="recommended-instructor">Por Dr. Carlos Silva</p>
-                    <div class="recommended-rating">
-                      <span class="stars">★★★★★</span>
-                      <span>4.8 (2.3k)</span>
+            <div class="courses-carousel-container">
+              <button class="course-arrow course-arrow-left" onclick="scrollCarousel(this, -1)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                </svg>
+              </button>
+              <div class="courses-carousel">
+                <div class="course-card">
+                  <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="Data Science">
+                    <div class="course-badge">Em Alta!</div>
+                  </div>
+                  <div class="course-content">
+                    <h3 class="course-title">Data Science Fundamentals</h3>
+                    <p class="course-instructor">Instrutor(a): Dr. Carlos Silva</p>
+                    <div class="course-rating">
+                      <div class="rating-stars">★★★★★</div>
+                      <div class="rating-details">
+                        <span class="rating-value">4.8</span>
+                        <span class="rating-count">(2.3k avaliações)</span>
+                      </div>
+                    </div>
+                    <div class="course-price-container">
+                      <p class="course-price">R$ 299,90</p>
+                      <button class="play-button">▶</button>
                     </div>
                   </div>
+                </div>
 
-                  <div class="recommended-card">
-                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=200&fit=crop" alt="Machine Learning" class="recommended-image">
-                    <h3 class="recommended-title">Machine Learning Básico</h3>
-                    <p class="recommended-instructor">Por Prof. Ana Santos</p>
-                    <div class="recommended-rating">
-                      <span class="stars">★★★★☆</span>
-                      <span>4.6 (1.8k)</span>
+                <div class="course-card">
+                  <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=200&fit=crop" alt="Machine Learning">
+                    <div class="course-badge">Novo!</div>
+                  </div>
+                  <div class="course-content">
+                    <h3 class="course-title">Machine Learning Básico</h3>
+                    <p class="course-instructor">Instrutor(a): Prof. Ana Santos</p>
+                    <div class="course-rating">
+                      <div class="rating-stars">★★★★☆</div>
+                      <div class="rating-details">
+                        <span class="rating-value">4.6</span>
+                        <span class="rating-count">(1.8k avaliações)</span>
+                      </div>
+                    </div>
+                    <div class="course-price-container">
+                      <p class="course-price">R$ 349,90</p>
+                      <button class="play-button">▶</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="course-card">
+                  <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=200&fit=crop" alt="Web Development">
+                    <div class="course-badge">Popular!</div>
+                  </div>
+                  <div class="course-content">
+                    <h3 class="course-title">Full Stack Development</h3>
+                    <p class="course-instructor">Instrutor(a): Roberto Lima</p>
+                    <div class="course-rating">
+                      <div class="rating-stars">★★★★★</div>
+                      <div class="rating-details">
+                        <span class="rating-value">4.9</span>
+                        <span class="rating-count">(3.2k avaliações)</span>
+                      </div>
+                    </div>
+                    <div class="course-price-container">
+                      <p class="course-price">R$ 399,90</p>
+                      <button class="play-button">▶</button>
                     </div>
                   </div>
                 </div>
               </div>
-              <button class="carousel-arrow next" onclick="scrollCarousel(this, 1)">›</button>
+              <button class="course-arrow course-arrow-right" onclick="scrollCarousel(this, 1)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+                </svg>
+              </button>
             </div>
           </div>
         </section>
@@ -405,7 +560,7 @@
               <h3>E-mail:</h3>
               <div class="input-group">
                 <input type="email" value="usuario@email.com" class="info-input">
-                <button type="button" class="edit-field-btn">Editar</button>
+                <button type="button" class="edit-action">Alterar</button>
               </div>
             </div>
           </div>
@@ -434,7 +589,7 @@
               <h3>Número de telefone:</h3>
               <div class="input-group">
                 <input type="tel" placeholder="Você não definiu um número de telefone" class="info-input">
-                <button type="button" class="edit-field-btn">Editar</button>
+                <button type="button" class="add-action">Adicionar</button>
               </div>
             </div>
           </div>
@@ -501,16 +656,11 @@
 
     function scrollCarousel(button, direction) {
       const wrapper = button.parentElement;
-      const track = wrapper.querySelector('.carousel-track, .recommended-track');
+      const track = wrapper.querySelector('.courses-carousel');
       const cardWidth = 320;
       const scrollAmount = cardWidth * direction;
       
-      track.style.animationPlayState = 'paused';
-      track.scrollLeft += scrollAmount;
-      
-      setTimeout(() => {
-        track.style.animationPlayState = 'running';
-      }, 3000);
+      track.style.transform = `translateX(${scrollAmount}px)`;
     }
 
     function emBreve() {
@@ -525,4 +675,4 @@
   </script>
 
 </body>
-</html>
+</html> 
