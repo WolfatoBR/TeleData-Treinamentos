@@ -1,591 +1,305 @@
-:root {
-            --primary-color: #6e48aa;
-            --dark-gray: #9d50bb;
-            --light-gray: #f0f0f0;
-            --primary-light: #9d50bb;
-        }
-
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            margin: 80px 0 0 0;
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f7f9fa;
+            color: #1c1d1f;
         }
 
-        .pagamento-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .voltar {
-            display: flex;
-            justify-content: left;
-            align-items: center;
-            gap: 10px;
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-
-        .voltar a {
-            color: var(--primary-color);
-            background-color: var(--light-gray);
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            padding: 8px 15px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .voltar a:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .voltar a .material-symbols-outlined {
-            margin-right: 5px;
-        }
-
-        .barra-nomeCurso {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-gray) 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .barra-nomeCurso span {
-            font-size: 28px;
-            font-weight: 600;
-        }
-
-        /* Progress Steps */
-        .progress-steps {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            margin-bottom: 50px;
-            padding: 0 20px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .progress-bar {
-            position: absolute;
-            top: 15px;
-            left: 20px;
-            right: 20px;
-            height: 4px;
-            background-color: #e0e0e0;
-            z-index: 1;
-            border-radius: 2px;
-        }
-
-        .progress-fill {
-            height: 100%;
-            width: 33%;
-            background: linear-gradient(90deg, var(--primary-color), var(--dark-gray));
-            transition: width 0.5s ease;
-            border-radius: 2px;
-        }
-
-        .step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 2;
-            position: relative;
-            background-color: #f8f9fa;
-        }
-
-        .step-circle {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            background-color: #e0e0e0;
-            color: #999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 600;
-            margin-bottom: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .step-label {
-            color: #999;
-            font-size: 14px;
-            font-weight: 500;
-            text-align: center;
-        }
-
-        .step.active .step-circle {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-gray) 100%);
-            color: white;
-            transform: scale(1.1);
-        }
-
-        .step.active .step-label {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .step.completed .step-circle {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        .step.completed .step-label {
-            color: #4CAF50;
-        }
-
-        /* Layout principal */
-        .payment-main-container {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .payment-left-column {
-            flex: 1;
-            min-width: 300px;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .payment-right-column {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .detalhe-curso {
-            flex: 0 0 350px;
-            min-width: 300px;
-        }
-
-        /* Estilo dos cards */
-        .pix-card,
-        .boleto-card,
-        .payment-card,
-        .detalhe-curso-card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .pix-card:hover,
-        .boleto-card:hover,
-        .payment-card:hover,
-        .detalhe-curso-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-        }
-
-        .card-header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-gray) 100%);
-            padding: 20px;
-            color: white;
-        }
-
-        .card-header h2 {
-            font-size: 22px;
-            margin: 0;
-            text-align: center;
-        }
-
-        .card-body {
-            padding: 25px;
-        }
-
-        /* PIX */
-        .pix-card .card-body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .pix-card .card-body p {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .qr-code {
-            max-width: 200px;
-            margin: 15px 0;
-            border: 1px solid #eee;
-            padding: 10px;
-            border-radius: 8px;
-            width: 100%;
-        }
-
-        .pix-code-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: #f5f5f5;
-            padding: 12px 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            position: relative;
-            width: 100%;
-        }
-
-        .pix-code {
-            margin: 0;
-            flex: 1;
-            word-break: break-all;
-            font-size: 12px;
-        }
-
-        .copy-pix-btn {
-            background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 8px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .copy-pix-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .copy-feedback {
-            position: absolute;
-            right: 60px;
-            background: #4CAF50;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .copy-feedback.show {
-            opacity: 1;
-        }
-
-        /* Boleto */
-        .boleto-info {
-            background: #f5f5f5;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .info-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .info-item .material-symbols-outlined {
-            color: var(--primary-color);
-        }
-
-        /* Formulários */
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 20px;
-        }
-
-        .form-row .form-group {
-            flex: 1;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #555;
-        }
-
-        .input-with-icon {
-            position: relative;
-        }
-
-        .input-with-icon span {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--primary-color);
-            z-index: 2;
-        }
-
-        input,
-        select {
-            width: 100%;
-            padding: 12px 15px 12px 40px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s ease;
+        header {
             background-color: #fff;
+            border-bottom: 1px solid #d1d7dc;
+            padding: 16px 0;
         }
 
-        input:focus,
-        select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(157, 80, 187, 0.2);
-        }
-
-        /* Payment Summary */
-        .payment-summary {
-            background-color: #f9f5ff;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 25px 0;
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .summary-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 15px;
-        }
-
-        .summary-item.discount {
-            color: #4CAF50;
-        }
-
-        .summary-item.total {
-            font-weight: 600;
-            font-size: 18px;
-            margin-top: 15px;
-            padding-top: 10px;
-            border-top: 1px dashed #ddd;
-        }
-
-        /* Botões */
-        .pay-button {
-            width: 100%;
-            padding: 15px;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
+        .header-content {
+            max-width: 1340px;
+            margin: 0 auto;
+            padding: 0 24px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
         }
 
-        .pay-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #a435f0;
         }
 
-        .pay-button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
+        .container {
+            max-width: 1340px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+        }
+
+        .checkout-section {
+            background: #fff;
+            padding: 32px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.08);
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
         }
 
         .security-info {
             display: flex;
-            flex-direction: column;
             align-items: center;
             gap: 8px;
-            margin-top: 20px;
-            font-size: 13px;
-            color: #666;
-            text-align: center;
+            color: #6a6f73;
+            font-size: 14px;
+            margin-bottom: 24px;
         }
 
-        /* Resumo da Compra */
-        .detalhe-curso-card .info-text {
+        .lock-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        .payment-methods {
+            margin-bottom: 32px;
+        }
+
+        .payment-tabs {
             display: flex;
-            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #d1d7dc;
         }
 
-        .info-label {
-            font-size: 0.9rem;
-            color: #666;
-            font-weight: 500;
-        }
-
-        .info-value {
-            font-size: 1.1rem;
-            color: #333;
+        .payment-tab {
+            padding: 12px 16px;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            font-size: 16px;
             font-weight: 600;
-            margin-top: 2px;
+            color: #6a6f73;
+            transition: all 0.2s;
         }
 
-        .info-item.discount .info-value {
-            color: #4CAF50;
+        .payment-tab.active {
+            color: #1c1d1f;
+            border-bottom-color: #1c1d1f;
         }
 
-        .info-item.total {
-            background-color: #f9f5ff;
-            margin-top: 15px;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #6e48aa;
+        .payment-tab:hover {
+            color: #1c1d1f;
         }
 
-        .dv_planoBasicoTxt {
-            padding: 14px;
-            list-style: none;
+        .form-group {
+            margin-bottom: 20px;
         }
 
-        .dv_planoBasicoTxt li {
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .dv_planoBasicoTxt li .material-symbols-outlined {
-            color: #4CAF50;
-        }
-
-        .info-curso h1 {
-            color: white;
-            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
-            padding: 15px;
-            margin-top: 20px;
-            font-size: 1.2rem;
+        label {
+            display: block;
             font-weight: 600;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        /* Modal */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-overlay.show {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            max-width: 450px;
-            width: 90%;
-            text-align: center;
-        }
-
-        .modal-icon span {
-            font-size: 60px;
-            color: #4CAF50;
-        }
-
-        .modal-content h2 {
-            margin: 20px 0 15px 0;
-            color: var(--primary-color);
-        }
-
-        .modal-summary {
-            background-color: #f9f5ff;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 25px 0;
-        }
-
-        .modal-summary-item {
-            display: flex;
-            justify-content: space-between;
             margin-bottom: 8px;
             font-size: 14px;
         }
 
-        .modal-button {
+        input, select {
             width: 100%;
             padding: 12px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-gray) 100%);
+            border: 1px solid #1c1d1f;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #a435f0;
+            box-shadow: 0 0 0 2px rgba(164, 53, 240, 0.2);
+        }
+
+        .card-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 12px;
+        }
+
+        .card-icons {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 28px;
+            background: #e8e9eb;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .complete-btn {
+            width: 100%;
+            padding: 16px;
+            background: #a435f0;
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 4px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background 0.2s;
         }
 
-        .modal-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(110, 72, 170, 0.4);
+        .complete-btn:hover {
+            background: #8710d8;
         }
 
-        /* Responsividade */
-        @media (max-width: 1200px) {
-            .detalhe-curso {
-                flex: 1 1 100%;
-                order: -1;
-            }
+        .complete-btn:disabled {
+            background: #d1d7dc;
+            cursor: not-allowed;
         }
 
-        @media (max-width: 768px) {
-            body {
-                margin: 60px 0 0 0;
-            }
+        .guarantee {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 14px;
+            color: #6a6f73;
+        }
 
-            .payment-main-container {
-                flex-direction: column;
-            }
+        .summary {
+            position: sticky;
+            top: 24px;
+        }
 
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-            }
+        .summary-box {
+            background: #fff;
+            padding: 24px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.08);
+        }
 
-            .progress-steps {
-                padding: 0 10px;
-            }
+        h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
 
-            .step-label {
-                font-size: 12px;
-            }
+        .course-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #d1d7dc;
+        }
 
-            .barra-nomeCurso span {
-                font-size: 22px;
+        .course-img {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .course-info h3 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .course-author {
+            font-size: 12px;
+            color: #6a6f73;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: bold;
+            padding-top: 16px;
+            border-top: 1px solid #d1d7dc;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #6a6f73;
+        }
+
+        .discount {
+            color: #5624d0;
+            font-weight: 600;
+        }
+
+        .promo-code {
+            margin-top: 16px;
+        }
+
+        .promo-input {
+            display: flex;
+            gap: 8px;
+        }
+
+        .promo-input input {
+            flex: 1;
+        }
+
+        .apply-btn {
+            padding: 12px 24px;
+            background: #fff;
+            color: #1c1d1f;
+            border: 1px solid #1c1d1f;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .apply-btn:hover {
+            background: #f7f9fa;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #6a6f73;
+        }
+
+        .error-message {
+            background: #fff4e5;
+            border: 1px solid #ff9800;
+            color: #c66900;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary {
+                position: static;
             }
         }
