@@ -1,237 +1,197 @@
-// Inicialização quando o DOM estiver pronto
-        document.addEventListener('DOMContentLoaded', function() {
-            setupInputMasks();
-            setupPixInteractions();
-            setupCardInteractions();
-            setupPaymentForm();
-            setupBoletoButton();
+const API_URL = 'http://localhost:3000/api';
+        let sessionId = null;
+        let paymentReady = false;
+
+        // Inicializar PagSeguro
+        async function initPagSeguro() {
+            const loading = document.getElementById('loading');
+            const errorMsg = document.getElementById('error-message');
+            
+            loading.style.display = 'block';
+            
+            try {
+                const response = await fetch(`${API_URL}/session`);
+                const data = await response.json();
+                
+                if (data.sessionId) {
+                    sessionId = data.sessionId;
+                    PagSeguroDirectPayment.setSessionId(sessionId);
+                    paymentReady = true;
+                    console.log('✅ PagSeguro inicializado com sucesso!');
+                } else {
+                    throw new Error('Sessão não foi criada');
+                }
+            } catch (error) {
+                console.error('❌ Erro ao inicializar PagSeguro:', error);
+                errorMsg.textContent = 'Erro ao conectar com o sistema de pagamento. Tente novamente.';
+                errorMsg.style.display = 'block';
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        // Formatação automática dos campos
+        document.getElementById('card-number')?.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+            e.target.value = formattedValue;
         });
 
-        // Configurar máscaras de entrada
-        function setupInputMasks() {
-            if (typeof Cleave !== 'undefined') {
-                new Cleave('#cardNumber', {
-                    creditCard: true
-                });
-                
-                new Cleave('#expiryDate', {
-                    date: true,
-                    datePattern: ['m', 'y']
-                });
-                
-                new Cleave('#cvv', {
-                    numericOnly: true,
-                    blocks: [3]
-                });
-                
-                new Cleave('#cpf', {
-                    delimiters: ['.', '.', '-'],
-                    blocks: [3, 3, 3, 2],
-                    numericOnly: true
-                });
+        document.getElementById('expiry')?.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 6);
             }
-        }
+            e.target.value = value;
+        });
 
-        // Configurar interações do PIX
-        function setupPixInteractions() {
-            const copyPixBtn = document.getElementById('copyPixBtn');
-            const pixCode = document.getElementById('pixCode');
-            const copyFeedback = document.getElementById('copyFeedback');
-            
-            if (copyPixBtn && pixCode && copyFeedback) {
-                copyPixBtn.addEventListener('click', function() {
-                    const textarea = document.createElement('textarea');
-                    textarea.value = pixCode.textContent;
-                    textarea.style.position = 'fixed';
-                    textarea.style.opacity = '0';
-                    document.body.appendChild(textarea);
-                    textarea.select();
-                    
-                    try {
-                        document.execCommand('copy');
-                        copyFeedback.classList.add('show');
-                        
-                        setTimeout(() => {
-                            copyFeedback.classList.remove('show');
-                        }, 2000);
-                    } catch (err) {
-                        console.error('Falha ao copiar:', err);
-                    }
-                    
-                    document.body.removeChild(textarea);
-                    
-                    this.classList.add('animate__animated', 'animate__pulse');
-                    setTimeout(() => {
-                        this.classList.remove('animate__animated', 'animate__pulse');
-                    }, 500);
-                });
-            }
-            
-            const pixButton = document.querySelector('.pix-button');
-            if (pixButton) {
-                pixButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    processPayment('PIX', this);
-                });
-            }
-        }
+        document.getElementById('cvv')?.addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
 
-        // Configurar interações do cartão
-        function setupCardInteractions() {
-            const installmentsSelect = document.getElementById('installments');
-            if (installmentsSelect) {
-                installmentsSelect.addEventListener('change', function() {
-                    updateInstallmentValue(this.value);
-                });
-            }
-        }
-
-        // Configurar formulário de pagamento
-        function setupPaymentForm() {
-            const paymentForm = document.getElementById('paymentForm');
-            if (paymentForm) {
-                paymentForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const button = this.querySelector('.pay-button');
-                    processPayment('CARTÃO', button);
-                });
-            }
-        }
-
-        // Configurar botão de boleto
-        function setupBoletoButton() {
-            const boletoButton = document.querySelector('.boleto-button');
-            if (boletoButton) {
-                boletoButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    processPayment('BOLETO', this);
-                });
-            }
-        }
-
-        // Processar pagamento
-        function processPayment(paymentMethod, button) {
-            if (!button) return;
-            
-            const originalText = button.innerHTML;
-            button.innerHTML = '<span class="material-symbols-outlined">hourglass_empty</span> PROCESSANDO...';
-            button.disabled = true;
-            
-            // Simular processamento
-            setTimeout(() => {
-                showSuccessModal(paymentMethod);
-                button.innerHTML = originalText;
-                button.disabled = false;
-            }, 2000);
-        }
-
-        // Mostrar modal de sucesso
-        function showSuccessModal(paymentMethod) {
-            const successModal = document.getElementById('successModal');
-            if (!successModal) return;
-            
-            // Atualizar parcelas no modal
-            const installments = document.getElementById('installments');
-            const modalInstallments = document.getElementById('modal-installments');
-            if (installments && modalInstallments) {
-                modalInstallments.textContent = installments.options[installments.selectedIndex].text.split(' ')[0];
-            }
-            
-            // Mostrar modal
-            successModal.classList.add('show');
-            
-            // Atualizar progresso
-            const steps = document.querySelectorAll('.step');
-            steps[0].classList.remove('active');
-            steps[0].classList.add('completed');
-            steps[1].classList.add('completed');
-            steps[2].classList.add('active');
-            
-            const progressFill = document.querySelector('.progress-fill');
-            if (progressFill) {
-                progressFill.style.width = '100%';
-            }
-            
-            // Configurar botão de fechar
-            const closeModal = document.getElementById('closeModal');
-            if (closeModal) {
-                closeModal.onclick = function() {
-                    successModal.classList.remove('show');
-                    // Redirecionar para área do aluno (ajuste conforme necessário)
-                    // window.location.href = '/area-do-aluno';
-                };
-            }
-            
-            // Fechar ao clicar fora do modal
-            successModal.onclick = function(e) {
-                if (e.target === successModal) {
-                    successModal.classList.remove('show');
+        // Formatação CPF
+        const cpfInputs = ['buyer-cpf', 'pix-cpf', 'boleto-cpf'];
+        cpfInputs.forEach(id => {
+            document.getElementById(id)?.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length <= 11) {
+                    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                    value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
                 }
-            };
+                e.target.value = value;
+            });
+        });
+
+        // Formatação telefone
+        document.getElementById('buyer-phone')?.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                value = value.replace(/(\d{2})(\d)/, '($1) $2');
+                value = value.replace(/(\d{5})(\d)/, '$1-$2');
+            }
+            e.target.value = value;
+        });
+
+        // Formatação CEP
+        document.getElementById('cep')?.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 5) {
+                value = value.slice(0, 5) + '-' + value.slice(5, 8);
+            }
+            e.target.value = value;
+        });
+
+        // Buscar CEP
+        document.getElementById('cep')?.addEventListener('blur', async function(e) {
+            const cep = e.target.value.replace(/\D/g, '');
+            if (cep.length === 8) {
+                try {
+                    const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+                    const data = await response.json();
+                    if (!data.erro) {
+                        document.getElementById('street').value = data.logradouro;
+                        document.getElementById('district').value = data.bairro;
+                        document.getElementById('city').value = data.localidade;
+                        document.getElementById('state').value = data.uf;
+                    }
+                } catch (error) {
+                    console.error('Erro ao buscar CEP:', error);
+                }
+            }
+        });
+
+        // Troca de abas
+        function showTab(tab) {
+            const tabs = document.querySelectorAll('.payment-tab');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.style.display = 'none');
+            
+            event.target.classList.add('active');
+            document.getElementById(tab + '-tab').style.display = 'block';
         }
 
-        // Atualizar valor do parcelamento
-        function updateInstallmentValue(installments) {
-            const basePrice = 89.90;
-            let finalPrice = basePrice;
-            let discount = 0;
+        // Processar pagamento com cartão
+        document.getElementById('payment-form')?.addEventListener('submit', async function(e) {
+            e.preventDefault();
             
-            if (installments == 1) {
-                discount = basePrice * 0.22; // 22% de desconto à vista (R$ 19,80)
-                finalPrice = basePrice - discount;
-            } else if (installments <= 6) {
-                discount = 0;
-                finalPrice = basePrice;
+            if (!paymentReady) {
+                alert('Sistema de pagamento ainda não está pronto. Aguarde...');
+                return;
+            }
+
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processando pagamento...';
+
+            try {
+                const phone = document.getElementById('buyer-phone').value.replace(/\D/g, '');
+                const expiry = document.getElementById('expiry').value.split('/');
+                
+                const data = {
+                    reference: 'UDEMY_' + Date.now(),
+                    sender: {
+                        name: document.getElementById('buyer-name').value,
+                        email: document.getElementById('buyer-email').value,
+                        cpf: document.getElementById('buyer-cpf').value.replace(/\D/g, ''),
+                        phone: {
+                            areaCode: phone.substring(0, 2),
+                            number: phone.substring(2)
+                        }
+                    },
+                    shipping: {
+                        street: document.getElementById('street').value,
+                        number: document.getElementById('number').value,
+                        complement: document.getElementById('complement').value || '',
+                        district: document.getElementById('district').value,
+                        postalCode: document.getElementById('cep').value.replace(/\D/g, ''),
+                        city: document.getElementById('city').value,
+                        state: document.getElementById('state').value.toUpperCase()
+                    },
+                    items: [{
+                        id: '001',
+                        description: 'Curso de Desenvolvimento Web Completo 2024',
+                        amount: 29.90,
+                        quantity: 1
+                    }],
+                    redirectURL: window.location.origin + '/obrigado',
+                    notificationURL: API_URL + '/notification'
+                };
+
+                const response = await fetch(`${API_URL}/checkout`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                
+                if (result.paymentURL) {
+                    alert('✅ Pagamento criado! Você será redirecionado para finalizar.');
+                    window.location.href = result.paymentURL;
+                } else {
+                    throw new Error('URL de pagamento não foi gerada');
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('❌ Erro ao processar pagamento. Tente novamente.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Concluir pagamento - R$ 29,90';
+            }
+        });
+
+        // Aplicar cupom
+        function applyPromo() {
+            const promoCode = document.getElementById('promo').value;
+            if (promoCode.toLowerCase() === 'udemy10') {
+                alert('✅ Código promocional aplicado! Desconto adicional de 10%');
             } else {
-                // Calcular juros para 10x e 12x
-                const rate = installments == 10 ? 0.0199 : 0.0249;
-                finalPrice = basePrice * Math.pow(1 + rate, installments);
-            }
-            
-            // Atualizar interface
-            const discountElement = document.getElementById('course-discount');
-            const totalElement = document.getElementById('course-total');
-            
-            if (discountElement) {
-                discountElement.textContent = discount > 0 ? `-R$ ${discount.toFixed(2)}` : 'R$ 0,00';
-            }
-            
-            if (totalElement) {
-                totalElement.textContent = `R$ ${finalPrice.toFixed(2)}`;
-                totalElement.classList.add('animate__animated', 'animate__pulse');
-                setTimeout(() => {
-                    totalElement.classList.remove('animate__animated', 'animate__pulse');
-                }, 1000);
+                alert('❌ Código promocional inválido');
             }
         }
 
-        // Validação básica dos campos
-        function validateForm() {
-            const cardNumber = document.getElementById('cardNumber').value;
-            const cardName = document.getElementById('cardName').value;
-            const expiryDate = document.getElementById('expiryDate').value;
-            const cvv = document.getElementById('cvv').value;
-            const cpf = document.getElementById('cpf').value;
-            
-            if (!cardNumber || !cardName || !expiryDate || !cvv || !cpf) {
-                alert('Por favor, preencha todos os campos do cartão.');
-                return false;
-            }
-            
-            if (cardNumber.replace(/\s/g, '').length < 13) {
-                alert('Número do cartão inválido.');
-                return false;
-            }
-            
-            if (cvv.length < 3) {
-                alert('CVV inválido.');
-                return false;
-            }
-            
-            if (cpf.replace(/\D/g, '').length !== 11) {
-                alert('CPF inválido.');
-                return false;
-            }
-            
-            return true;
-        }
+        // Inicializar ao carregar
+        window.addEventListener('load', initPagSeguro);
