@@ -1,31 +1,43 @@
 {
   "name": "teledata-treinamentos",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "backend/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/index.js",
+    "dev": "nodemon backend/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WolfatoBR/TeleData-Treinamentos.git"
   },
-  "keywords": [],
+  "keywords": [
+    "pagseguro",
+    "pagamento",
+    "treinamentos",
+    "cursos"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/WolfatoBR/TeleData-Treinamentos/issues"
   },
   "homepage": "https://github.com/WolfatoBR/TeleData-Treinamentos#readme",
-  "description": "",
+  "description": "Sistema de treinamentos com integração de pagamento PagSeguro",
   "dependencies": {
+    "axios": "^1.6.2",
     "bcrypt": "^6.0.0",
     "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "csv-writer": "^1.6.0",
     "dotenv": "^17.2.2",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.14.5",
     "nodemon": "^3.1.10",
-    "sequelize": "^6.37.7"
+    "pdfkit": "^0.17.2",
+    "sequelize": "^6.37.7",
+    "xlsx": "^0.18.5"
   }
 }
