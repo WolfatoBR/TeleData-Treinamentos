@@ -531,7 +531,7 @@ header {
     position: relative;
     overflow: hidden;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1000px;
 }
 
 .courses-carousel {
@@ -862,7 +862,7 @@ header {
 
 .study-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     margin-bottom: var(--spacing-xl);
 }
