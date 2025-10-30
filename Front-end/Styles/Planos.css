@@ -144,7 +144,6 @@ body {
 }
 
 .pricing-card:hover {
-    transform: translateY(-15px) scale(1.02);
     box-shadow: var(--shadow-lg);
 }
 
@@ -157,10 +156,6 @@ body {
 .pricing-card.featured::before {
     background: var(--gradient-accent);
     height: 8px;
-}
-
-.pricing-card.featured:hover {
-    transform: scale(1.05) translateY(-15px);
 }
 
 .pricing-badge {
@@ -268,7 +263,6 @@ body {
 
 .pricing-features li:hover {
     color: var(--color-primary);
-    transform: translateX(5px);
 }
 
 .pricing-features li::before {
@@ -325,7 +319,6 @@ body {
 }
 
 .pricing-button:hover {
-    transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
 }
 
@@ -335,7 +328,6 @@ body {
 
 .pricing-button.primary:hover {
     box-shadow: 0 8px 25px rgba(247, 37, 133, 0.4);
-    transform: translateY(-3px);
 }
 
 /* =========================================
@@ -416,7 +408,6 @@ body {
 }
 
 .faq-item:hover {
-    transform: translateY(-3px);
     box-shadow: 
         0 8px 30px rgba(0, 0, 0, 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -498,7 +489,6 @@ body {
 
 .faq-question:hover .faq-icon {
     background: rgba(44, 86, 202, 0.15);
-    transform: scale(1.1);
 }
 
 .faq-item.active .faq-icon {
@@ -695,10 +685,6 @@ footer {
     
     .pricing-card.featured {
         transform: scale(1);
-    }
-    
-    .pricing-card.featured:hover {
-        transform: translateY(-15px);
     }
 }
 
