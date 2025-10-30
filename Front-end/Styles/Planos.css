@@ -46,113 +46,18 @@
     --font-size-xxl: 24px;
 }
 
-/* =========================================
-   RESET GERAL
-========================================= */
+/* Reset e estilos base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: var(--color-light-gray);
-    line-height: 1.6;
-}
-
-/* =========================================
-   HEADER (MENU SUPERIOR)
-========================================= */
-header {
-    background-color: var(--color-white);
-    box-shadow: var(--shadow-sm), var(--shadow-md);
-    padding: var(--spacing-md) 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: var(--spacing-lg);
-    max-width: 1340px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-lg);
-    height: 65px;
-}
-
-.logo {
-    flex-shrink: 0;
-}
-
-.logo img {
-    height: 55px;
-    width: auto;
-    object-fit: contain;
-}
-
-.search-bar {
-    flex: 1;
-    max-width: 700px;
-    position: relative;
-}
-
-.search-bar input {
-    width: 100%;
-    padding: var(--spacing-md) var(--spacing-lg);
-    border: 1px solid var(--color-light-gray);
-    border-radius: var(--border-radius-xl);
-    font-size: var(--font-size-sm);
-}
-
-.search-bar .search-button img {
-    position: absolute;
-    right: var(--spacing-sm);
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    gap: var(--spacing-md);
-}
-
-.nav-link {
-    text-decoration: none;
+    background-color: var(--color-light-bg);
     color: var(--color-dark-gray);
-    font-size: var(--font-size-sm);
-    font-weight: 400;
-    white-space: nowrap;
-}
-
-.nav-button {
-    padding: var(--spacing-sm) var(--spacing-md);
-    border: 1px solid var(--color-dark-gray);
-    background-color: transparent;
-    font-weight: 700;
-    cursor: pointer;
-    border-radius: var(--border-radius-sm);
-}
-
-.nav-button.primary {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-}
-
-.user-icon img {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: var(--color-blue-light);
-    cursor: pointer;
+    line-height: 1.6;
 }
 
 /* =========================================

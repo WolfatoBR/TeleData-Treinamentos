@@ -12,38 +12,8 @@
 
 <body>
 
-  <!-- ========================= CABEÇALHO ========================== -->
-  <header>
-    <div class="header-container">
-      <div class="logo">
-        <a href="./homePage.ejs">
-          <img src="https://i.pinimg.com/736x/6e/ad/87/6ead878978850d09e95fd5a1526dc712.jpg"
-            alt="TeleData Treinamentos">
-        </a>
-      </div>
-
-      <div class="search-bar">
-        <input type="text" placeholder="Pesquisar cursos...">
-        <div class="search-button">
-          <img src="https://cdn-icons-png.flaticon.com/512/2319/2319177.png" alt="search-button">
-        </div>
-      </div>
-
-      <nav class="nav-actions">
-        <a href="#" class="nav-link">Categorias</a>
-        <a href="#" class="nav-link">Docente</a>
-        <a href="./Login.ejs">
-          <button class="nav-button">Entrar</button>
-        </a>
-        <a href="./Cadastro.ejs">
-          <button class="nav-button primary">Cadastrar</button>
-        </a>
-        <div class="user-icon">
-          <img src="https://cdn-icons-png.flaticon.com/512/3237/3237472.png" alt="Ícone usuário">
-        </div>
-      </nav>
-    </div>
-  </header>
+  <!-- ========================= Menu Header ========================== -->
+  <script src="/Front-end/JavaScript/loadHeader.js"></script>
 
   <!-- ========================= CONTEÚDO PRINCIPAL ========================== -->
   <main class="sobre-container">
@@ -67,21 +37,21 @@
       </ul>
     </section>
 
-    <!-- Versão -->
-    <section class="sobre-box">
-      <h2>Versão Atual</h2>
-      <p>Versão 1.0.0</p>
-    </section>
-
     <!-- Equipe -->
     <section class="sobre-box">
       <h2>Equipe de Desenvolvimento</h2>
       <ul class="equipe-list">
         <li>
           <img id="Img_round" src="/Front-end/Img/7195155f-4903-4be8-a82f-25c81ffad4b8.jpeg" alt="Arthur Moreira">
-          <p><strong>Arthur Moreira</strong> <br> Fullstack </p>
+          <p><strong>Arthur Moreira</strong> <br> Front-end </p>
           <a href="https://github.com/WolfatoBR" target="_blank">GitHub</a> <br>
           <a href="https://www.linkedin.com/in/arthur-moreira-04928331b/" target="_blank">LinkedIn</a> 
+        </li>
+        <li>
+          <img id="Img_round" src="/Front-end/Img/Screenshot_15.png" alt="Davi Santos">
+          <p><strong>Davi Santos</strong> <br> Front-end</p>
+          <a href="https://github.com/daev-npc" target="_blank">GitHub</a> <br>
+          <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a> 
         </li>
         <li>
           <img id="Img_round" src="/Front-end/Img/a83ff1f5-da46-4e82-ae91-e2100fbff753.jpeg" alt="Caio de Jesus">
@@ -101,20 +71,19 @@
           <a href="https://github.com/Uaaudio" target="_blank">GitHub</a> <br>
           <a href="https://www.linkedin.com/in/wendell-jesus/" target="_blank">LinkedIn</a> 
         </li>
-        <li>
-          <img id="Img_round" src="/Front-end/Img/Screenshot_15.png" alt="Davi Santos">
-          <p><strong>Davi Santos</strong> <br> Front-end</p>
-          <a href="https://github.com/daev-npc" target="_blank">GitHub</a> <br>
-          <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a> 
-        </li>
       </ul>
     </section>
-
+    <!-- Versão -->
+    <section class="sobre-box">
+      <h2>Versão Atual</h2>
+      <p>Versão 1.0.0</p>
+    </section>
     <!-- Agradecimentos -->
     <section class="sobre-box">
       <h2>Agradecimentos</h2>
-      <p>Agradecemos a todos os orientadores e colaboradores que apoiaram no desenvolvimento deste sistema.</p>
-    </section>
+      <p>Agradecemos ao Orientador Técnico<i style="color: green;"><b> Celso Barreto</b></i>, a Orientadora de Gestão <i><b> Jársia Melo</b></i>, ao <i><b>SENAI Cimatec</b></i> pela oportunidade e a todos colaboradores que apoiaram no desenvolvimento deste sistema.</p>
+    </section>    
+  </main>
   <!-- ========================= RODAPÉ ========================== -->
   <footer>
     <div class="footer-main">
