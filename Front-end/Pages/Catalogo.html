@@ -1,3 +1,6 @@
+<!-- ===================================
+     Catalogo.html
+     =================================== -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,38 +11,7 @@
 </head>
 <body>
     <!-- ========================= HEADER ========================== -->
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <a href="/">
-                    <img src="https://i.pinimg.com/736x/6e/ad/87/6ead878978850d09e95fd5a1526dc712.jpg"
-                        alt="TeleData Treinamentos">
-                </a>
-            </div>
-
-            <div class="search-bar">
-                <input type="text" placeholder="Pesquisar cursos...">
-                <div class="search-button">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2319/2319177.png" alt="search-button">
-                </div>
-            </div>
-
-            <div class="nav-actions">
-                <a href="#" class="nav-link">Categorias</a>
-                <a href="#" class="nav-link">Docente</a>
-                <a href="/Front-end/Pages/Planos.html" class="nav-link">Planos e Preços</a>
-                <a href="/loginpage">
-                    <button class="nav-button">Entrar</button>
-                </a>
-                <a href="/Front-end/Pages/Cadastro.html">
-                    <button class="nav-button primary">Cadastrar</button>
-                </a>
-                <div class="user-icon">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3237/3237472.png" alt="Ícone user">
-                </div>
-            </div>
-        </div>
-    </header>
+    <script src="/Front-end/JavaScript/loadHeader.js"></script>
 
     <!-- ========================= CONTEÚDO ========================== -->
     <div class="container">
@@ -170,23 +142,21 @@
             <main class="content">
                 <div class="content-header">
                     <h1>Todos os cursos</h1>
-                    <p class="results-count"><span id="resultsCount">1,938</span> resultados</p>
+                    <p class="results-count"><span id="resultsCount">0</span> resultados</p>
                 </div>
 
                 <div class="courses-list" id="coursesList"></div>
 
-                <div class="pagination">
-                    <button>←</button>
-                    <button class="active">1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button class="dots">...</button>
-                    <button>39</button>
-                    <button>→</button>
+                <!-- Paginação -->
+                <div class="pagination" id="pagination">
+                    <!-- Será gerado dinamicamente pelo JavaScript -->
                 </div>
             </main>
         </div>
     </div>
+
+    <!-- ========================= FOOTER ========================== -->
+    <script src="/Front-end/JavaScript/loadFooter.js"></script>
 
     <script src="../JavaScript/Catalogo.js"></script>
 </body>
