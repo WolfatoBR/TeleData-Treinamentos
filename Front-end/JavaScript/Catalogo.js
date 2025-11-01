@@ -470,9 +470,13 @@ function applyFilters() {
         }
         return true;
     });
-
+    
     currentPage = 1; // Resetar para primeira página ao filtrar
     renderCourses(filteredCourses);
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
 
 function clearFilters() {
