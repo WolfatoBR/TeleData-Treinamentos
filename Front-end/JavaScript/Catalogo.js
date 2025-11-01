@@ -203,15 +203,15 @@ function renderCourses(coursesToRender) {
     const startIndex = (currentPage - 1) * COURSES_PER_PAGE;
     const endIndex = startIndex + COURSES_PER_PAGE;
     const coursesForPage = coursesToRender.slice(startIndex, endIndex);
-    
+
     coursesList.innerHTML = '';
 
     coursesForPage.forEach(course => {
         const courseCard = document.createElement('div');
         courseCard.className = 'course-card';
-        
+
         const isInCart = checkIfInCart(course.id);
-        
+
         courseCard.innerHTML = `
             <div class="course-image ${course.imageClass}" onclick="viewCourse(${course.id})">
                 ${getImageContent(course.imageType)}
@@ -262,17 +262,17 @@ function updateResultsCount(totalResults) {
 function renderPagination(totalResults) {
     const totalPages = Math.ceil(totalResults / COURSES_PER_PAGE);
     const paginationDiv = document.getElementById('pagination');
-    
+
     if (totalPages <= 1) {
         paginationDiv.innerHTML = '';
         return;
     }
-    
+
     let paginationHTML = '';
-    
+
     // Botão anterior
     paginationHTML += `<button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>←</button>`;
-    
+
     // Páginas
     if (totalPages <= 7) {
         for (let i = 1; i <= totalPages; i++) {
@@ -280,25 +280,25 @@ function renderPagination(totalResults) {
         }
     } else {
         paginationHTML += `<button class="${currentPage === 1 ? 'active' : ''}" onclick="changePage(1)">1</button>`;
-        
+
         if (currentPage > 3) {
             paginationHTML += `<button class="dots">...</button>`;
         }
-        
+
         for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
             paginationHTML += `<button class="${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
         }
-        
+
         if (currentPage < totalPages - 2) {
             paginationHTML += `<button class="dots">...</button>`;
         }
-        
+
         paginationHTML += `<button class="${currentPage === totalPages ? 'active' : ''}" onclick="changePage(${totalPages})">${totalPages}</button>`;
     }
-    
+
     // Botão próximo
     paginationHTML += `<button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>→</button>`;
-    
+
     paginationDiv.innerHTML = paginationHTML;
 }
 
@@ -309,10 +309,10 @@ function renderPagination(totalResults) {
 function changePage(page) {
     const totalPages = Math.ceil(filteredCourses.length / COURSES_PER_PAGE);
     if (page < 1 || page > totalPages) return;
-    
+
     currentPage = page;
     renderCourses(filteredCourses);
-    
+
     // Scroll suave para o topo
     window.scrollTo({
         top: 0,
@@ -330,10 +330,10 @@ function viewCourse(courseId) {
 function buyCourse(courseId) {
     const course = courses.find(c => c.id === courseId);
     console.log('Comprando curso:', courseId);
-    
+
     // Adicionar ao carrinho antes de ir para checkout
     addToCart(courseId);
-    
+
     // Redirecionar para página de checkout
     // window.location.href = `./Checkout.html?id=${courseId}`;
     alert(`Redirecionando para checkout do curso: ${course.title}`);
@@ -342,7 +342,7 @@ function buyCourse(courseId) {
 function toggleCart(courseId, button) {
     const isInCart = checkIfInCart(courseId);
     const course = courses.find(c => c.id === courseId);
-    
+
     if (isInCart) {
         removeFromCart(courseId);
         button.classList.remove('added');
@@ -398,11 +398,11 @@ function showNotification(message, type = 'success') {
     if (existingNotification) {
         existingNotification.remove();
     }
-    
+
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
     notification.textContent = message;
-    
+
     // Adiciona estilos inline
     notification.style.cssText = `
         position: fixed;
@@ -417,9 +417,9 @@ function showNotification(message, type = 'success') {
         animation: slideIn 0.3s ease-out;
         font-weight: 500;
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     setTimeout(() => {
         notification.style.animation = 'slideOut 0.3s ease-out';
         setTimeout(() => notification.remove(), 300);
@@ -473,6 +473,10 @@ function applyFilters() {
 
     currentPage = 1; // Resetar para primeira página ao filtrar
     renderCourses(filteredCourses);
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
 
 function clearFilters() {
