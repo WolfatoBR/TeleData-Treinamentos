@@ -1,5 +1,9 @@
 header {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 250, 251, 0.95) 100%);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(249, 250, 251, 0.95) 100%
+    );
     backdrop-filter: blur(20px);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
     padding: var(--spacing-md) 0;
@@ -11,17 +15,19 @@ header {
 }
 
 header::before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        var(--color-primary, #3b82f6) 20%, 
-        var(--color-primary, #3b82f6) 80%, 
-        transparent 100%);
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--color-primary, #3b82f6) 20%,
+        var(--color-primary, #3b82f6) 80%,
+        transparent 100%
+    );
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -48,16 +54,13 @@ header:hover::before {
 }
 
 .logo img {
+    display: flex;
+    align-items: center;
     padding: 0 10px 5px 0;
     height: 55px;
     width: auto;
     object-fit: contain;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
-    transition: filter 0.3s ease;
-}
-
-.logo:hover img {
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.12));
+    transition: filter 0.8s ease-in-out;
 }
 
 .search-bar {
@@ -76,7 +79,12 @@ header:hover::before {
     padding-right: 45px;
     border: 2px solid transparent;
     background: linear-gradient(white, white) padding-box,
-                linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)) border-box;
+        linear-gradient(
+                135deg,
+                rgba(59, 130, 246, 0.1),
+                rgba(139, 92, 246, 0.1)
+            )
+            border-box;
     border-radius: var(--border-radius-xl);
     font-size: var(--font-size-sm);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -86,7 +94,8 @@ header:hover::before {
 .search-bar input:focus {
     outline: none;
     border-color: var(--color-primary, #3b82f6);
-    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.15), 0 0 0 3px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.15),
+        0 0 0 3px rgba(59, 130, 246, 0.1);
     transform: translateY(-1px);
 }
 
@@ -135,13 +144,17 @@ header:hover::before {
 }
 
 .nav-link::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -4px;
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--color-primary, #3b82f6), var(--color-primary, #8b5cf6));
+    background: linear-gradient(
+        90deg,
+        var(--color-primary, #3b82f6),
+        var(--color-primary, #8b5cf6)
+    );
     transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -168,13 +181,18 @@ header:hover::before {
 }
 
 .nav-button::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
     transition: left 0.5s ease;
 }
 
@@ -188,19 +206,31 @@ header:hover::before {
 }
 
 .nav-button.primary {
-    background: linear-gradient(135deg, var(--color-primary, #3b82f6), var(--color-primary, #2563eb));
+    background: linear-gradient(
+        135deg,
+        var(--color-primary, #3b82f6),
+        var(--color-primary, #2563eb)
+    );
     color: var(--color-white);
     border-color: transparent;
     box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
 }
 
 .nav-button.primary:hover {
-    background: linear-gradient(135deg, var(--color-primary, #2563eb), var(--color-primary, #1d4ed8));
+    background: linear-gradient(
+        135deg,
+        var(--color-primary, #2563eb),
+        var(--color-primary, #1d4ed8)
+    );
     box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
 }
 
 .hero-content .secundary {
-    background: linear-gradient(135deg, var(--color-blue-light, #60a5fa), var(--color-blue-medium, #3b82f6));
+    background: linear-gradient(
+        135deg,
+        var(--color-blue-light, #60a5fa),
+        var(--color-blue-medium, #3b82f6)
+    );
     border-color: transparent;
     color: var(--color-light-bg, white);
     font-weight: 600;
@@ -209,7 +239,11 @@ header:hover::before {
 }
 
 .hero-content .secundary:hover {
-    background: linear-gradient(135deg, var(--color-blue-medium, #3b82f6), var(--color-blue-medium, #2563eb));
+    background: linear-gradient(
+        135deg,
+        var(--color-blue-medium, #3b82f6),
+        var(--color-blue-medium, #2563eb)
+    );
     box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
 }
 
@@ -229,11 +263,6 @@ header:hover::before {
     border: 2px solid transparent;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.user-icon img:hover {
-    border-color: var(--color-primary, #3b82f6);
-    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
 }
 
 /* Animação suave ao scrollar */
@@ -259,7 +288,7 @@ header:hover::before {
     .search-bar {
         max-width: 400px;
     }
-    
+
     .nav-link {
         font-size: calc(var(--font-size-sm) * 0.9);
     }
