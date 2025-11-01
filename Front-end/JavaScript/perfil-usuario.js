@@ -477,6 +477,7 @@ foto: `
         
         <div class="upload-options">
           <div class="upload-option">
+            <div class="upload-icon">📁</div>
             <h3>Fazer upload de imagem</h3>
             <p>Formatos suportados: JPG, PNG, GIF</p>
             <div class="file-info">
@@ -484,14 +485,14 @@ foto: `
             </div>
             <input type="file" id="photo-upload" accept="image/*" style="display: none;">
             <button type="button" class="upload-btn" onclick="document.getElementById('photo-upload').click()">
-              Selecionar Arquivo
+              📤 Selecionar Arquivo
             </button>
           </div>
         </div>
 
         <div class="photo-actions">
           <button type="button" class="cancel-btn" onclick="cancelarUpload()">Cancelar</button>
-          <button type="button" class="save-btn" onclick="salvarFoto()">Salvar</button>
+          <button type="button" class="save-btn" onclick="salvarFoto()">💾 Salvar</button>
         </div>
       </div>
     </div>
