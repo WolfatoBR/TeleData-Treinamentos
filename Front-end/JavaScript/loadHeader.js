@@ -7,7 +7,7 @@
  * 
  * Funcionalidades principais:
  * - Carrega o header a partir de um arquivo HTML externo
- * - Gerencia eventos de pesquisa (clique e Enter)
+ * - Gerencia eventos de pesquisa (clique e Enter) com filtro de cursos
  * - Controla menu mobile responsivo
  * - Destaca a página atual no menu de navegação
  * ============================================================================
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
      * e insere no início do body da página
      */
     function loadHeader() {
-        console.log('🔄 Iniciando carregamento do header...');
+        console.log('📄 Iniciando carregamento do header...');
         
         fetch(HEADER_FILE_PATH)
             .then(response => {
@@ -76,15 +76,25 @@ document.addEventListener("DOMContentLoaded", function() {
         function performSearch(searchTerm) {
             if (searchTerm) {
                 console.log(`🔍 Executando pesquisa por: "${searchTerm}"`);
-                // TODO: Implementar lógica de redirecionamento ou busca
-                // Exemplo: window.location.href = `/buscar?q=${encodeURIComponent(searchTerm)}`;
                 
-                // Feedback visual temporário
-                searchInput.value = '';
-                searchInput.placeholder = `Buscando: ${searchTerm}...`;
-                setTimeout(() => {
-                    searchInput.placeholder = 'Digite sua pesquisa...';
-                }, 2000);
+                // Verifica se estamos na página do catálogo
+                const currentPage = window.location.pathname;
+                const isOnCatalog = currentPage.includes('Catalogo.html') || 
+                                   currentPage.includes('catalogo.html');
+                
+                if (isOnCatalog) {
+                    // Se estiver no catálogo, aplica o filtro diretamente
+                    if (typeof window.searchCourses === 'function') {
+                        window.searchCourses(searchTerm);
+                        searchInput.value = '';
+                    } else {
+                        console.warn('⚠️ Função searchCourses não encontrada');
+                    }
+                } else {
+                    // Se não estiver no catálogo, redireciona com parâmetro de busca
+                    const catalogPath = '/Front-end/Pages/Catalogo.html';
+                    window.location.href = `${catalogPath}?search=${encodeURIComponent(searchTerm)}`;
+                }
             }
         }
 
@@ -194,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (isCurrentPage) {
                 link.classList.add('active');
                 activeLinkFound = true;
-                console.log(`📍 Página atual destacada: ${linkText}`);
+                console.log(`🎯 Página atual destacada: ${linkText}`);
             }
         });
 
@@ -234,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function() {
      * Inicializa todas as funcionalidades do header após seu carregamento
      */
     function initializeHeaderFeatures() {
-        console.log('🔄 Inicializando funcionalidades do header...');
+        console.log('🔧 Inicializando funcionalidades do header...');
         
         try {
             setupSearchSystem();

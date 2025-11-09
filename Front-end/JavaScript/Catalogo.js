@@ -9,6 +9,7 @@
 const COURSES_PER_PAGE = 6;
 let currentPage = 1;
 let filteredCourses = [];
+let currentSearchTerm = '';
 
 const courses = [
     {
@@ -206,6 +207,21 @@ function renderCourses(coursesToRender) {
 
     coursesList.innerHTML = '';
 
+    if (coursesForPage.length === 0) {
+        coursesList.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px;">
+                <h2 style="color: #666; margin-bottom: 10px;">Nenhum curso encontrado</h2>
+                <p style="color: #999;">Tente ajustar seus filtros ou buscar por outro termo</p>
+                <button onclick="clearAllFiltersAndSearch()" style="margin-top: 20px; padding: 12px 24px; background: #5624d0; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                    Limpar busca e filtros
+                </button>
+            </div>
+        `;
+        updateResultsCount(0);
+        document.getElementById('pagination').innerHTML = '';
+        return;
+    }
+
     coursesForPage.forEach(course => {
         const courseCard = document.createElement('div');
         courseCard.className = 'course-card';
@@ -256,7 +272,18 @@ function renderCourses(coursesToRender) {
 }
 
 function updateResultsCount(totalResults) {
-    document.getElementById('resultsCount').textContent = totalResults.toLocaleString();
+    const countElement = document.getElementById('resultsCount');
+    if (countElement) {
+        countElement.textContent = totalResults.toLocaleString();
+    }
+    
+    // Atualiza o título se houver busca ativa
+    const contentHeader = document.querySelector('.content-header h1');
+    if (contentHeader && currentSearchTerm) {
+        contentHeader.textContent = `Resultados para "${currentSearchTerm}"`;
+    } else if (contentHeader) {
+        contentHeader.textContent = 'Todos os cursos';
+    }
 }
 
 function renderPagination(totalResults) {
@@ -424,7 +451,9 @@ function showNotification(message, type = 'success') {
         notification.style.animation = 'slideOut 0.3s ease-out';
         setTimeout(() => notification.remove(), 300);
     }, 3000);
-}// Adiciona animações CSS para notificações
+}
+
+// Adiciona animações CSS para notificações
 const style = document.createElement('style');
 style.textContent = `
     @keyframes slideIn {
@@ -460,7 +489,16 @@ function applyFilters() {
     const selectedTopics = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
     const selectedPrice = document.querySelector('input[name="price"]:checked');
 
-    filteredCourses = courses.filter(course => {
+    // Começa com todos os cursos
+    let coursesToFilter = [...courses];
+
+    // Aplica filtro de busca se houver termo de busca ativo
+    if (currentSearchTerm) {
+        coursesToFilter = searchInCourses(coursesToFilter, currentSearchTerm);
+    }
+
+    // Aplica outros filtros
+    filteredCourses = coursesToFilter.filter(course => {
         if (selectedRating && course.rating < parseFloat(selectedRating.value)) return false;
         if (selectedDuration && course.duration < parseInt(selectedDuration.value)) return false;
         if (selectedTopics.length > 0 && !selectedTopics.some(topic => course.topics.includes(topic))) return false;
@@ -471,7 +509,7 @@ function applyFilters() {
         return true;
     });
 
-    currentPage = 1; // Resetar para primeira página ao filtrar
+    currentPage = 1;
     renderCourses(filteredCourses);
     window.scrollTo({
         top: 0,
@@ -480,11 +518,125 @@ function applyFilters() {
 }
 
 function clearFilters() {
+    // Limpa todos os filtros
     document.querySelectorAll('input[type="radio"]').forEach(input => input.checked = false);
     document.querySelectorAll('input[type="checkbox"]').forEach(input => input.checked = false);
+    
+    // Limpa também a busca
+    currentSearchTerm = '';
     filteredCourses = [...courses];
     currentPage = 1;
     renderCourses(filteredCourses);
+    
+    // Limpa campo de busca do header se existir
+    const searchInput = document.querySelector('.search-bar input');
+    if (searchInput) {
+        searchInput.value = '';
+    }
+    
+    // Remove parâmetro de busca da URL se houver
+    if (window.location.search) {
+        const url = window.location.pathname;
+        window.history.replaceState({}, document.title, url);
+    }
+    
+    showNotification('Filtros e busca limpos!', 'info');
+}
+
+function clearAllFiltersAndSearch() {
+    // Limpa filtros
+    document.querySelectorAll('input[type="radio"]').forEach(input => input.checked = false);
+    document.querySelectorAll('input[type="checkbox"]').forEach(input => input.checked = false);
+    
+    // Limpa busca
+    currentSearchTerm = '';
+    filteredCourses = [...courses];
+    currentPage = 1;
+    renderCourses(filteredCourses);
+    
+    // Limpa campo de busca do header se existir
+    const searchInput = document.querySelector('.search-bar input');
+    if (searchInput) {
+        searchInput.value = '';
+    }
+}
+
+// ===================================
+// FUNÇÕES DE PESQUISA
+// ===================================
+
+/**
+ * Função de busca que procura em múltiplos campos do curso
+ * @param {Array} coursesToSearch - Array de cursos para buscar
+ * @param {string} searchTerm - Termo de busca
+ * @returns {Array} - Cursos filtrados
+ */
+function searchInCourses(coursesToSearch, searchTerm) {
+    if (!searchTerm || searchTerm.trim() === '') {
+        return coursesToSearch;
+    }
+
+    const term = searchTerm.toLowerCase().trim();
+    
+    return coursesToSearch.filter(course => {
+        // Busca no título
+        if (course.title.toLowerCase().includes(term)) return true;
+        
+        // Busca na descrição
+        if (course.description.toLowerCase().includes(term)) return true;
+        
+        // Busca no nome do instrutor
+        if (course.instructor.toLowerCase().includes(term)) return true;
+        
+        // Busca nos tópicos
+        if (course.topics.some(topic => topic.toLowerCase().includes(term))) return true;
+        
+        return false;
+    });
+}
+
+/**
+ * Função global para ser chamada pelo header
+ * @param {string} searchTerm - Termo de busca
+ */
+window.searchCourses = function(searchTerm) {
+    console.log('🔍 Pesquisando por:', searchTerm);
+    
+    currentSearchTerm = searchTerm;
+    
+    // Aplica a busca junto com os filtros existentes
+    applyFilters();
+    
+    // Exibe feedback
+    if (filteredCourses.length === 0) {
+        showNotification(`Nenhum curso encontrado para "${searchTerm}"`, 'info');
+    } else {
+        showNotification(`${filteredCourses.length} curso(s) encontrado(s)`, 'success');
+    }
+};
+
+/**
+ * Verifica se há parâmetro de busca na URL ao carregar a página
+ */
+function checkURLSearchParameter() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('search');
+    
+    if (searchParam) {
+        console.log('🔍 Parâmetro de busca na URL:', searchParam);
+        currentSearchTerm = searchParam;
+        
+        // Preenche o campo de busca do header se existir
+        setTimeout(() => {
+            const searchInput = document.querySelector('.search-bar input');
+            if (searchInput) {
+                searchInput.value = searchParam;
+            }
+        }, 500);
+        
+        // Aplica a busca
+        window.searchCourses(searchParam);
+    }
 }
 
 // ===================================
@@ -495,6 +647,10 @@ function clearFilters() {
 document.addEventListener('DOMContentLoaded', function() {
     filteredCourses = [...courses];
     renderCourses(filteredCourses);
+    
+    // Verifica se há busca na URL
+    checkURLSearchParameter();
+    
     console.log('✅ Catálogo de cursos inicializado com sucesso!');
 });
 
@@ -503,8 +659,10 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
         filteredCourses = [...courses];
         renderCourses(filteredCourses);
+        checkURLSearchParameter();
     });
 } else {
     filteredCourses = [...courses];
     renderCourses(filteredCourses);
+    checkURLSearchParameter();
 }
